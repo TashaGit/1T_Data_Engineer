@@ -1,0 +1,20 @@
+version: '1.0'
+services:
+  sql_library:
+    image: postgres:latest
+    container_name: library
+    ports: 
+      - 5455:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: library
+    volumes:
+      - ./db/DDL/1_ddl.sql:/docker-entrypoint-initdb.d/1_ddl.sql
+      - ./db/DML/2_dml.sql:/docker-entrypoint-initdb.d/2_dml.sql
+      - ./Scripts/queries.sql:/docker-entrypoint-initdb.d/queries.sql
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 5s
+      retries: 5
+    restart: always

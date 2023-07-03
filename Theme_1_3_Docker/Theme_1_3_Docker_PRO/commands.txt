@@ -1,0 +1,5 @@
+docker-compose up -d --build
+docker ps -a
+docker logs <CONTAINER ID> 
+            or 
+            <NAMES>
