@@ -30,8 +30,9 @@
 
   -  Предоставьте SQL-скрипт в удобном формате (например, текстовый файл с расширением .sql).
 ```
+## База данных из PostgreSQL в ClickHouse загружается автоматически при исполнении файла docker-compose.yml.
 
-### 1. SQL-скрипт для переноса таблиц из PostgreSQL в ClickHouse:
+### 1. SQL-скрипт переноса таблиц из PostgreSQL в ClickHouse:
 Файл: [Create tables ClickHouse](clickhouse_scripts/click_create_table.sql)
 
 ### 2. SQL-скрипт создания витрины данных в ClickHouse:
@@ -45,13 +46,13 @@
 1. Скачать архив из репозитория;
 2. Распаковать в нужную папку;
 3. В терминале перейти в папку с базой данных и выполнить команду ***docker-compose up -d***;
-4. Запустить базу данных PostgreSQL в DBeaver или терминале 
+4. Запустить базу данных ClickHouse:
+    - port: "8123",
+    - логин: "default".
+5. База данных уже автоматически загружена в ClickHouse.
+   При необходимости загрузки DB Postgres:
     - port: "5434", 
     - наименование базы данных: "sales_planning", 
     - логин: "postgres", 
     - пароль: "password";
-5. Запустить базу данный ClickHouse:
-    - port: "8123"
-    - логин: "default"
-6. Запустить последовательно SQL-скрипты [click_create_table.sql](clickhouse_scripts/click_create_table.sql) и [click_data_mart.sql](clickhouse_scripts/click_data_mart.sql) из папки .\clickhouse_scripts
-7. Витрина сформирована!
+6. Посмотреть автоматически сформированную витрину данных в терминале можно командой: ***docker logs clickhouse_server***.

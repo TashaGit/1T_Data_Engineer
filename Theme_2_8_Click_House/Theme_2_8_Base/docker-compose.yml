@@ -34,6 +34,8 @@ services:
     ports:  
       - "8123:8123"
     volumes:
+      - ./clickhouse_scripts/click_create_table.sql:/docker-entrypoint-initdb.d/click_create_table.sql
+      - ./clickhouse_scripts/click_data_mart.sql:/docker-entrypoint-initdb.d/click_data_mart.sql
       - "clickhouse-data:/var/lib/clickhouse"
 
   click-ui:
