@@ -19,8 +19,7 @@ Postgres в СУБД Clickhouse, основываясь на задании 2.5.
 забудьте — репозиторий должен быть публичным).
 
 ```
-### База данных из PostgreSQL в ClickHouse загружается автоматически при исполнении файла 
-### [Docker-compose](docker-compose.yml).
+### База данных из PostgreSQL в ClickHouse загружается автоматически при исполнении файла [Docker-compose](docker-compose.yml).
 
 ### 1. SQL-скрипт переноса таблиц из PostgreSQL в ClickHouse:
 Файл: [Create tables ClickHouse](clickhouse_scripts/click_create_table.sql)
