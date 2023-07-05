@@ -30,7 +30,7 @@
 
   -  Предоставьте SQL-скрипт в удобном формате (например, текстовый файл с расширением .sql).
 ```
-## База данных из PostgreSQL в ClickHouse загружается автоматически при исполнении файла docker-compose.yml.
+### База данных из PostgreSQL в ClickHouse загружается автоматически при исполнении файла docker-compose.yml.
 
 ### 1. SQL-скрипт переноса таблиц из PostgreSQL в ClickHouse:
 Файл: [Create tables ClickHouse](clickhouse_scripts/click_create_table.sql)
@@ -49,7 +49,7 @@
 4. Запустить базу данных ClickHouse:
     - port: "8123",
     - логин: "default".
-5. База данных уже автоматически загружена в ClickHouse.
+5. База данных автоматически загружена в ClickHouse.
    При необходимости загрузки DB Postgres:
     - port: "5434", 
     - наименование базы данных: "sales_planning", 
