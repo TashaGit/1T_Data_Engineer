@@ -45,13 +45,13 @@
 1. Скачать архив из репозитория;
 2. Распаковать в нужную папку;
 3. В терминале перейти в папку с базой данных и выполнить команду ***docker-compose up -d***;
-4. Запустить базу данных PostgreSQL в DBeaver или терминале (
-    port: "5434", 
-    наименование базы данных: "sales_planning", 
-    логин: "postgres", 
-    пароль: "password";
+4. Запустить базу данных PostgreSQL в DBeaver или терминале 
+    - port: "5434", 
+    - наименование базы данных: "sales_planning", 
+    - логин: "postgres", 
+    - пароль: "password";
 5. Запустить базу данный ClickHouse:
-    port: "8123"
-    логин: default
-6. Запустить последовательно SQL-скрипты [Create tables ClickHouse](clickhouse_scripts/click_create_table.sql) и [Data Mart ClickHouse](clickhouse_scripts/click_data_mart.sql) из папки .\clickhouse_scripts
+    - port: "8123"
+    - логин: "default"
+6. Запустить последовательно SQL-скрипты [click_create_table.sql](clickhouse_scripts/click_create_table.sql) и [click_data_mart.sql](clickhouse_scripts/click_data_mart.sql) из папки .\clickhouse_scripts
 7. Витрина сформирована!
