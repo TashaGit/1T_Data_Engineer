@@ -40,7 +40,7 @@ services:
     image: spoonest/clickhouse-tabix-web-client
     networks:
         - clickhouse
-    container_name: click-ui
+    container_name: click_ui
     depends_on:
       - clickhouse
     ports:
