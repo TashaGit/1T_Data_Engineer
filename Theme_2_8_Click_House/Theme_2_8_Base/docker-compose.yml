@@ -1,0 +1,52 @@
+version: "1.1"
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    networks:
+      - clickhouse
+    ports:
+      - 5434:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: sales_planning
+    volumes:
+      - ./psql_scripts/ddl/1_ddl.sql:/docker-entrypoint-initdb.d/1_ddl.sql
+      - ./psql_scripts/dml/2_dml.sql:/docker-entrypoint-initdb.d/2_dml.sql
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 5s
+      retries: 5
+    restart: always
+
+  clickhouse:
+    image: clickhouse/clickhouse-server:latest
+    networks:
+        - clickhouse
+    container_name: clickhouse_server
+    depends_on:
+      - postgres
+    ulimits:
+        nofile:
+          soft: 262144
+          hard: 262144 
+    ports:  
+      - "8123:8123"
+    volumes:
+      - "clickhouse-data:/var/lib/clickhouse"
+
+  click-ui:
+    image: spoonest/clickhouse-tabix-web-client
+    networks:
+        - clickhouse
+    container_name: click-ui
+    depends_on:
+      - clickhouse
+    ports:
+      - "8124:80"
+    restart: always
+volumes:
+  clickhouse-data:
+networks:
+    clickhouse:
