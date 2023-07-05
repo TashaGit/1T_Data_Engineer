@@ -32,4 +32,4 @@
 ```
 
 ### SQL-скрипт создания витрины данных в ClickHouse:
-Файл: [Data Mart ClickHouse](clickhouse_scripts/click_data_mart.sql)
+Файл: [Data Mart ClickHouse](click_data_mart.sql)
