@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS data_mart(
    income_fact Float64,
    income_plan Float64,
    "income_fact/income_plan" Float64,
-) ENGINE = TinyLog AS (SELECT * FROM (WITH union_shops_tabl AS (SELECT * FROM shop_citilink
+) ENGINE = TinyLog AS (WITH union_shops_tabl AS (SELECT * FROM shop_citilink
 						                              UNION ALL SELECT * FROM shop_dns
 						                              UNION ALL SELECT * FROM shop_mvideo
 						                              ORDER BY sale_date, shop_id, product_id)	  
@@ -71,4 +71,4 @@ CREATE TABLE IF NOT EXISTS data_mart(
                       JOIN plan p ON us.product_id = p.product_id AND us.shop_id = p.shop_id AND us.sale_date = p.plan_date 
                       WHERE toMonth(sale_date) = 5
                       GROUP BY sale_month, shop_name, product_name
-                      ORDER BY shop_name, product_name))
+                      ORDER BY shop_name, product_name)
