@@ -24,7 +24,8 @@ Postgres в СУБД Clickhouse, основываясь на задании 2.5.
 ### 1. SQL-скрипт переноса таблиц из PostgreSQL в ClickHouse:
 Файл: [Create tables ClickHouse](clickhouse_scripts/click_create_table.sql)
 
-### 2. SQL-скрипт создания витрины данных в ClickHouse:
+### 2. Таблица data_mart в ClickHouse создается автоматически скриптом [Create tables ClickHouse](clickhouse_scripts/click_create_table.sql).
+SQL-скрипт создания витрины данных в ClickHouse:
 Файл: [Data Mart ClickHouse](clickhouse_scripts/click_data_mart.sql)
 
 ### 3. Файл Docker-compose:
