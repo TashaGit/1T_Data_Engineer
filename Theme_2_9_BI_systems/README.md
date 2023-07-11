@@ -93,6 +93,13 @@
 ### 8. Файл Docker-compose:
 [Docker-compose](docker-compose.yml)
 
+### 9. Скрины дашбордов, созданных в Superset на основании витрины данных Data Mart:
+![Dashboard1](./dashboards/new-chart-2023-07-11T21-49-25.152Z.jpg)
+![Dashboard2](./dashboards/new-chart-2023-07-11T21-50-11.507Z.jpg)
+![Dashboard3](./dashboards/new-chart-2023-07-11T22-07-57.709Z.jpg)
+![Dashboard4](./dashboards/new-chart-2023-07-11T22-14-01.882Z.jpg)
+![Dashboard5](./dashboards/new-chart-2023-07-11T22-15-10.162Z.jpg)
+![Dashboard6](./dashboards/new-chart-2023-07-11T22-18-19.100Z.jpg)
 
 ### Для развертывания базы "sales" необходимо:
 1. Скачать архив из репозитория;
