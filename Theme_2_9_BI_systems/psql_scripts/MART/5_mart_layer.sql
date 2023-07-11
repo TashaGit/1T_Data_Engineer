@@ -12,42 +12,32 @@ CREATE TABLE data_mart AS (WITH age_cat AS (SELECT personal_acc_id,
  					 FROM sales
  					 GROUP BY personal_acc_id
  					 ORDER BY personal_acc_id),
- 	  price_with_discount AS (SELECT order_id,
-	   									product_id, 
-	   									price,
-	   									(SELECT CASE 
-	   									WHEN order_time >= date_start_promo AND order_time <= date_end_promo THEN ROUND(price * (100 - discount) / 100, 0)
-	   									ELSE price
-	   									END) price_with_discount,
-	   									order_time,
-	   									date_start_promo, 
-	   									date_end_promo, 
-	   									discount,
-	   									amount,
-	   									(SELECT CASE 
-	   									WHEN order_time >= date_start_promo AND order_time <= date_end_promo THEN ROUND(price * (100 - discount) / 100, 0)
-	   									ELSE price
-	   									END) * amount total_check
-								FROM sales
+ 	  new_price_with_discount AS (SELECT order_id, product_id,
+ 									   CASE 
+	   								   WHEN order_time >= date_start_promo AND order_time <= date_end_promo THEN ROUND(price * (100 - discount) / 100, 0)
+	   								   ELSE price
+	   								   END total_check   
+								FROM sales 
 								LEFT JOIN promo_action using(product_id)
-								ORDER BY order_id, product_id),	
-	 promo_check AS (SELECT order_id,
-	   						product_id,
-	   						total_check total_promo
-	   				 FROM price_with_discount
-	   				 WHERE price != price_with_discount
-	   				 ORDER BY order_id)
+								ORDER BY order_id, product_id),
+	 promo_check AS (SELECT pwd.order_id,
+	   					   pwd.product_id,
+	   					   total_check * amount total_promo
+	   				  FROM new_price_with_discount pwd
+	   				  JOIN sales s ON s.order_id = pwd.order_id AND s.product_id = pwd.product_id
+	   				  WHERE price != total_check
+	   				  ORDER BY order_id)
 SELECT age_category,
-	   gender_value gender,
-	  sum(total_check) sum_total_check,
-	  sum(total_promo) sum_total_check_promo
+	    gender_value gender,
+	    SUM(total_check) sum_total_check,
+	    SUM(total_promo) sum_total_check_promo
 FROM sales s
 JOIN buyers b ON s.personal_acc_id = b.personal_acc_id
 JOIN genders g ON b.gender_id = g.gender_id
 JOIN age_cat ac ON ac.personal_acc_id = b.personal_acc_id
 JOIN count_prod cp ON ac.personal_acc_id = cp.personal_acc_id
-JOIN price_with_discount pws ON pws.order_id = s.order_id AND pws.product_id = s.product_id
+JOIN new_price_with_discount pws ON pws.order_id = s.order_id AND pws.product_id = s.product_id
 LEFT JOIN promo_check pc ON pc.order_id = s.order_id AND pc.product_id = s.product_id
 WHERE date_part('MONTH', s.order_time) = 6 
-GROUP BY age_category, gender_value, count_buy
+GROUP BY age_category, gender_value
 ORDER BY age_category, gender_value)

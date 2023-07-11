@@ -3,6 +3,8 @@ services:
   postgres:
     image: postgres:latest
     container_name: postgres
+    networks:
+      - clickhouse
     ports:
       - 5434:5432
     environment:
@@ -15,50 +17,41 @@ services:
       - ./psql_scripts/RAW/dml/2_dml_csv_raw.sql:/docker-entrypoint-initdb.d/2_dml_csv_raw.sql
       - ./psql_scripts/CORE/ddl/3_ddl_core.sql:/docker-entrypoint-initdb.d/3_ddl_core.sql
       - ./psql_scripts/CORE/dml/4_dml_core.sql:/docker-entrypoint-initdb.d/4_dml_core.sql
-      - ./psql_scripts/MART/5_mart_layer.sql://docker-entrypoint-initdb.d/5_mart_layer.sql
+      - ./psql_scripts/MART/5_mart_layer.sql:/docker-entrypoint-initdb.d/5_mart_layer.sql
     healthcheck:
       test: ["CMD", "pg_isready", "-U", "postgres"]
       interval: 5s
       retries: 5
     restart: always
+  
+  clickhouse:
+    image: clickhouse/clickhouse-server:latest
+    networks:
+        - clickhouse
+    container_name: clickhouse_server
+    depends_on:
+      - postgres
+    ulimits:
+        nofile:
+          soft: 262144
+          hard: 262144 
+    ports:  
+      - "8123:8123"
+    volumes:
+      - ./clickh_scripts/6_click_create_table.sql:/docker-entrypoint-initdb.d/6_click_create_table.sql
+      - "clickhouse-data:/var/lib/clickhouse"
 
-
-
-
-
-
-    # networks:
-    #   - clickhouse
-
-#   clickhouse:
-#     image: clickhouse/clickhouse-server:latest
-#     networks:
-#         - clickhouse
-#     container_name: clickhouse_server
-#     depends_on:
-#       - postgres
-#     ulimits:
-#         nofile:
-#           soft: 262144
-#           hard: 262144 
-#     ports:  
-#       - "8123:8123"
-#     volumes:
-#       - ./clickhouse_scripts/click_create_table.sql:/docker-entrypoint-initdb.d/click_create_table.sql
-#       - ./clickhouse_scripts/click_data_mart.sql:/docker-entrypoint-initdb.d/click_data_mart.sql
-#       - "clickhouse-data:/var/lib/clickhouse"
-
-#   click-ui:
-#     image: spoonest/clickhouse-tabix-web-client
-#     networks:
-#         - clickhouse
-#     container_name: click_ui
-#     depends_on:
-#       - clickhouse
-#     ports:
-#       - "8124:80"
-#     restart: always
-# volumes:
-#   clickhouse-data:
-# networks:
-#     clickhouse:
+  click-ui:
+    image: spoonest/clickhouse-tabix-web-client
+    networks:
+        - clickhouse
+    container_name: click_ui
+    depends_on:
+      - clickhouse
+    ports:
+      - "8124:80"
+    restart: always
+volumes:
+  clickhouse-data:
+networks:
+    clickhouse:
