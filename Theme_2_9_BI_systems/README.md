@@ -80,7 +80,7 @@ RAW;
 6. В Superset прописываются настройки базы PostgreSQL, формируются дашборды на основании сформированной 
 витрины данных.
 
-## PostgreSQL:
+## ***PostgreSQL:***
 
 ### 1. SQL-скрипт для создания отношений на слое ROW:
 [1_ddl_raw.sql](psql_scripts/RAW/ddl/1_ddl_raw.sql)
@@ -100,12 +100,12 @@ RAW;
 ### 6. SQL-скрипт создания витрины данных на слое MART:
 [5_mart_layer.sql](psql_scripts/MART/5_mart_layer.sql)
 
-## ClickHouse:
+## ***ClickHouse:***
 
 ### 7. SQL-скрипт миграции данных из PostgreSQL в ClickHouse (создан новый скрипт DataMart в ClickHouse на мигрированных данных):
 [6_click_create_table.sql](clickh_scripts/6_click_create_table.sql)
 
-## Superset:
+## ***Superset:***
 
 ### 8. Скрины дашбордов, созданных в Superset на основании витрины данных Data Mart:
 ![Dashboard1](./dashboards/new-chart-2023-07-11T21-49-25.152Z.jpg)
