@@ -70,29 +70,40 @@
     - общая сумма покупок товаров по промо акциям.
 
 ### 1. SQL-скрипт для создания отношений на слое ROW:
-Файл: [1_ddl_raw.sql](psql_scripts/RAW/ddl/1_ddl_raw.sql)
+[1_ddl_raw.sql](psql_scripts/RAW/ddl/1_ddl_raw.sql)
 
 ### 2. SQL-скрипт для заполения отношений csv-файлами:
-Файл: [2_dml_csv_raw.sql](psql_scripts/RAW/dml/2_dml_csv_raw.sql)
+[2_dml_csv_raw.sql](psql_scripts/RAW/dml/2_dml_csv_raw.sql)
 
 ### 3. Папка *.scv файлов загрузки данных на слой RAW:
 [base_csv](base_csv/)
 
 ### 4. SQL-скрипт создания отношений на слое CORE:
-Файл: [3_ddl_core.sql](psql_scripts/CORE/ddl/3_ddl_core.sql)
+[3_ddl_core.sql](psql_scripts/CORE/ddl/3_ddl_core.sql)
 
 ### 5. SQL-скрипт заполнения отношений на слое CORE:
-Файл: [4_dml_core.sql](psql_scripts/CORE/dml/4_dml_core.sql)
+[4_dml_core.sql](psql_scripts/CORE/dml/4_dml_core.sql)
 
 ### 6. SQL-скрипт создания витрины данных на слое MART:
-Файл: [5_mart_layer.sql](psql_scripts/MART/5_mart_layer.sql)
+[5_mart_layer.sql](psql_scripts/MART/5_mart_layer.sql)
 
-### 7. Файл Docker-compose:
-Файл: [Docker-compose](docker-compose.yml)
+### 7. SQL-скрипт миграции данных из PostgreSQL в ClickHouse (создан новый скрипт DataMart в ClickHouse на мигрированных данных)
+[6_click_create_table.sql](clickh_scripts/6_click_create_table.sql)
+
+### 8. Файл Docker-compose:
+[Docker-compose](docker-compose.yml)
 
 
 ### Для развертывания базы "sales" необходимо:
 1. Скачать архив из репозитория;
 2. Распаковать в нужную папку;
 3. В терминале перейти в папку с базой данных и выполнить команду ***docker-compose up -d***;
-4. Запустить DBeaver, port 5434, наименование базы данных (sales), логин (postgres), пароль (password).
+4. Запустить базу данных ClickHouse:
+    - port: "8123",
+    - логин: "default".
+5. База данных автоматически загружена в ClickHouse.
+   При необходимости работы с DB Postgres:
+    - port: "5434", 
+    - наименование базы данных: "sales", 
+    - логин: "postgres", 
+    - пароль: "password".
