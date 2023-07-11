@@ -10,8 +10,9 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: sales
     volumes:
+      - ./base_csv/:/docker-entrypoint-initdb.d/base_csv/
       - ./psql_scripts/RAW/ddl/1_ddl_raw.sql:/docker-entrypoint-initdb.d/1_ddl_raw.sql
-      - ./psql_scripts/RAW/dml/2_dml_raw.sql:/docker-entrypoint-initdb.d/2_dml_raw.sql
+      - ./psql_scripts/RAW/dml/2_dml_csv_raw.sql:/docker-entrypoint-initdb.d/2_dml_csv_raw.sql
       - ./psql_scripts/CORE/ddl/3_ddl_core.sql:/docker-entrypoint-initdb.d/3_ddl_core.sql
       - ./psql_scripts/CORE/dml/4_dml_core.sql:/docker-entrypoint-initdb.d/4_dml_core.sql
       - ./psql_scripts/MART/5_mart_layer.sql://docker-entrypoint-initdb.d/5_mart_layer.sql

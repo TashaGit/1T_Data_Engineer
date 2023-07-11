@@ -68,23 +68,24 @@
     - пол покупателя;
     - общая сумма покупок за месяц;
     - общая сумма покупок товаров по промо акциям.
-    
 
+### 1. SQL-скрипт для создания отношений на слое ROW:
+Файл: [1_ddl_raw.sql](psql_scripts/RAW/ddl/1_ddl_raw.sql)
 
-### 1. SQL-скрипт для создания таблиц:
-Файл: [DDL-script](sql_scripts/ddl/1_ddl.sql)
+### 2. SQL-скрипт для заполения отношений csv-файлами:
+Файл: [2_dml_csv_raw.sql](psql_scripts/RAW/dml/2_dml_csv_raw.sql)
 
-### 2. SQL-скрипт для заполения таблиц:
-Файл: [DML-script](sql_scripts/dml/2_dml.sql)
+### 3. Папка *.scv файлов загрузки данных на слой RAW:
+[base_csv](base_csv/)
 
-### 3. SQL-скрипт витрины данных:
-Файл: [Data mart script](sql_scripts/3_data_mart.sql)
+### 4. SQL-скрипт создания отношений на слое CORE:
+Файл: [3_ddl_core.sql](psql_scripts/CORE/ddl/3_ddl_core.sql)
 
 ### 4. Файл Docker-compose:
 Файл: [Docker-compose](docker-compose.yml)
 
 
-### Для развертывания базы "Планирование продаж" необходимо:
+### Для развертывания базы "sales" необходимо:
 1. Скачать архив из репозитория;
 2. Распаковать в нужную папку;
 3. В терминале перейти в папку с базой данных и выполнить команду ***docker-compose up -d***;
