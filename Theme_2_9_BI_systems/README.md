@@ -81,7 +81,13 @@
 ### 4. SQL-скрипт создания отношений на слое CORE:
 Файл: [3_ddl_core.sql](psql_scripts/CORE/ddl/3_ddl_core.sql)
 
-### 4. Файл Docker-compose:
+### 5. SQL-скрипт заполнения отношений на слое CORE:
+Файл: [4_dml_core.sql](psql_scripts/CORE/dml/4_dml_core.sql)
+
+### 6. SQL-скрипт создания витрины данных на слое MART:
+Файл: [5_mart_layer.sql](psql_scripts/MART/5_mart_layer.sql)
+
+### 7. Файл Docker-compose:
 Файл: [Docker-compose](docker-compose.yml)
 
 
@@ -89,5 +95,4 @@
 1. Скачать архив из репозитория;
 2. Распаковать в нужную папку;
 3. В терминале перейти в папку с базой данных и выполнить команду ***docker-compose up -d***;
-4. Запустить DBeaver, port 5436, наименование базы данных (sales_planning_pro), логин (postgres), пароль (password);
-5. Посмотреть результаты отработанного скрипта 3_data_mart.sql можно в DBeaver'е, запустив каждую задачу последовательно, или посмотреть логи командой: ***docker logs sales_planning_pro***.
+4. Запустить DBeaver, port 5434, наименование базы данных (sales), логин (postgres), пароль (password).
