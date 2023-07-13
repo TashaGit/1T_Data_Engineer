@@ -1,0 +1,1001 @@
+,title,autor_id,public_year,amount_pages,price,amount,publ_house_id
+1,A Light in the Attic,5,1972,189,51.77,5,1
+2,Tipping the Velvet,2,1966,325,53.74,3,2
+3,Soumission,5,1951,162,50.1,4,1
+4,Sharp Objects,4,1997,359,47.82,3,1
+5,Sapiens: A Brief History of Humankind,3,2008,103,54.23,3,2
+6,The Requiem Red,7,1977,376,22.65,4,3
+7,The Dirty Little Secrets of Getting Your Dream Job,7,1959,179,33.34,5,1
+8,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",9,1987,254,17.93,3,2
+9,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,2,1957,171,22.6,5,2
+10,The Black Maria,9,2022,245,52.15,1,3
+11,"Starving Hearts (Triangular Trade Trilogy, #1)",4,2019,101,13.99,1,2
+12,Shakespeare's Sonnets,6,2019,128,20.66,1,1
+13,Set Me Free,5,1993,102,17.46,1,3
+14,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),8,2001,212,52.29,5,1
+15,Rip it Up and Start Again,7,1973,254,35.02,2,3
+16,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",3,1950,171,57.25,3,1
+17,Olio,5,1952,207,23.88,5,3
+18,Mesaerion: The Best Science Fiction Stories 1800-1849,4,1972,231,37.59,1,1
+19,Libertarianism for Beginners,7,2017,377,51.33,4,1
+20,It's Only the Himalayas,4,1998,299,45.17,2,2
+21,A Light in the Attic,6,1983,295,51.77,4,1
+22,Tipping the Velvet,2,2023,427,53.74,3,3
+23,Soumission,8,1980,374,50.1,2,1
+24,Sharp Objects,9,1997,403,47.82,2,3
+25,Sapiens: A Brief History of Humankind,9,2023,175,54.23,4,3
+26,The Requiem Red,9,1999,159,22.65,2,3
+27,The Dirty Little Secrets of Getting Your Dream Job,6,1959,333,33.34,5,2
+28,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",1,1970,315,17.93,3,1
+29,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,3,1973,445,22.6,4,1
+30,The Black Maria,10,1977,204,52.15,1,3
+31,"Starving Hearts (Triangular Trade Trilogy, #1)",3,1973,232,13.99,2,1
+32,Shakespeare's Sonnets,6,1954,142,20.66,1,3
+33,Set Me Free,10,1951,129,17.46,4,3
+34,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),5,1972,101,52.29,3,1
+35,Rip it Up and Start Again,6,1990,211,35.02,1,2
+36,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",10,2014,323,57.25,3,3
+37,Olio,10,1993,343,23.88,4,3
+38,Mesaerion: The Best Science Fiction Stories 1800-1849,2,1974,200,37.59,3,3
+39,Libertarianism for Beginners,2,1963,318,51.33,3,3
+40,It's Only the Himalayas,6,1957,251,45.17,2,2
+41,A Light in the Attic,4,1958,277,51.77,2,2
+42,Tipping the Velvet,2,1985,430,53.74,4,3
+43,Soumission,7,1966,420,50.1,4,2
+44,Sharp Objects,1,1970,403,47.82,4,2
+45,Sapiens: A Brief History of Humankind,5,1965,281,54.23,1,3
+46,The Requiem Red,5,1967,241,22.65,1,2
+47,The Dirty Little Secrets of Getting Your Dream Job,5,1997,310,33.34,2,2
+48,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",9,1978,298,17.93,1,2
+49,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,7,1960,267,22.6,2,3
+50,The Black Maria,10,1964,460,52.15,3,1
+51,"Starving Hearts (Triangular Trade Trilogy, #1)",10,2013,176,13.99,4,2
+52,Shakespeare's Sonnets,9,2009,180,20.66,4,3
+53,Set Me Free,6,1999,460,17.46,5,3
+54,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),3,1994,413,52.29,4,2
+55,Rip it Up and Start Again,2,1999,374,35.02,1,1
+56,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",4,2017,429,57.25,4,2
+57,Olio,1,2014,164,23.88,1,3
+58,Mesaerion: The Best Science Fiction Stories 1800-1849,1,1978,143,37.59,4,1
+59,Libertarianism for Beginners,6,2017,343,51.33,3,3
+60,It's Only the Himalayas,7,1972,325,45.17,4,2
+61,A Light in the Attic,1,2000,245,51.77,1,3
+62,Tipping the Velvet,2,1987,413,53.74,1,3
+63,Soumission,10,1966,265,50.1,5,1
+64,Sharp Objects,6,1997,133,47.82,4,2
+65,Sapiens: A Brief History of Humankind,3,1997,143,54.23,5,3
+66,The Requiem Red,2,1988,202,22.65,2,3
+67,The Dirty Little Secrets of Getting Your Dream Job,4,1953,144,33.34,2,3
+68,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",3,1957,379,17.93,5,2
+69,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,6,1960,216,22.6,2,3
+70,The Black Maria,7,1976,308,52.15,4,2
+71,"Starving Hearts (Triangular Trade Trilogy, #1)",2,2009,320,13.99,5,1
+72,Shakespeare's Sonnets,3,2022,279,20.66,2,2
+73,Set Me Free,8,1958,429,17.46,5,2
+74,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),5,1983,215,52.29,1,1
+75,Rip it Up and Start Again,3,1977,317,35.02,2,2
+76,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",4,2017,105,57.25,3,3
+77,Olio,1,1997,252,23.88,5,1
+78,Mesaerion: The Best Science Fiction Stories 1800-1849,1,1965,193,37.59,3,1
+79,Libertarianism for Beginners,1,2003,154,51.33,2,1
+80,It's Only the Himalayas,2,2019,230,45.17,3,2
+81,A Light in the Attic,9,1971,248,51.77,2,1
+82,Tipping the Velvet,2,2005,277,53.74,2,3
+83,Soumission,7,2016,349,50.1,5,1
+84,Sharp Objects,8,2016,191,47.82,3,3
+85,Sapiens: A Brief History of Humankind,3,1965,227,54.23,3,1
+86,The Requiem Red,1,2012,100,22.65,4,1
+87,The Dirty Little Secrets of Getting Your Dream Job,6,2000,167,33.34,4,2
+88,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",2,2018,288,17.93,1,3
+89,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,4,1981,206,22.6,4,3
+90,The Black Maria,8,1993,371,52.15,3,1
+91,"Starving Hearts (Triangular Trade Trilogy, #1)",3,1972,180,13.99,3,1
+92,Shakespeare's Sonnets,4,1986,246,20.66,4,1
+93,Set Me Free,1,1986,305,17.46,5,1
+94,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),3,2001,130,52.29,4,3
+95,Rip it Up and Start Again,4,1978,190,35.02,2,2
+96,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",10,1968,446,57.25,1,2
+97,Olio,7,2020,339,23.88,3,1
+98,Mesaerion: The Best Science Fiction Stories 1800-1849,5,2003,162,37.59,5,1
+99,Libertarianism for Beginners,1,2009,423,51.33,1,1
+100,It's Only the Himalayas,10,1954,294,45.17,5,1
+101,A Light in the Attic,8,2003,373,51.77,4,3
+102,Tipping the Velvet,9,2006,267,53.74,5,1
+103,Soumission,8,1988,184,50.1,2,2
+104,Sharp Objects,5,2015,174,47.82,4,3
+105,Sapiens: A Brief History of Humankind,8,1993,302,54.23,3,2
+106,The Requiem Red,8,2010,384,22.65,2,1
+107,The Dirty Little Secrets of Getting Your Dream Job,4,1969,313,33.34,2,2
+108,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",7,1971,144,17.93,2,3
+109,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,6,1961,388,22.6,1,2
+110,The Black Maria,6,1969,228,52.15,1,2
+111,"Starving Hearts (Triangular Trade Trilogy, #1)",7,1994,443,13.99,5,1
+112,Shakespeare's Sonnets,6,1951,435,20.66,3,3
+113,Set Me Free,7,1962,417,17.46,3,3
+114,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),8,2004,183,52.29,5,1
+115,Rip it Up and Start Again,5,1959,435,35.02,1,2
+116,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",9,2015,403,57.25,3,2
+117,Olio,1,2010,285,23.88,4,2
+118,Mesaerion: The Best Science Fiction Stories 1800-1849,5,2005,213,37.59,1,2
+119,Libertarianism for Beginners,3,2002,148,51.33,3,3
+120,It's Only the Himalayas,5,1959,239,45.17,5,2
+121,A Light in the Attic,10,1960,386,51.77,1,3
+122,Tipping the Velvet,1,1970,446,53.74,3,1
+123,Soumission,9,1956,395,50.1,1,2
+124,Sharp Objects,1,1991,115,47.82,3,2
+125,Sapiens: A Brief History of Humankind,8,1991,254,54.23,2,1
+126,The Requiem Red,2,1973,334,22.65,1,1
+127,The Dirty Little Secrets of Getting Your Dream Job,10,2013,164,33.34,5,3
+128,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",9,1993,331,17.93,5,2
+129,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,8,1956,382,22.6,5,3
+130,The Black Maria,6,1985,363,52.15,5,1
+131,"Starving Hearts (Triangular Trade Trilogy, #1)",5,2002,166,13.99,2,1
+132,Shakespeare's Sonnets,7,1977,283,20.66,2,3
+133,Set Me Free,5,1964,234,17.46,3,1
+134,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),2,1995,214,52.29,4,1
+135,Rip it Up and Start Again,3,2007,149,35.02,2,1
+136,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",5,1970,150,57.25,1,2
+137,Olio,4,1981,425,23.88,3,2
+138,Mesaerion: The Best Science Fiction Stories 1800-1849,6,2006,379,37.59,3,3
+139,Libertarianism for Beginners,2,1981,338,51.33,2,3
+140,It's Only the Himalayas,3,2001,138,45.17,4,2
+141,A Light in the Attic,1,1977,425,51.77,1,3
+142,Tipping the Velvet,5,1998,342,53.74,2,2
+143,Soumission,8,2018,385,50.1,5,1
+144,Sharp Objects,1,1993,328,47.82,4,3
+145,Sapiens: A Brief History of Humankind,10,2010,338,54.23,3,1
+146,The Requiem Red,1,1981,382,22.65,3,1
+147,The Dirty Little Secrets of Getting Your Dream Job,2,2001,283,33.34,1,1
+148,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",6,1957,264,17.93,5,3
+149,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,3,2010,262,22.6,1,1
+150,The Black Maria,8,2015,277,52.15,2,2
+151,"Starving Hearts (Triangular Trade Trilogy, #1)",1,2002,200,13.99,1,1
+152,Shakespeare's Sonnets,5,1956,116,20.66,1,3
+153,Set Me Free,7,1980,159,17.46,4,3
+154,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),8,2014,407,52.29,1,1
+155,Rip it Up and Start Again,4,1970,286,35.02,1,1
+156,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",7,1988,283,57.25,2,3
+157,Olio,10,1966,337,23.88,4,1
+158,Mesaerion: The Best Science Fiction Stories 1800-1849,3,1965,360,37.59,2,1
+159,Libertarianism for Beginners,1,1955,180,51.33,5,2
+160,It's Only the Himalayas,2,2010,412,45.17,2,1
+161,A Light in the Attic,6,1967,367,51.77,5,3
+162,Tipping the Velvet,9,1978,334,53.74,1,2
+163,Soumission,2,1982,305,50.1,4,3
+164,Sharp Objects,4,1969,156,47.82,3,1
+165,Sapiens: A Brief History of Humankind,8,2017,250,54.23,3,1
+166,The Requiem Red,4,1986,260,22.65,5,1
+167,The Dirty Little Secrets of Getting Your Dream Job,7,1962,405,33.34,3,3
+168,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",3,1963,236,17.93,5,1
+169,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,10,1989,349,22.6,1,3
+170,The Black Maria,6,1961,256,52.15,2,2
+171,"Starving Hearts (Triangular Trade Trilogy, #1)",8,2021,367,13.99,5,3
+172,Shakespeare's Sonnets,2,1957,130,20.66,1,3
+173,Set Me Free,4,2022,359,17.46,3,1
+174,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),6,1954,198,52.29,1,3
+175,Rip it Up and Start Again,5,2016,247,35.02,3,2
+176,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",7,2016,350,57.25,5,3
+177,Olio,7,1974,263,23.88,3,2
+178,Mesaerion: The Best Science Fiction Stories 1800-1849,4,1985,451,37.59,5,1
+179,Libertarianism for Beginners,1,2016,311,51.33,1,3
+180,It's Only the Himalayas,1,1964,290,45.17,1,3
+181,A Light in the Attic,8,1991,423,51.77,4,2
+182,Tipping the Velvet,9,2020,272,53.74,3,3
+183,Soumission,8,2020,436,50.1,1,3
+184,Sharp Objects,9,2003,251,47.82,2,3
+185,Sapiens: A Brief History of Humankind,8,2017,446,54.23,4,1
+186,The Requiem Red,10,1953,244,22.65,4,2
+187,The Dirty Little Secrets of Getting Your Dream Job,4,1987,154,33.34,5,1
+188,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",8,1988,213,17.93,3,1
+189,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,3,2014,152,22.6,3,2
+190,The Black Maria,10,2005,304,52.15,5,3
+191,"Starving Hearts (Triangular Trade Trilogy, #1)",5,2015,362,13.99,5,1
+192,Shakespeare's Sonnets,10,2013,114,20.66,1,2
+193,Set Me Free,6,2008,440,17.46,2,3
+194,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),9,2015,189,52.29,4,2
+195,Rip it Up and Start Again,4,2009,401,35.02,3,2
+196,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",8,1964,248,57.25,4,2
+197,Olio,4,1953,320,23.88,2,1
+198,Mesaerion: The Best Science Fiction Stories 1800-1849,5,1965,167,37.59,2,2
+199,Libertarianism for Beginners,1,2001,372,51.33,3,3
+200,It's Only the Himalayas,10,1997,276,45.17,5,2
+201,A Light in the Attic,8,2007,108,51.77,2,2
+202,Tipping the Velvet,1,1975,168,53.74,2,2
+203,Soumission,10,2008,114,50.1,4,2
+204,Sharp Objects,3,1978,111,47.82,5,2
+205,Sapiens: A Brief History of Humankind,4,1964,355,54.23,5,2
+206,The Requiem Red,4,1962,391,22.65,1,2
+207,The Dirty Little Secrets of Getting Your Dream Job,10,1951,351,33.34,1,3
+208,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",9,1987,113,17.93,2,2
+209,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,8,1973,357,22.6,4,1
+210,The Black Maria,6,1997,427,52.15,2,2
+211,"Starving Hearts (Triangular Trade Trilogy, #1)",10,1999,189,13.99,4,1
+212,Shakespeare's Sonnets,7,1993,389,20.66,4,2
+213,Set Me Free,7,2011,442,17.46,2,2
+214,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),2,2009,400,52.29,4,1
+215,Rip it Up and Start Again,3,1970,129,35.02,4,2
+216,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",3,1967,447,57.25,3,2
+217,Olio,6,2000,200,23.88,2,3
+218,Mesaerion: The Best Science Fiction Stories 1800-1849,6,2023,162,37.59,4,3
+219,Libertarianism for Beginners,9,2020,178,51.33,1,1
+220,It's Only the Himalayas,8,2010,339,45.17,5,1
+221,A Light in the Attic,4,1965,121,51.77,3,3
+222,Tipping the Velvet,6,1952,347,53.74,5,3
+223,Soumission,4,1974,335,50.1,4,2
+224,Sharp Objects,2,2000,261,47.82,4,3
+225,Sapiens: A Brief History of Humankind,10,1956,124,54.23,1,3
+226,The Requiem Red,1,1969,311,22.65,4,1
+227,The Dirty Little Secrets of Getting Your Dream Job,2,2001,376,33.34,3,3
+228,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",5,1952,266,17.93,2,2
+229,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,8,2014,198,22.6,2,1
+230,The Black Maria,10,1969,339,52.15,4,3
+231,"Starving Hearts (Triangular Trade Trilogy, #1)",10,1986,399,13.99,4,2
+232,Shakespeare's Sonnets,1,1977,402,20.66,3,2
+233,Set Me Free,3,2019,110,17.46,4,3
+234,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),3,1990,112,52.29,3,3
+235,Rip it Up and Start Again,7,2023,372,35.02,4,2
+236,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",6,1966,163,57.25,1,2
+237,Olio,5,1959,375,23.88,2,1
+238,Mesaerion: The Best Science Fiction Stories 1800-1849,2,2012,128,37.59,3,3
+239,Libertarianism for Beginners,8,1959,302,51.33,3,2
+240,It's Only the Himalayas,1,1955,337,45.17,5,1
+241,A Light in the Attic,6,1960,105,51.77,5,3
+242,Tipping the Velvet,10,1992,435,53.74,4,2
+243,Soumission,8,2005,214,50.1,5,3
+244,Sharp Objects,5,1998,138,47.82,5,3
+245,Sapiens: A Brief History of Humankind,1,1959,401,54.23,1,1
+246,The Requiem Red,4,2019,244,22.65,5,2
+247,The Dirty Little Secrets of Getting Your Dream Job,10,1965,247,33.34,1,2
+248,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",8,1993,262,17.93,4,1
+249,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,6,1964,164,22.6,2,3
+250,The Black Maria,2,1977,257,52.15,2,2
+251,"Starving Hearts (Triangular Trade Trilogy, #1)",8,1966,353,13.99,3,2
+252,Shakespeare's Sonnets,10,2007,352,20.66,2,1
+253,Set Me Free,7,2015,377,17.46,4,2
+254,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),2,1962,189,52.29,4,1
+255,Rip it Up and Start Again,7,1991,144,35.02,4,1
+256,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",1,2012,284,57.25,5,2
+257,Olio,10,1950,178,23.88,5,2
+258,Mesaerion: The Best Science Fiction Stories 1800-1849,8,1950,168,37.59,1,3
+259,Libertarianism for Beginners,4,1987,417,51.33,5,1
+260,It's Only the Himalayas,2,1968,324,45.17,4,1
+261,A Light in the Attic,2,2015,383,51.77,5,2
+262,Tipping the Velvet,5,1980,286,53.74,2,1
+263,Soumission,10,2016,373,50.1,3,1
+264,Sharp Objects,2,2001,166,47.82,2,2
+265,Sapiens: A Brief History of Humankind,5,1956,455,54.23,2,2
+266,The Requiem Red,9,1996,399,22.65,4,3
+267,The Dirty Little Secrets of Getting Your Dream Job,3,1954,294,33.34,2,2
+268,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",9,2009,145,17.93,4,2
+269,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,2,1950,298,22.6,3,1
+270,The Black Maria,5,1983,169,52.15,3,2
+271,"Starving Hearts (Triangular Trade Trilogy, #1)",8,2019,113,13.99,2,1
+272,Shakespeare's Sonnets,10,1974,425,20.66,2,3
+273,Set Me Free,2,1977,336,17.46,1,3
+274,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),1,2019,358,52.29,4,2
+275,Rip it Up and Start Again,8,1996,126,35.02,1,1
+276,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",5,1975,185,57.25,4,3
+277,Olio,5,2002,415,23.88,2,3
+278,Mesaerion: The Best Science Fiction Stories 1800-1849,5,1970,136,37.59,3,3
+279,Libertarianism for Beginners,6,2001,232,51.33,5,1
+280,It's Only the Himalayas,10,1969,217,45.17,5,2
+281,A Light in the Attic,5,1953,137,51.77,2,2
+282,Tipping the Velvet,3,1984,158,53.74,4,1
+283,Soumission,1,1953,341,50.1,3,1
+284,Sharp Objects,7,2018,159,47.82,4,2
+285,Sapiens: A Brief History of Humankind,4,2019,308,54.23,1,2
+286,The Requiem Red,5,1980,421,22.65,4,1
+287,The Dirty Little Secrets of Getting Your Dream Job,4,2002,232,33.34,1,2
+288,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",6,1974,249,17.93,1,1
+289,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,10,2014,343,22.6,5,1
+290,The Black Maria,2,1981,279,52.15,4,1
+291,"Starving Hearts (Triangular Trade Trilogy, #1)",6,1955,405,13.99,3,1
+292,Shakespeare's Sonnets,8,1977,378,20.66,1,3
+293,Set Me Free,4,2017,338,17.46,1,3
+294,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),3,1974,314,52.29,2,1
+295,Rip it Up and Start Again,5,2016,256,35.02,1,2
+296,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",10,2000,174,57.25,4,1
+297,Olio,6,1965,284,23.88,4,1
+298,Mesaerion: The Best Science Fiction Stories 1800-1849,3,1990,439,37.59,2,2
+299,Libertarianism for Beginners,4,2005,358,51.33,1,3
+300,It's Only the Himalayas,8,2023,320,45.17,1,3
+301,A Light in the Attic,8,2005,253,51.77,3,1
+302,Tipping the Velvet,6,2002,278,53.74,2,2
+303,Soumission,1,1950,104,50.1,1,2
+304,Sharp Objects,1,1982,259,47.82,4,1
+305,Sapiens: A Brief History of Humankind,8,2005,205,54.23,4,2
+306,The Requiem Red,4,1969,128,22.65,3,1
+307,The Dirty Little Secrets of Getting Your Dream Job,7,2013,430,33.34,4,1
+308,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",10,1986,220,17.93,5,1
+309,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,3,2002,248,22.6,5,2
+310,The Black Maria,9,1994,342,52.15,3,2
+311,"Starving Hearts (Triangular Trade Trilogy, #1)",7,1970,101,13.99,2,3
+312,Shakespeare's Sonnets,3,1961,380,20.66,2,2
+313,Set Me Free,4,1996,113,17.46,4,2
+314,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),3,1980,277,52.29,5,2
+315,Rip it Up and Start Again,8,1955,316,35.02,3,1
+316,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",1,1970,117,57.25,3,2
+317,Olio,5,1980,215,23.88,3,1
+318,Mesaerion: The Best Science Fiction Stories 1800-1849,3,1952,328,37.59,5,3
+319,Libertarianism for Beginners,8,2008,382,51.33,1,3
+320,It's Only the Himalayas,10,1996,367,45.17,1,2
+321,A Light in the Attic,2,1966,393,51.77,4,1
+322,Tipping the Velvet,9,2004,404,53.74,3,3
+323,Soumission,7,1996,239,50.1,2,2
+324,Sharp Objects,7,2006,219,47.82,2,2
+325,Sapiens: A Brief History of Humankind,10,1966,146,54.23,3,3
+326,The Requiem Red,6,1980,316,22.65,5,1
+327,The Dirty Little Secrets of Getting Your Dream Job,9,1955,208,33.34,1,2
+328,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",6,2001,416,17.93,1,1
+329,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,2,1987,315,22.6,5,3
+330,The Black Maria,3,1996,308,52.15,2,1
+331,"Starving Hearts (Triangular Trade Trilogy, #1)",4,1956,357,13.99,1,3
+332,Shakespeare's Sonnets,4,1988,369,20.66,1,1
+333,Set Me Free,2,1977,364,17.46,2,2
+334,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),1,1979,431,52.29,1,1
+335,Rip it Up and Start Again,9,2018,184,35.02,5,3
+336,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",6,1972,295,57.25,3,3
+337,Olio,2,1971,305,23.88,3,3
+338,Mesaerion: The Best Science Fiction Stories 1800-1849,6,2019,249,37.59,1,3
+339,Libertarianism for Beginners,10,2003,121,51.33,2,2
+340,It's Only the Himalayas,1,1976,336,45.17,2,3
+341,A Light in the Attic,4,1980,341,51.77,3,2
+342,Tipping the Velvet,7,1988,275,53.74,3,1
+343,Soumission,10,1952,434,50.1,3,2
+344,Sharp Objects,2,2007,282,47.82,4,3
+345,Sapiens: A Brief History of Humankind,6,1956,360,54.23,2,3
+346,The Requiem Red,8,2017,405,22.65,3,3
+347,The Dirty Little Secrets of Getting Your Dream Job,10,1974,140,33.34,3,2
+348,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",1,2019,134,17.93,5,2
+349,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,8,1993,161,22.6,1,2
+350,The Black Maria,3,1975,344,52.15,3,1
+351,"Starving Hearts (Triangular Trade Trilogy, #1)",3,1998,450,13.99,4,3
+352,Shakespeare's Sonnets,3,1969,413,20.66,2,3
+353,Set Me Free,2,2019,362,17.46,3,3
+354,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),10,2019,234,52.29,1,1
+355,Rip it Up and Start Again,1,1978,282,35.02,5,3
+356,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",5,1966,234,57.25,5,3
+357,Olio,2,2011,429,23.88,4,2
+358,Mesaerion: The Best Science Fiction Stories 1800-1849,9,1989,182,37.59,2,1
+359,Libertarianism for Beginners,8,2010,460,51.33,4,2
+360,It's Only the Himalayas,9,2000,437,45.17,2,2
+361,A Light in the Attic,9,1952,352,51.77,5,3
+362,Tipping the Velvet,8,1957,388,53.74,5,3
+363,Soumission,5,1953,373,50.1,2,1
+364,Sharp Objects,5,1982,245,47.82,5,3
+365,Sapiens: A Brief History of Humankind,4,2010,263,54.23,2,1
+366,The Requiem Red,7,1987,381,22.65,4,1
+367,The Dirty Little Secrets of Getting Your Dream Job,8,2015,143,33.34,1,3
+368,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",8,1994,298,17.93,4,3
+369,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,2,1956,391,22.6,1,3
+370,The Black Maria,2,2019,161,52.15,1,3
+371,"Starving Hearts (Triangular Trade Trilogy, #1)",5,1983,128,13.99,3,1
+372,Shakespeare's Sonnets,9,1992,328,20.66,3,2
+373,Set Me Free,10,1965,174,17.46,4,1
+374,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),5,2007,97,52.29,3,2
+375,Rip it Up and Start Again,5,1983,448,35.02,3,3
+376,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",3,1997,426,57.25,5,1
+377,Olio,9,2003,100,23.88,2,3
+378,Mesaerion: The Best Science Fiction Stories 1800-1849,2,2002,149,37.59,4,1
+379,Libertarianism for Beginners,3,1981,145,51.33,2,1
+380,It's Only the Himalayas,8,1998,414,45.17,2,3
+381,A Light in the Attic,4,1999,135,51.77,1,1
+382,Tipping the Velvet,4,1993,122,53.74,3,2
+383,Soumission,4,1974,217,50.1,1,2
+384,Sharp Objects,9,1960,309,47.82,5,1
+385,Sapiens: A Brief History of Humankind,2,1974,378,54.23,5,3
+386,The Requiem Red,7,2020,112,22.65,4,1
+387,The Dirty Little Secrets of Getting Your Dream Job,9,1991,135,33.34,1,3
+388,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",3,2023,332,17.93,4,3
+389,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,9,1994,449,22.6,3,1
+390,The Black Maria,3,1961,290,52.15,4,1
+391,"Starving Hearts (Triangular Trade Trilogy, #1)",8,2020,204,13.99,2,3
+392,Shakespeare's Sonnets,8,1977,201,20.66,2,1
+393,Set Me Free,8,2017,312,17.46,2,3
+394,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),6,2002,232,52.29,2,2
+395,Rip it Up and Start Again,8,2003,135,35.02,3,3
+396,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",4,1988,273,57.25,5,1
+397,Olio,2,1961,400,23.88,3,3
+398,Mesaerion: The Best Science Fiction Stories 1800-1849,9,2016,131,37.59,5,1
+399,Libertarianism for Beginners,8,2012,149,51.33,5,2
+400,It's Only the Himalayas,8,2013,291,45.17,5,2
+401,A Light in the Attic,3,2013,96,51.77,5,1
+402,Tipping the Velvet,2,1958,131,53.74,3,3
+403,Soumission,3,1972,412,50.1,2,2
+404,Sharp Objects,8,1963,131,47.82,1,2
+405,Sapiens: A Brief History of Humankind,4,2007,306,54.23,2,3
+406,The Requiem Red,10,1951,141,22.65,1,1
+407,The Dirty Little Secrets of Getting Your Dream Job,5,1972,392,33.34,1,2
+408,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",3,1971,166,17.93,2,2
+409,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,9,1996,403,22.6,4,3
+410,The Black Maria,4,1967,225,52.15,1,1
+411,"Starving Hearts (Triangular Trade Trilogy, #1)",7,2014,101,13.99,3,3
+412,Shakespeare's Sonnets,7,1982,157,20.66,3,1
+413,Set Me Free,3,2019,165,17.46,3,3
+414,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),7,1991,102,52.29,5,3
+415,Rip it Up and Start Again,3,1957,170,35.02,5,1
+416,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",4,1955,348,57.25,4,1
+417,Olio,1,2001,310,23.88,5,2
+418,Mesaerion: The Best Science Fiction Stories 1800-1849,7,1983,236,37.59,1,2
+419,Libertarianism for Beginners,4,1989,442,51.33,3,3
+420,It's Only the Himalayas,2,2012,111,45.17,3,2
+421,A Light in the Attic,9,1952,246,51.77,3,2
+422,Tipping the Velvet,8,1997,178,53.74,1,1
+423,Soumission,5,1976,379,50.1,4,2
+424,Sharp Objects,8,1962,383,47.82,1,3
+425,Sapiens: A Brief History of Humankind,4,1980,381,54.23,4,3
+426,The Requiem Red,2,2001,155,22.65,5,1
+427,The Dirty Little Secrets of Getting Your Dream Job,9,1962,447,33.34,1,1
+428,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",9,1952,226,17.93,4,2
+429,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,3,1959,443,22.6,1,1
+430,The Black Maria,5,1994,447,52.15,5,1
+431,"Starving Hearts (Triangular Trade Trilogy, #1)",7,1954,384,13.99,5,3
+432,Shakespeare's Sonnets,8,1975,133,20.66,5,1
+433,Set Me Free,6,1996,374,17.46,4,2
+434,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),9,1965,370,52.29,3,1
+435,Rip it Up and Start Again,9,2001,206,35.02,5,1
+436,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",3,1952,162,57.25,4,1
+437,Olio,7,2001,334,23.88,1,3
+438,Mesaerion: The Best Science Fiction Stories 1800-1849,1,2023,306,37.59,3,1
+439,Libertarianism for Beginners,7,1964,198,51.33,4,2
+440,It's Only the Himalayas,7,1966,126,45.17,2,2
+441,A Light in the Attic,5,2022,281,51.77,3,2
+442,Tipping the Velvet,4,2013,211,53.74,2,3
+443,Soumission,6,1953,432,50.1,2,2
+444,Sharp Objects,5,1950,170,47.82,4,3
+445,Sapiens: A Brief History of Humankind,8,1968,328,54.23,5,1
+446,The Requiem Red,10,1959,396,22.65,4,2
+447,The Dirty Little Secrets of Getting Your Dream Job,7,2006,328,33.34,2,3
+448,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",9,1976,311,17.93,2,1
+449,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,5,1982,410,22.6,3,3
+450,The Black Maria,4,2015,251,52.15,2,2
+451,"Starving Hearts (Triangular Trade Trilogy, #1)",7,2023,215,13.99,4,2
+452,Shakespeare's Sonnets,4,2006,196,20.66,3,1
+453,Set Me Free,6,1988,333,17.46,2,3
+454,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),1,1955,151,52.29,5,1
+455,Rip it Up and Start Again,3,1957,181,35.02,4,3
+456,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",7,1994,431,57.25,3,2
+457,Olio,5,2018,378,23.88,2,2
+458,Mesaerion: The Best Science Fiction Stories 1800-1849,5,1986,419,37.59,2,1
+459,Libertarianism for Beginners,5,1957,348,51.33,5,3
+460,It's Only the Himalayas,4,1983,313,45.17,5,2
+461,A Light in the Attic,1,1982,372,51.77,3,1
+462,Tipping the Velvet,10,1952,136,53.74,4,1
+463,Soumission,3,1963,385,50.1,4,1
+464,Sharp Objects,7,1999,307,47.82,2,2
+465,Sapiens: A Brief History of Humankind,7,1972,280,54.23,2,3
+466,The Requiem Red,10,1981,376,22.65,4,3
+467,The Dirty Little Secrets of Getting Your Dream Job,3,1975,98,33.34,5,2
+468,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",7,2010,181,17.93,5,2
+469,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,5,1950,255,22.6,4,2
+470,The Black Maria,8,2006,301,52.15,1,3
+471,"Starving Hearts (Triangular Trade Trilogy, #1)",10,1975,326,13.99,4,1
+472,Shakespeare's Sonnets,5,1977,460,20.66,3,1
+473,Set Me Free,10,1960,116,17.46,4,3
+474,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),7,2017,254,52.29,5,3
+475,Rip it Up and Start Again,9,2001,443,35.02,2,1
+476,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",5,1994,198,57.25,5,2
+477,Olio,4,2000,304,23.88,4,2
+478,Mesaerion: The Best Science Fiction Stories 1800-1849,8,1974,372,37.59,1,1
+479,Libertarianism for Beginners,8,1980,370,51.33,5,1
+480,It's Only the Himalayas,7,1966,342,45.17,4,3
+481,A Light in the Attic,5,1995,459,51.77,1,3
+482,Tipping the Velvet,10,1958,355,53.74,3,2
+483,Soumission,1,1980,109,50.1,2,3
+484,Sharp Objects,6,1958,161,47.82,1,2
+485,Sapiens: A Brief History of Humankind,7,1982,267,54.23,2,1
+486,The Requiem Red,9,2007,191,22.65,5,1
+487,The Dirty Little Secrets of Getting Your Dream Job,3,2006,252,33.34,4,3
+488,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",4,1971,112,17.93,5,3
+489,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,4,1994,453,22.6,5,2
+490,The Black Maria,5,1990,161,52.15,1,1
+491,"Starving Hearts (Triangular Trade Trilogy, #1)",9,1962,197,13.99,3,3
+492,Shakespeare's Sonnets,3,1980,185,20.66,5,3
+493,Set Me Free,6,1963,233,17.46,5,3
+494,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),4,1962,149,52.29,2,1
+495,Rip it Up and Start Again,10,1985,244,35.02,3,1
+496,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",7,1996,439,57.25,5,2
+497,Olio,3,1980,213,23.88,2,3
+498,Mesaerion: The Best Science Fiction Stories 1800-1849,9,1956,249,37.59,1,2
+499,Libertarianism for Beginners,4,1992,221,51.33,1,2
+500,It's Only the Himalayas,1,1976,253,45.17,1,3
+501,A Light in the Attic,2,1975,266,51.77,2,1
+502,Tipping the Velvet,6,1963,383,53.74,4,2
+503,Soumission,10,1985,153,50.1,1,3
+504,Sharp Objects,8,2002,204,47.82,5,3
+505,Sapiens: A Brief History of Humankind,9,1997,268,54.23,3,2
+506,The Requiem Red,2,1989,311,22.65,2,2
+507,The Dirty Little Secrets of Getting Your Dream Job,4,2014,246,33.34,2,3
+508,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",5,2012,161,17.93,4,2
+509,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,8,1997,331,22.6,3,1
+510,The Black Maria,1,2012,308,52.15,5,2
+511,"Starving Hearts (Triangular Trade Trilogy, #1)",7,2006,258,13.99,4,3
+512,Shakespeare's Sonnets,8,1965,343,20.66,5,1
+513,Set Me Free,2,2023,173,17.46,4,2
+514,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),6,1996,97,52.29,3,1
+515,Rip it Up and Start Again,2,1999,366,35.02,2,1
+516,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",10,2003,291,57.25,1,3
+517,Olio,3,1988,308,23.88,1,3
+518,Mesaerion: The Best Science Fiction Stories 1800-1849,1,1990,280,37.59,1,1
+519,Libertarianism for Beginners,10,2004,241,51.33,4,1
+520,It's Only the Himalayas,2,1984,150,45.17,5,1
+521,A Light in the Attic,2,1998,134,51.77,5,1
+522,Tipping the Velvet,8,1993,115,53.74,4,1
+523,Soumission,2,1982,276,50.1,3,1
+524,Sharp Objects,2,2021,98,47.82,3,2
+525,Sapiens: A Brief History of Humankind,4,2020,400,54.23,3,3
+526,The Requiem Red,7,2017,444,22.65,1,1
+527,The Dirty Little Secrets of Getting Your Dream Job,5,1984,178,33.34,3,2
+528,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",1,1971,160,17.93,5,2
+529,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,10,2005,416,22.6,3,2
+530,The Black Maria,2,1971,442,52.15,2,2
+531,"Starving Hearts (Triangular Trade Trilogy, #1)",6,2016,98,13.99,5,1
+532,Shakespeare's Sonnets,7,2007,220,20.66,3,1
+533,Set Me Free,2,1963,98,17.46,3,2
+534,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),1,1983,338,52.29,2,3
+535,Rip it Up and Start Again,1,1985,325,35.02,3,2
+536,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",7,1956,307,57.25,4,3
+537,Olio,4,2006,253,23.88,1,1
+538,Mesaerion: The Best Science Fiction Stories 1800-1849,6,2004,336,37.59,1,3
+539,Libertarianism for Beginners,6,1984,273,51.33,2,3
+540,It's Only the Himalayas,2,2018,315,45.17,2,2
+541,A Light in the Attic,3,2014,302,51.77,4,2
+542,Tipping the Velvet,3,2023,110,53.74,1,2
+543,Soumission,9,2009,116,50.1,1,3
+544,Sharp Objects,9,1969,324,47.82,2,1
+545,Sapiens: A Brief History of Humankind,10,1972,243,54.23,3,3
+546,The Requiem Red,1,1977,235,22.65,5,1
+547,The Dirty Little Secrets of Getting Your Dream Job,10,1954,456,33.34,4,3
+548,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",1,2005,445,17.93,2,2
+549,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,5,2012,201,22.6,5,3
+550,The Black Maria,4,1952,258,52.15,4,1
+551,"Starving Hearts (Triangular Trade Trilogy, #1)",1,1964,451,13.99,1,2
+552,Shakespeare's Sonnets,3,1959,124,20.66,5,3
+553,Set Me Free,5,1960,405,17.46,4,3
+554,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),5,2010,414,52.29,1,3
+555,Rip it Up and Start Again,10,1968,456,35.02,4,3
+556,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",7,1953,303,57.25,4,2
+557,Olio,5,1993,120,23.88,4,2
+558,Mesaerion: The Best Science Fiction Stories 1800-1849,2,1987,160,37.59,3,3
+559,Libertarianism for Beginners,8,1986,108,51.33,5,3
+560,It's Only the Himalayas,4,1989,256,45.17,4,2
+561,A Light in the Attic,7,1980,226,51.77,5,1
+562,Tipping the Velvet,5,1990,227,53.74,1,2
+563,Soumission,9,1960,371,50.1,5,2
+564,Sharp Objects,7,2022,308,47.82,2,2
+565,Sapiens: A Brief History of Humankind,1,2003,383,54.23,3,3
+566,The Requiem Red,3,1985,171,22.65,2,3
+567,The Dirty Little Secrets of Getting Your Dream Job,2,1967,445,33.34,1,3
+568,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",3,1977,455,17.93,3,2
+569,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,7,1980,163,22.6,1,2
+570,The Black Maria,8,1966,398,52.15,2,3
+571,"Starving Hearts (Triangular Trade Trilogy, #1)",8,1968,129,13.99,5,1
+572,Shakespeare's Sonnets,4,1980,419,20.66,2,3
+573,Set Me Free,3,2000,426,17.46,2,3
+574,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),9,2018,277,52.29,2,1
+575,Rip it Up and Start Again,1,2012,273,35.02,1,3
+576,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",7,1952,197,57.25,4,3
+577,Olio,7,2014,283,23.88,2,1
+578,Mesaerion: The Best Science Fiction Stories 1800-1849,4,2010,104,37.59,1,1
+579,Libertarianism for Beginners,2,1975,135,51.33,1,1
+580,It's Only the Himalayas,2,2020,228,45.17,2,1
+581,A Light in the Attic,7,1988,430,51.77,4,3
+582,Tipping the Velvet,6,2020,213,53.74,1,2
+583,Soumission,5,1963,392,50.1,1,2
+584,Sharp Objects,2,2019,139,47.82,3,2
+585,Sapiens: A Brief History of Humankind,2,1960,263,54.23,4,2
+586,The Requiem Red,5,1972,182,22.65,4,1
+587,The Dirty Little Secrets of Getting Your Dream Job,4,1981,262,33.34,4,3
+588,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",6,1969,179,17.93,5,3
+589,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,7,2007,339,22.6,4,3
+590,The Black Maria,4,1985,113,52.15,4,1
+591,"Starving Hearts (Triangular Trade Trilogy, #1)",1,2017,195,13.99,2,2
+592,Shakespeare's Sonnets,2,1983,254,20.66,3,1
+593,Set Me Free,4,2016,374,17.46,1,2
+594,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),3,1974,260,52.29,4,2
+595,Rip it Up and Start Again,4,2000,393,35.02,2,3
+596,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",10,1988,163,57.25,2,1
+597,Olio,10,2007,164,23.88,1,3
+598,Mesaerion: The Best Science Fiction Stories 1800-1849,8,1983,362,37.59,1,3
+599,Libertarianism for Beginners,2,2019,285,51.33,5,2
+600,It's Only the Himalayas,2,1985,451,45.17,4,3
+601,A Light in the Attic,9,1962,285,51.77,5,3
+602,Tipping the Velvet,6,1954,142,53.74,1,1
+603,Soumission,6,1964,199,50.1,4,2
+604,Sharp Objects,10,1983,117,47.82,3,2
+605,Sapiens: A Brief History of Humankind,10,2002,186,54.23,4,1
+606,The Requiem Red,10,1952,231,22.65,2,2
+607,The Dirty Little Secrets of Getting Your Dream Job,2,2021,372,33.34,4,1
+608,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",7,2004,421,17.93,4,1
+609,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,4,2021,297,22.6,1,2
+610,The Black Maria,2,1957,391,52.15,3,2
+611,"Starving Hearts (Triangular Trade Trilogy, #1)",7,1955,196,13.99,5,3
+612,Shakespeare's Sonnets,9,1995,220,20.66,5,2
+613,Set Me Free,10,2005,360,17.46,4,3
+614,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),7,1996,291,52.29,3,3
+615,Rip it Up and Start Again,5,1962,380,35.02,2,3
+616,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",5,1972,140,57.25,2,3
+617,Olio,7,1985,398,23.88,3,3
+618,Mesaerion: The Best Science Fiction Stories 1800-1849,4,1961,294,37.59,4,1
+619,Libertarianism for Beginners,4,1983,122,51.33,4,2
+620,It's Only the Himalayas,6,1956,285,45.17,3,1
+621,A Light in the Attic,9,2008,437,51.77,4,1
+622,Tipping the Velvet,9,2016,237,53.74,3,3
+623,Soumission,7,2008,437,50.1,3,2
+624,Sharp Objects,5,1988,165,47.82,5,2
+625,Sapiens: A Brief History of Humankind,9,2023,275,54.23,3,3
+626,The Requiem Red,3,1970,333,22.65,1,3
+627,The Dirty Little Secrets of Getting Your Dream Job,9,1977,454,33.34,5,3
+628,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",10,1985,366,17.93,5,3
+629,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,4,1964,231,22.6,4,3
+630,The Black Maria,2,2016,404,52.15,2,1
+631,"Starving Hearts (Triangular Trade Trilogy, #1)",9,2023,434,13.99,3,1
+632,Shakespeare's Sonnets,6,2007,345,20.66,2,1
+633,Set Me Free,3,2014,402,17.46,1,3
+634,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),5,2009,114,52.29,4,1
+635,Rip it Up and Start Again,8,1982,96,35.02,5,1
+636,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",7,2012,418,57.25,4,2
+637,Olio,3,1958,388,23.88,4,3
+638,Mesaerion: The Best Science Fiction Stories 1800-1849,4,1954,322,37.59,3,1
+639,Libertarianism for Beginners,7,1977,416,51.33,1,3
+640,It's Only the Himalayas,8,1971,425,45.17,2,1
+641,A Light in the Attic,3,1959,210,51.77,5,2
+642,Tipping the Velvet,9,2007,268,53.74,3,2
+643,Soumission,9,2020,390,50.1,1,3
+644,Sharp Objects,4,1968,221,47.82,1,3
+645,Sapiens: A Brief History of Humankind,1,1985,173,54.23,5,1
+646,The Requiem Red,8,1958,254,22.65,2,1
+647,The Dirty Little Secrets of Getting Your Dream Job,8,1956,333,33.34,2,2
+648,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",4,2014,141,17.93,2,1
+649,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,4,2001,383,22.6,1,3
+650,The Black Maria,5,2021,185,52.15,5,2
+651,"Starving Hearts (Triangular Trade Trilogy, #1)",5,2020,395,13.99,3,1
+652,Shakespeare's Sonnets,5,2010,286,20.66,5,1
+653,Set Me Free,5,2022,212,17.46,2,2
+654,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),1,2004,288,52.29,2,2
+655,Rip it Up and Start Again,7,1998,382,35.02,1,2
+656,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",2,1955,287,57.25,3,2
+657,Olio,1,2019,245,23.88,4,2
+658,Mesaerion: The Best Science Fiction Stories 1800-1849,4,2000,289,37.59,1,2
+659,Libertarianism for Beginners,5,1989,368,51.33,1,3
+660,It's Only the Himalayas,10,1958,246,45.17,1,1
+661,A Light in the Attic,3,1962,451,51.77,5,3
+662,Tipping the Velvet,5,2014,393,53.74,4,3
+663,Soumission,9,1952,126,50.1,2,2
+664,Sharp Objects,4,2001,436,47.82,4,3
+665,Sapiens: A Brief History of Humankind,5,2003,417,54.23,3,3
+666,The Requiem Red,2,2023,205,22.65,1,3
+667,The Dirty Little Secrets of Getting Your Dream Job,10,1978,305,33.34,1,1
+668,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",9,2020,366,17.93,2,3
+669,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,7,1953,185,22.6,1,1
+670,The Black Maria,5,2023,119,52.15,2,1
+671,"Starving Hearts (Triangular Trade Trilogy, #1)",9,1986,222,13.99,1,2
+672,Shakespeare's Sonnets,2,1971,148,20.66,4,3
+673,Set Me Free,6,1990,217,17.46,1,2
+674,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),8,1981,373,52.29,4,1
+675,Rip it Up and Start Again,4,1967,219,35.02,1,3
+676,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",7,1988,143,57.25,3,2
+677,Olio,7,1982,261,23.88,5,2
+678,Mesaerion: The Best Science Fiction Stories 1800-1849,7,1979,414,37.59,4,1
+679,Libertarianism for Beginners,3,2008,358,51.33,1,2
+680,It's Only the Himalayas,5,2021,433,45.17,2,3
+681,A Light in the Attic,6,1992,393,51.77,4,2
+682,Tipping the Velvet,6,2019,302,53.74,2,2
+683,Soumission,6,1958,260,50.1,3,3
+684,Sharp Objects,2,2004,380,47.82,4,3
+685,Sapiens: A Brief History of Humankind,6,1957,103,54.23,2,2
+686,The Requiem Red,8,1967,321,22.65,5,1
+687,The Dirty Little Secrets of Getting Your Dream Job,10,1952,185,33.34,4,1
+688,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",6,1953,160,17.93,4,1
+689,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,5,2017,259,22.6,5,2
+690,The Black Maria,9,1954,248,52.15,3,2
+691,"Starving Hearts (Triangular Trade Trilogy, #1)",4,1983,176,13.99,1,1
+692,Shakespeare's Sonnets,1,1952,232,20.66,1,3
+693,Set Me Free,5,1995,358,17.46,4,3
+694,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),7,1953,289,52.29,1,3
+695,Rip it Up and Start Again,9,1958,307,35.02,1,3
+696,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",2,2007,194,57.25,3,2
+697,Olio,10,1963,185,23.88,2,2
+698,Mesaerion: The Best Science Fiction Stories 1800-1849,2,1992,318,37.59,2,3
+699,Libertarianism for Beginners,5,1973,373,51.33,5,3
+700,It's Only the Himalayas,6,1997,458,45.17,5,2
+701,A Light in the Attic,10,1968,370,51.77,5,2
+702,Tipping the Velvet,4,1964,99,53.74,2,3
+703,Soumission,6,2011,437,50.1,5,1
+704,Sharp Objects,5,1984,175,47.82,4,2
+705,Sapiens: A Brief History of Humankind,4,1955,455,54.23,2,1
+706,The Requiem Red,10,2016,448,22.65,5,2
+707,The Dirty Little Secrets of Getting Your Dream Job,7,2013,228,33.34,4,2
+708,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",6,2021,171,17.93,5,3
+709,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,10,1961,328,22.6,4,2
+710,The Black Maria,9,2022,284,52.15,4,2
+711,"Starving Hearts (Triangular Trade Trilogy, #1)",6,1950,235,13.99,2,1
+712,Shakespeare's Sonnets,3,2007,99,20.66,4,2
+713,Set Me Free,7,1959,366,17.46,1,2
+714,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),3,2011,323,52.29,4,1
+715,Rip it Up and Start Again,7,1981,290,35.02,1,2
+716,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",4,2003,99,57.25,3,2
+717,Olio,9,2008,392,23.88,5,1
+718,Mesaerion: The Best Science Fiction Stories 1800-1849,9,2006,98,37.59,5,3
+719,Libertarianism for Beginners,8,1997,380,51.33,1,3
+720,It's Only the Himalayas,3,2011,250,45.17,2,3
+721,A Light in the Attic,8,2001,275,51.77,3,2
+722,Tipping the Velvet,10,1964,375,53.74,4,1
+723,Soumission,6,2009,284,50.1,4,2
+724,Sharp Objects,4,1980,224,47.82,1,3
+725,Sapiens: A Brief History of Humankind,6,1957,423,54.23,1,3
+726,The Requiem Red,8,1969,395,22.65,5,3
+727,The Dirty Little Secrets of Getting Your Dream Job,10,2020,401,33.34,2,2
+728,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",10,2010,289,17.93,2,3
+729,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,8,1995,361,22.6,1,1
+730,The Black Maria,2,1966,328,52.15,5,2
+731,"Starving Hearts (Triangular Trade Trilogy, #1)",8,1999,192,13.99,5,1
+732,Shakespeare's Sonnets,10,2009,258,20.66,5,1
+733,Set Me Free,6,1957,109,17.46,2,3
+734,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),3,2001,314,52.29,5,2
+735,Rip it Up and Start Again,1,1966,224,35.02,3,2
+736,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",1,1978,102,57.25,5,3
+737,Olio,4,1968,283,23.88,1,2
+738,Mesaerion: The Best Science Fiction Stories 1800-1849,4,1983,271,37.59,4,2
+739,Libertarianism for Beginners,3,1968,383,51.33,4,2
+740,It's Only the Himalayas,8,2018,338,45.17,2,1
+741,A Light in the Attic,1,2012,351,51.77,3,1
+742,Tipping the Velvet,5,2019,459,53.74,5,2
+743,Soumission,2,1972,334,50.1,1,3
+744,Sharp Objects,2,2008,232,47.82,1,1
+745,Sapiens: A Brief History of Humankind,3,2000,242,54.23,3,2
+746,The Requiem Red,7,2002,398,22.65,5,1
+747,The Dirty Little Secrets of Getting Your Dream Job,1,1991,352,33.34,4,2
+748,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",4,2014,286,17.93,1,2
+749,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,8,2023,456,22.6,3,1
+750,The Black Maria,6,1976,293,52.15,1,1
+751,"Starving Hearts (Triangular Trade Trilogy, #1)",1,2018,242,13.99,3,1
+752,Shakespeare's Sonnets,7,1979,233,20.66,2,3
+753,Set Me Free,8,1984,355,17.46,2,1
+754,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),7,1954,321,52.29,2,1
+755,Rip it Up and Start Again,4,2020,159,35.02,1,2
+756,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",6,1964,114,57.25,1,1
+757,Olio,3,1969,282,23.88,1,1
+758,Mesaerion: The Best Science Fiction Stories 1800-1849,3,1998,422,37.59,2,3
+759,Libertarianism for Beginners,1,2009,151,51.33,4,3
+760,It's Only the Himalayas,10,2011,364,45.17,2,2
+761,A Light in the Attic,4,1984,271,51.77,3,3
+762,Tipping the Velvet,7,1984,222,53.74,2,2
+763,Soumission,2,1983,458,50.1,5,3
+764,Sharp Objects,6,1986,355,47.82,4,3
+765,Sapiens: A Brief History of Humankind,2,2001,357,54.23,2,2
+766,The Requiem Red,9,1951,240,22.65,3,1
+767,The Dirty Little Secrets of Getting Your Dream Job,5,2003,377,33.34,5,2
+768,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",3,1993,170,17.93,2,2
+769,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,7,1982,322,22.6,1,1
+770,The Black Maria,5,2005,288,52.15,3,2
+771,"Starving Hearts (Triangular Trade Trilogy, #1)",10,1963,235,13.99,4,1
+772,Shakespeare's Sonnets,5,1980,218,20.66,5,3
+773,Set Me Free,7,1950,182,17.46,1,3
+774,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),6,1992,456,52.29,3,3
+775,Rip it Up and Start Again,10,1999,136,35.02,1,3
+776,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",9,1982,202,57.25,1,1
+777,Olio,3,2014,392,23.88,1,2
+778,Mesaerion: The Best Science Fiction Stories 1800-1849,10,2004,247,37.59,5,3
+779,Libertarianism for Beginners,7,2019,98,51.33,2,2
+780,It's Only the Himalayas,6,1984,408,45.17,5,2
+781,A Light in the Attic,8,1989,349,51.77,3,1
+782,Tipping the Velvet,3,2018,129,53.74,4,2
+783,Soumission,7,1977,255,50.1,5,3
+784,Sharp Objects,1,2008,385,47.82,4,3
+785,Sapiens: A Brief History of Humankind,5,2003,338,54.23,1,1
+786,The Requiem Red,4,1970,391,22.65,4,1
+787,The Dirty Little Secrets of Getting Your Dream Job,5,1975,295,33.34,3,1
+788,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",9,1991,453,17.93,1,1
+789,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,2,1957,413,22.6,3,3
+790,The Black Maria,6,1968,143,52.15,2,2
+791,"Starving Hearts (Triangular Trade Trilogy, #1)",8,1987,359,13.99,2,2
+792,Shakespeare's Sonnets,8,1979,334,20.66,5,2
+793,Set Me Free,2,1953,124,17.46,5,2
+794,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),9,2016,336,52.29,4,2
+795,Rip it Up and Start Again,4,1992,304,35.02,4,2
+796,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",5,1977,425,57.25,1,2
+797,Olio,10,1969,159,23.88,5,1
+798,Mesaerion: The Best Science Fiction Stories 1800-1849,9,1953,139,37.59,3,2
+799,Libertarianism for Beginners,7,1971,133,51.33,3,3
+800,It's Only the Himalayas,2,1967,371,45.17,5,1
+801,A Light in the Attic,10,2008,249,51.77,3,1
+802,Tipping the Velvet,6,2003,285,53.74,3,1
+803,Soumission,10,1962,285,50.1,5,3
+804,Sharp Objects,1,1994,332,47.82,1,1
+805,Sapiens: A Brief History of Humankind,6,2011,157,54.23,4,3
+806,The Requiem Red,9,2000,243,22.65,4,1
+807,The Dirty Little Secrets of Getting Your Dream Job,1,1951,307,33.34,4,2
+808,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",10,1990,444,17.93,5,3
+809,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,9,2007,302,22.6,1,3
+810,The Black Maria,1,1996,360,52.15,3,1
+811,"Starving Hearts (Triangular Trade Trilogy, #1)",6,1989,113,13.99,1,3
+812,Shakespeare's Sonnets,4,1958,148,20.66,2,3
+813,Set Me Free,2,1952,314,17.46,5,2
+814,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),4,1994,453,52.29,4,3
+815,Rip it Up and Start Again,10,1965,147,35.02,4,3
+816,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",4,1979,202,57.25,5,3
+817,Olio,2,1985,167,23.88,2,1
+818,Mesaerion: The Best Science Fiction Stories 1800-1849,4,1996,454,37.59,1,2
+819,Libertarianism for Beginners,1,1975,329,51.33,2,3
+820,It's Only the Himalayas,9,1996,365,45.17,5,3
+821,A Light in the Attic,10,1992,415,51.77,3,2
+822,Tipping the Velvet,8,1962,155,53.74,3,3
+823,Soumission,2,2010,283,50.1,2,2
+824,Sharp Objects,10,1957,358,47.82,5,3
+825,Sapiens: A Brief History of Humankind,4,1984,444,54.23,1,3
+826,The Requiem Red,9,2001,395,22.65,5,2
+827,The Dirty Little Secrets of Getting Your Dream Job,1,1998,216,33.34,5,3
+828,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",3,1969,112,17.93,4,2
+829,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,2,1982,134,22.6,1,3
+830,The Black Maria,8,1975,353,52.15,4,1
+831,"Starving Hearts (Triangular Trade Trilogy, #1)",8,2009,429,13.99,4,2
+832,Shakespeare's Sonnets,4,1960,397,20.66,5,1
+833,Set Me Free,4,1973,350,17.46,1,3
+834,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),4,1968,298,52.29,5,3
+835,Rip it Up and Start Again,2,2009,280,35.02,2,2
+836,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",2,1990,411,57.25,4,1
+837,Olio,1,1970,387,23.88,4,1
+838,Mesaerion: The Best Science Fiction Stories 1800-1849,9,1996,374,37.59,3,2
+839,Libertarianism for Beginners,4,1971,365,51.33,5,1
+840,It's Only the Himalayas,4,1997,314,45.17,4,2
+841,A Light in the Attic,10,2012,109,51.77,2,3
+842,Tipping the Velvet,8,1969,314,53.74,5,3
+843,Soumission,5,2004,295,50.1,4,1
+844,Sharp Objects,7,2020,98,47.82,1,2
+845,Sapiens: A Brief History of Humankind,9,1999,161,54.23,2,1
+846,The Requiem Red,6,1963,439,22.65,4,1
+847,The Dirty Little Secrets of Getting Your Dream Job,6,2011,113,33.34,4,3
+848,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",2,1996,351,17.93,1,2
+849,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,6,2021,347,22.6,1,1
+850,The Black Maria,5,2015,350,52.15,3,2
+851,"Starving Hearts (Triangular Trade Trilogy, #1)",8,2018,246,13.99,3,3
+852,Shakespeare's Sonnets,4,1965,281,20.66,1,1
+853,Set Me Free,1,1960,410,17.46,2,2
+854,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),4,1982,247,52.29,5,3
+855,Rip it Up and Start Again,4,1951,137,35.02,5,2
+856,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",8,2019,244,57.25,2,2
+857,Olio,5,2011,334,23.88,4,3
+858,Mesaerion: The Best Science Fiction Stories 1800-1849,2,1983,230,37.59,2,3
+859,Libertarianism for Beginners,4,2003,265,51.33,4,3
+860,It's Only the Himalayas,6,2020,156,45.17,4,2
+861,A Light in the Attic,9,2020,181,51.77,4,1
+862,Tipping the Velvet,9,2014,289,53.74,2,2
+863,Soumission,2,1991,149,50.1,1,1
+864,Sharp Objects,2,1994,395,47.82,3,3
+865,Sapiens: A Brief History of Humankind,8,1951,194,54.23,2,2
+866,The Requiem Red,3,1954,425,22.65,3,3
+867,The Dirty Little Secrets of Getting Your Dream Job,3,2021,137,33.34,3,3
+868,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",8,1975,319,17.93,1,3
+869,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,5,1965,399,22.6,2,1
+870,The Black Maria,1,2005,358,52.15,4,1
+871,"Starving Hearts (Triangular Trade Trilogy, #1)",5,1970,296,13.99,4,3
+872,Shakespeare's Sonnets,3,2004,296,20.66,3,3
+873,Set Me Free,3,1992,197,17.46,3,2
+874,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),1,2005,423,52.29,3,2
+875,Rip it Up and Start Again,4,1998,103,35.02,5,3
+876,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",5,1956,157,57.25,4,2
+877,Olio,1,1998,171,23.88,2,2
+878,Mesaerion: The Best Science Fiction Stories 1800-1849,7,2017,150,37.59,1,1
+879,Libertarianism for Beginners,7,2006,315,51.33,2,2
+880,It's Only the Himalayas,5,2021,279,45.17,2,2
+881,A Light in the Attic,5,2003,451,51.77,1,3
+882,Tipping the Velvet,10,2016,124,53.74,3,2
+883,Soumission,10,1980,176,50.1,3,1
+884,Sharp Objects,9,1992,435,47.82,4,1
+885,Sapiens: A Brief History of Humankind,8,1974,176,54.23,3,2
+886,The Requiem Red,2,2021,434,22.65,2,3
+887,The Dirty Little Secrets of Getting Your Dream Job,9,1967,168,33.34,5,3
+888,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",7,2017,218,17.93,4,3
+889,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,5,1951,293,22.6,2,3
+890,The Black Maria,7,1999,234,52.15,2,2
+891,"Starving Hearts (Triangular Trade Trilogy, #1)",4,1969,220,13.99,4,2
+892,Shakespeare's Sonnets,3,1955,450,20.66,2,2
+893,Set Me Free,2,1983,103,17.46,5,1
+894,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),5,2012,355,52.29,3,3
+895,Rip it Up and Start Again,6,1980,374,35.02,2,3
+896,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",4,2007,149,57.25,3,1
+897,Olio,7,1985,409,23.88,3,2
+898,Mesaerion: The Best Science Fiction Stories 1800-1849,8,1983,314,37.59,3,1
+899,Libertarianism for Beginners,10,1972,403,51.33,5,3
+900,It's Only the Himalayas,5,2003,221,45.17,3,1
+901,A Light in the Attic,8,2000,360,51.77,1,1
+902,Tipping the Velvet,10,2002,345,53.74,4,1
+903,Soumission,10,2005,373,50.1,2,2
+904,Sharp Objects,7,1973,96,47.82,2,2
+905,Sapiens: A Brief History of Humankind,7,2015,232,54.23,1,2
+906,The Requiem Red,9,1963,242,22.65,5,2
+907,The Dirty Little Secrets of Getting Your Dream Job,9,1953,256,33.34,5,3
+908,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",3,1954,179,17.93,1,1
+909,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,5,1995,181,22.6,1,2
+910,The Black Maria,5,1960,288,52.15,2,2
+911,"Starving Hearts (Triangular Trade Trilogy, #1)",7,2017,221,13.99,5,1
+912,Shakespeare's Sonnets,8,1995,149,20.66,4,2
+913,Set Me Free,7,1994,310,17.46,1,1
+914,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),1,1992,290,52.29,2,2
+915,Rip it Up and Start Again,9,1962,399,35.02,5,3
+916,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",7,1952,139,57.25,2,2
+917,Olio,9,1979,135,23.88,4,2
+918,Mesaerion: The Best Science Fiction Stories 1800-1849,8,1981,247,37.59,4,2
+919,Libertarianism for Beginners,1,2010,275,51.33,1,1
+920,It's Only the Himalayas,6,1995,283,45.17,2,1
+921,A Light in the Attic,10,1992,101,51.77,4,3
+922,Tipping the Velvet,2,1974,121,53.74,3,3
+923,Soumission,1,1994,372,50.1,4,3
+924,Sharp Objects,8,1980,262,47.82,3,2
+925,Sapiens: A Brief History of Humankind,6,1959,122,54.23,4,3
+926,The Requiem Red,9,2019,351,22.65,5,2
+927,The Dirty Little Secrets of Getting Your Dream Job,6,1958,135,33.34,5,2
+928,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",10,1975,304,17.93,5,1
+929,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,10,2020,167,22.6,1,2
+930,The Black Maria,4,1985,205,52.15,3,1
+931,"Starving Hearts (Triangular Trade Trilogy, #1)",1,1989,436,13.99,1,2
+932,Shakespeare's Sonnets,10,2018,304,20.66,1,3
+933,Set Me Free,2,1994,148,17.46,5,2
+934,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),4,1982,318,52.29,1,2
+935,Rip it Up and Start Again,1,1954,314,35.02,3,1
+936,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",4,1981,256,57.25,4,3
+937,Olio,2,1998,203,23.88,2,3
+938,Mesaerion: The Best Science Fiction Stories 1800-1849,7,1998,394,37.59,1,2
+939,Libertarianism for Beginners,8,2022,309,51.33,3,3
+940,It's Only the Himalayas,8,2016,305,45.17,4,2
+941,A Light in the Attic,1,1976,452,51.77,2,2
+942,Tipping the Velvet,3,2016,345,53.74,1,1
+943,Soumission,8,1953,199,50.1,5,3
+944,Sharp Objects,1,1971,302,47.82,4,3
+945,Sapiens: A Brief History of Humankind,7,1963,220,54.23,3,2
+946,The Requiem Red,8,1957,282,22.65,2,2
+947,The Dirty Little Secrets of Getting Your Dream Job,8,1995,139,33.34,4,3
+948,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",1,2008,153,17.93,3,2
+949,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,7,2018,282,22.6,1,2
+950,The Black Maria,4,1950,376,52.15,5,2
+951,"Starving Hearts (Triangular Trade Trilogy, #1)",5,2013,443,13.99,5,3
+952,Shakespeare's Sonnets,2,2017,398,20.66,2,3
+953,Set Me Free,2,1950,364,17.46,1,1
+954,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),5,2002,256,52.29,4,1
+955,Rip it Up and Start Again,5,1962,407,35.02,4,1
+956,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",1,2000,179,57.25,2,1
+957,Olio,8,1963,221,23.88,5,3
+958,Mesaerion: The Best Science Fiction Stories 1800-1849,4,1997,303,37.59,2,2
+959,Libertarianism for Beginners,7,1963,270,51.33,4,3
+960,It's Only the Himalayas,2,2004,353,45.17,3,3
+961,A Light in the Attic,6,2017,371,51.77,1,2
+962,Tipping the Velvet,7,2003,241,53.74,2,3
+963,Soumission,7,1978,219,50.1,1,3
+964,Sharp Objects,3,1985,331,47.82,2,2
+965,Sapiens: A Brief History of Humankind,9,1997,267,54.23,4,3
+966,The Requiem Red,8,2009,311,22.65,3,2
+967,The Dirty Little Secrets of Getting Your Dream Job,8,2020,262,33.34,1,2
+968,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",3,2009,328,17.93,1,3
+969,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,1,1959,154,22.6,2,2
+970,The Black Maria,6,1996,287,52.15,5,1
+971,"Starving Hearts (Triangular Trade Trilogy, #1)",3,1975,350,13.99,1,1
+972,Shakespeare's Sonnets,4,1962,179,20.66,4,2
+973,Set Me Free,6,1962,360,17.46,3,3
+974,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),4,1989,447,52.29,4,3
+975,Rip it Up and Start Again,2,2016,378,35.02,5,1
+976,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",7,1976,306,57.25,1,1
+977,Olio,2,2020,378,23.88,4,2
+978,Mesaerion: The Best Science Fiction Stories 1800-1849,7,1954,155,37.59,4,2
+979,Libertarianism for Beginners,5,2023,231,51.33,4,2
+980,It's Only the Himalayas,6,1982,199,45.17,2,2
+981,A Light in the Attic,9,2007,407,51.77,1,1
+982,Tipping the Velvet,6,1967,235,53.74,1,1
+983,Soumission,1,2011,336,50.1,4,2
+984,Sharp Objects,8,1969,218,47.82,3,3
+985,Sapiens: A Brief History of Humankind,1,2015,147,54.23,2,3
+986,The Requiem Red,5,1975,416,22.65,1,3
+987,The Dirty Little Secrets of Getting Your Dream Job,6,1988,353,33.34,3,1
+988,"The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",2,1986,207,17.93,5,2
+989,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics,9,1976,414,22.6,4,1
+990,The Black Maria,4,1970,402,52.15,1,1
+991,"Starving Hearts (Triangular Trade Trilogy, #1)",1,2012,366,13.99,2,3
+992,Shakespeare's Sonnets,9,2022,145,20.66,5,3
+993,Set Me Free,7,1997,393,17.46,3,2
+994,Scott Pilgrim's Precious Little Life (Scott Pilgrim #1),5,2010,141,52.29,2,2
+995,Rip it Up and Start Again,5,1977,319,35.02,5,3
+996,"Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991",4,1970,132,57.25,2,2
+997,Olio,5,1960,165,23.88,4,1
+998,Mesaerion: The Best Science Fiction Stories 1800-1849,6,2011,189,37.59,2,3
+999,Libertarianism for Beginners,10,1987,140,51.33,3,1
+1000,It's Only the Himalayas,10,1961,122,45.17,1,2

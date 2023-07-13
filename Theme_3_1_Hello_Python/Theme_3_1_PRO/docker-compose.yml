@@ -1,0 +1,37 @@
+version: '1.0'
+services:
+  python:
+    container_name: python
+    build: ./app
+    ports: 
+      - 4000:4000
+    volumes:
+      - ./app:/app
+
+  sql_library:
+    image: postgres:latest
+    container_name: library
+    ports: 
+      - 5455:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: library
+    volumes:
+      - ./sql_script/db/DDL/1_ddl.sql:/docker-entrypoint-initdb.d/1_ddl.sql
+      - ./sql_script/db/DML/2_dml.sql:/docker-entrypoint-initdb.d/2_dml.sql
+      - ./app_script:/docker-entrypoint-initdb.d/
+      - ./sql_script/3_update_table.sql:/docker-entrypoint-initdb.d/3_update_table.sql
+      - ./app/readers.csv:/docker-entrypoint-initdb.d/readers.csv
+      - ./app/books.csv:/docker-entrypoint-initdb.d/books.csv
+    depends_on:
+      python:
+        condition: service_completed_successfully
+    links: 
+      - python
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 120s
+      retries: 5
+    restart: always
+ 
