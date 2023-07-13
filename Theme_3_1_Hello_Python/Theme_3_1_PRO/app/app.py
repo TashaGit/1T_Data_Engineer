@@ -34,17 +34,8 @@ for num in range(1, 51):
         price = book_price[0].text.strip()
         data.append([book_title, price[2:]])
 
-# Сохраним данные в формат *.csv для дальнейшего использования.
-columns_name = ['title', 'price']
-
-with open('books.csv', 'w') as f:
-    # используем метод csv.writer для сохранения в CSV формат.
-    write = csv.writer(f)
-    write.writerow(columns_name)
-    write.writerows(data)
-
-# Прочитаем созданный файл для дальнейшего изменения
-books_scrap = pd.read_csv('books.csv', delimiter=',', encoding="utf-8")
+books = pd.DataFrame(data)
+books.columns = ['title', 'price']
 
 # С помощью random.randint создадим случайные значения autor_id
 from random import randint
@@ -73,10 +64,10 @@ public_year = pd.Series(public_year, name='public_year')
 amount_pages = pd.Series(amount_pages, name='amount_pages')
 amount = pd.Series(amount, name='amount')
 publ_house_id = pd.Series(publ_house_id, name='publ_house_id')
-books_scrap = pd.concat([books_scrap, autor_id, public_year, amount_pages, amount, publ_house_id], axis=1)
+books = pd.concat([books, autor_id, public_year, amount_pages, amount, publ_house_id], axis=1)
 
 # Поменяем столбцы местами, чтобы столбцы были как в базе данных library, отношение books
-books = books_scrap[['title', 'autor_id', 'public_year', 'amount_pages', 'price', 'amount',
+books = books[['title', 'autor_id', 'public_year', 'amount_pages', 'price', 'amount',
        'publ_house_id']]
 # Индексацию строк начнем с 1
 books.index += 1
@@ -114,4 +105,3 @@ readers.index += 1
 
 # Сохраним фейковые данные в файл *.csv
 readers.to_csv('readers.csv', encoding="utf-8")
-

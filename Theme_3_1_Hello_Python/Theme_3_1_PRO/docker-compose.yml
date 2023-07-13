@@ -1,4 +1,4 @@
-version: '1.0'
+version: '11.1'
 services:
   python:
     container_name: python
@@ -20,7 +20,6 @@ services:
     volumes:
       - ./sql_script/db/DDL/1_ddl.sql:/docker-entrypoint-initdb.d/1_ddl.sql
       - ./sql_script/db/DML/2_dml.sql:/docker-entrypoint-initdb.d/2_dml.sql
-      - ./app_script:/docker-entrypoint-initdb.d/
       - ./sql_script/3_update_table.sql:/docker-entrypoint-initdb.d/3_update_table.sql
       - ./app/readers.csv:/docker-entrypoint-initdb.d/readers.csv
       - ./app/books.csv:/docker-entrypoint-initdb.d/books.csv
@@ -31,7 +30,6 @@ services:
       - python
     healthcheck:
       test: ["CMD", "pg_isready", "-U", "postgres"]
-      interval: 120s
+      interval: 10s
       retries: 5
     restart: always
- 
