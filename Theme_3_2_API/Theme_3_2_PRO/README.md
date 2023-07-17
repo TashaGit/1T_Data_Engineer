@@ -39,7 +39,7 @@
 ```
 
 ### 1:
-### - Файл Jupyter Notebook csv файл с сводной информацией о группе (пункты 1–3):
+### - Файл Jupyter Notebook со сводной информацией о группе (пункты 1–3):
 [vk_api.ipynb](vk_api.ipynb)
 
 ### - Файл total_counts.csv c количеством:
@@ -60,7 +60,7 @@
 
 ### 3:
 ### - Файл Jupyter Notebook информацией с кодом парсинга и нахождения id поста, дата поста, текст поста, id комментария, дата комментария, текст комментария, автор комментария (пункт 6):
-[de_comments.ipynb](de_comments.ipynb)
+[comments.ipynb](comments.ipynb)
 
 ### - Файл *.csv с информацией по заданию.
 [total_comments.csv](total_comments.csv)
