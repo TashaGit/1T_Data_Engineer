@@ -1,0 +1,18 @@
+version: '1.0'
+services:
+  sql_exchange:
+    image: postgres:latest
+    container_name: exchange
+    ports: 
+      - 5434:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: exchange
+    volumes:
+      - ./csv_files/exchange_june2023.csv/:/docker-entrypoint-initdb.d/csv_files/exchange_june2023.csv
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 5s
+      retries: 5
+    restart: always
