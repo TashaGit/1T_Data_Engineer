@@ -68,16 +68,16 @@ PS: для удобства проверки задания Connection проп�
 ## Скрины работы приложения:
 
 ### 1. GRAPH.
-![graph.png](/pictures/graph.png)
+![graph.jpg](/pictures/graph.jpg)
 
 ### 2. Файл - скрин BashOperator с выводом в логи фразы «Good morning my diggers!»: 
-![bashoperator.png](/pictures/bashoperator.png)
+![bashoperator.jpg](/pictures/bashoperator.jpg)
 
 ### 3. Файл - скрин PythonOperator, в котором парсятся валюты, создаются и заполняюся таблицы:
-![pars_create_insert.png](/pictures/pars_create_insert.png)
+![pars_create_insert.jpg](/pictures/pars_create_insert.jpg)
 
 ### 4. Файл - скрин PythonOperator, в котором создается сводная таблица по всем валютам:
-![total_exch_rates.png](/pictures/total_exch_rates.png)
+![total_exch_rates.jpg](/pictures/total_exch_rates.jpg)
 
 ### 5. Файл - скрин PythonOperator, в котором выводится на печать (в log) сводная таблица:
-![print_table.png](/pictures/print_table.png)
+![print_table.jpg](/pictures/print_table.jpg)

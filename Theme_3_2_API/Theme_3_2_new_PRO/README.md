@@ -24,10 +24,10 @@
 ```
 
 ### 1. Файл app_start.py парсинга курса 5 видов валют за 1 календарный месяц (июнь 2023 года)
-[app_start.py](app_start.py)
+![app_start.py](app_start.py)
 
 ### 2. Файл программы подключения к Postgres с помощью Python и создания таблиц по 5 курсам валют и итоговой таблицы.
-[python_end.py](python_end.py)
+![python_end.py](python_end.py)
 
 ### 3. Файл - скрин созданной таблицы ***total_exchange_rates*** (вид из DBeaver'а), содержащей данныые:
     - валюта значений (base_exchange);
@@ -42,7 +42,7 @@
 ![result_query.jpg](result_query.jpg)
 
 ### 4. Файл Jupiter Notebook, в котором писался и тестировался код программы:
-[parser.ipynb](parser.ipynb)
+![parser.ipynb](parser.ipynb)
 
 ### Для развертывания базы "exchange" необходимо:
 1. Скачать архив из репозитория;
