@@ -1,0 +1,71 @@
+[2023-07-25 20:34:43,095] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: fetch_exchange_rates_dag.fetch_exchange_rates_task scheduled__2023-07-25T01:20:00+00:00 [queued]>
+[2023-07-25 20:34:43,149] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: fetch_exchange_rates_dag.fetch_exchange_rates_task scheduled__2023-07-25T01:20:00+00:00 [queued]>
+[2023-07-25 20:34:43,151] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2023-07-25 20:34:43,152] {taskinstance.py:1377} INFO - Starting attempt 1 of 1
+[2023-07-25 20:34:43,153] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2023-07-25 20:34:43,200] {taskinstance.py:1397} INFO - Executing <Task(PythonOperator): fetch_exchange_rates_task> on 2023-07-25 01:20:00+00:00
+[2023-07-25 20:34:43,216] {standard_task_runner.py:52} INFO - Started process 8823 to run task
+[2023-07-25 20:34:43,225] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'fetch_exchange_rates_dag', 'fetch_exchange_rates_task', 'scheduled__2023-07-25T01:20:00+00:00', '--job-id', '103', '--raw', '--subdir', 'DAGS_FOLDER/my_calc_rates.py', '--cfg-path', '/tmp/tmpsaystzkq', '--error-file', '/tmp/tmp_f5376sr']
+[2023-07-25 20:34:43,229] {standard_task_runner.py:80} INFO - Job 103: Subtask fetch_exchange_rates_task
+[2023-07-25 20:34:43,437] {task_command.py:371} INFO - Running <TaskInstance: fetch_exchange_rates_dag.fetch_exchange_rates_task scheduled__2023-07-25T01:20:00+00:00 [running]> on host 661c8d62a693
+[2023-07-25 20:34:43,612] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=marina_z
+AIRFLOW_CTX_DAG_ID=fetch_exchange_rates_dag
+AIRFLOW_CTX_TASK_ID=fetch_exchange_rates_task
+AIRFLOW_CTX_EXECUTION_DATE=2023-07-25T01:20:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-07-25T01:20:00+00:00
+[2023-07-25 20:34:45,295] {taskinstance.py:1909} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/my_calc_rates.py", line 69, in fetch_exchange_rates
+    load_to_postgres = PostgresOperator(
+NameError: name 'PostgresOperator' is not defined
+[2023-07-25 20:34:45,317] {taskinstance.py:1420} INFO - Marking task as FAILED. dag_id=fetch_exchange_rates_dag, task_id=fetch_exchange_rates_task, execution_date=20230725T012000, start_date=20230725T203443, end_date=20230725T203445
+[2023-07-25 20:34:45,333] {standard_task_runner.py:97} ERROR - Failed to execute job 103 for task fetch_exchange_rates_task (name 'PostgresOperator' is not defined; 8823)
+[2023-07-25 20:34:45,397] {local_task_job.py:156} INFO - Task exited with return code 1
+[2023-07-25 20:34:45,449] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2023-07-26 05:03:19,340] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: fetch_exchange_rates_dag.fetch_exchange_rates_task scheduled__2023-07-25T01:20:00+00:00 [queued]>
+[2023-07-26 05:03:19,539] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: fetch_exchange_rates_dag.fetch_exchange_rates_task scheduled__2023-07-25T01:20:00+00:00 [queued]>
+[2023-07-26 05:03:19,541] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2023-07-26 05:03:19,548] {taskinstance.py:1377} INFO - Starting attempt 1 of 1
+[2023-07-26 05:03:19,564] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2023-07-26 05:03:19,670] {taskinstance.py:1397} INFO - Executing <Task(PythonOperator): fetch_exchange_rates_task> on 2023-07-25 01:20:00+00:00
+[2023-07-26 05:03:19,721] {standard_task_runner.py:52} INFO - Started process 254 to run task
+[2023-07-26 05:03:19,792] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'fetch_exchange_rates_dag', 'fetch_exchange_rates_task', 'scheduled__2023-07-25T01:20:00+00:00', '--job-id', '21', '--raw', '--subdir', 'DAGS_FOLDER/my_calc_rates.py', '--cfg-path', '/tmp/tmpmmi9r2b2', '--error-file', '/tmp/tmp1_ehlrsw']
+[2023-07-26 05:03:19,803] {standard_task_runner.py:80} INFO - Job 21: Subtask fetch_exchange_rates_task
+[2023-07-26 05:03:20,368] {task_command.py:371} INFO - Running <TaskInstance: fetch_exchange_rates_dag.fetch_exchange_rates_task scheduled__2023-07-25T01:20:00+00:00 [running]> on host acb6bca32630
+[2023-07-26 05:03:21,234] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=marina_z
+AIRFLOW_CTX_DAG_ID=fetch_exchange_rates_dag
+AIRFLOW_CTX_TASK_ID=fetch_exchange_rates_task
+AIRFLOW_CTX_EXECUTION_DATE=2023-07-25T01:20:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-07-25T01:20:00+00:00
+[2023-07-26 05:03:22,088] {logging_mixin.py:115} INFO - Save a new file exchange_latest_BTC.csv
+[2023-07-26 05:03:22,094] {logging_mixin.py:115} INFO - Create a new table exchange_latest_BTC
+[2023-07-26 05:03:22,134] {logging_mixin.py:115} INFO - Insert into table exchange_latest_BTC
+[2023-07-26 05:03:22,186] {taskinstance.py:1909} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/my_calc_rates.py", line 99, in fetch_exchange_rates
+    cur.execute(copy_query)
+psycopg2.errors.InvalidTextRepresentation: invalid input syntax for type numeric: "2622163,5"
+CONTEXT:  COPY exchange_rates_btc, line 2, column exchange_rate: "2622163,5"
+
+[2023-07-26 05:03:22,262] {taskinstance.py:1420} INFO - Marking task as FAILED. dag_id=fetch_exchange_rates_dag, task_id=fetch_exchange_rates_task, execution_date=20230725T012000, start_date=20230726T050319, end_date=20230726T050322
+[2023-07-26 05:03:22,362] {standard_task_runner.py:97} ERROR - Failed to execute job 21 for task fetch_exchange_rates_task (invalid input syntax for type numeric: "2622163,5"
+CONTEXT:  COPY exchange_rates_btc, line 2, column exchange_rate: "2622163,5"
+; 254)
+[2023-07-26 05:03:22,456] {local_task_job.py:156} INFO - Task exited with return code 1
+[2023-07-26 05:03:22,642] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

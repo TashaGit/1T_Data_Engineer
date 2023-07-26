@@ -1,0 +1,58 @@
+[2023-07-26 04:18:46,401] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: fetch_exchange_rates_dag.print_csv_table scheduled__2023-07-26T03:20:00+00:00 [queued]>
+[2023-07-26 04:18:46,416] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: fetch_exchange_rates_dag.print_csv_table scheduled__2023-07-26T03:20:00+00:00 [queued]>
+[2023-07-26 04:18:46,417] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2023-07-26 04:18:46,418] {taskinstance.py:1377} INFO - Starting attempt 1 of 1
+[2023-07-26 04:18:46,419] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2023-07-26 04:18:46,439] {taskinstance.py:1397} INFO - Executing <Task(PythonOperator): print_csv_table> on 2023-07-26 03:20:00+00:00
+[2023-07-26 04:18:46,447] {standard_task_runner.py:52} INFO - Started process 7267 to run task
+[2023-07-26 04:18:46,452] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'fetch_exchange_rates_dag', 'print_csv_table', 'scheduled__2023-07-26T03:20:00+00:00', '--job-id', '121', '--raw', '--subdir', 'DAGS_FOLDER/my_calc_rates.py', '--cfg-path', '/tmp/tmp9_1rb26s', '--error-file', '/tmp/tmp8e41groy']
+[2023-07-26 04:18:46,455] {standard_task_runner.py:80} INFO - Job 121: Subtask print_csv_table
+[2023-07-26 04:18:46,565] {task_command.py:371} INFO - Running <TaskInstance: fetch_exchange_rates_dag.print_csv_table scheduled__2023-07-26T03:20:00+00:00 [running]> on host 6e11a261c833
+[2023-07-26 04:18:46,648] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=marina_z
+AIRFLOW_CTX_DAG_ID=fetch_exchange_rates_dag
+AIRFLOW_CTX_TASK_ID=print_csv_table
+AIRFLOW_CTX_EXECUTION_DATE=2023-07-26T03:20:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-07-26T03:20:00+00:00
+[2023-07-26 04:18:46,667] {logging_mixin.py:115} INFO -   exchange_id  exchange_rate base_exchange        date
+0         RUB   2.622164e+06           BTC  2023-07-26
+1         RUB   9.960367e+01           EUR  2023-07-26
+2         RUB   9.964221e+01           EUR  2023-07-26
+3         RUB   6.397940e-01           JPY  2023-07-26
+4         RUB   1.263880e+01           CNY  2023-07-26
+[2023-07-26 04:18:46,668] {python.py:173} INFO - Done. Returned value was: None
+[2023-07-26 04:18:46,684] {taskinstance.py:1420} INFO - Marking task as SUCCESS. dag_id=fetch_exchange_rates_dag, task_id=print_csv_table, execution_date=20230726T032000, start_date=20230726T041846, end_date=20230726T041846
+[2023-07-26 04:18:46,744] {local_task_job.py:156} INFO - Task exited with return code 0
+[2023-07-26 04:18:46,778] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2023-07-26 05:08:14,158] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: fetch_exchange_rates_dag.print_csv_table scheduled__2023-07-26T03:20:00+00:00 [queued]>
+[2023-07-26 05:08:14,194] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: fetch_exchange_rates_dag.print_csv_table scheduled__2023-07-26T03:20:00+00:00 [queued]>
+[2023-07-26 05:08:14,206] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2023-07-26 05:08:14,207] {taskinstance.py:1377} INFO - Starting attempt 1 of 1
+[2023-07-26 05:08:14,208] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2023-07-26 05:08:14,243] {taskinstance.py:1397} INFO - Executing <Task(PythonOperator): print_csv_table> on 2023-07-26 03:20:00+00:00
+[2023-07-26 05:08:14,260] {standard_task_runner.py:52} INFO - Started process 2287 to run task
+[2023-07-26 05:08:14,271] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'fetch_exchange_rates_dag', 'print_csv_table', 'scheduled__2023-07-26T03:20:00+00:00', '--job-id', '601', '--raw', '--subdir', 'DAGS_FOLDER/my_calc_rates.py', '--cfg-path', '/tmp/tmp89peuiip', '--error-file', '/tmp/tmpb0hpruri']
+[2023-07-26 05:08:14,273] {standard_task_runner.py:80} INFO - Job 601: Subtask print_csv_table
+[2023-07-26 05:08:14,482] {task_command.py:371} INFO - Running <TaskInstance: fetch_exchange_rates_dag.print_csv_table scheduled__2023-07-26T03:20:00+00:00 [running]> on host acb6bca32630
+[2023-07-26 05:08:14,729] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=marina_z
+AIRFLOW_CTX_DAG_ID=fetch_exchange_rates_dag
+AIRFLOW_CTX_TASK_ID=print_csv_table
+AIRFLOW_CTX_EXECUTION_DATE=2023-07-26T03:20:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-07-26T03:20:00+00:00
+[2023-07-26 05:08:14,832] {logging_mixin.py:115} INFO -   exchange_id  exchange_rate base_exchange        date
+0         RUB     2622163.50           BTC  2023-07-26
+1         RUB          99.60           EUR  2023-07-26
+2         RUB          99.64           EUR  2023-07-26
+3         RUB           0.64           JPY  2023-07-26
+4         RUB          12.64           CNY  2023-07-26
+[2023-07-26 05:08:14,833] {python.py:173} INFO - Done. Returned value was: None
+[2023-07-26 05:08:14,877] {taskinstance.py:1420} INFO - Marking task as SUCCESS. dag_id=fetch_exchange_rates_dag, task_id=print_csv_table, execution_date=20230726T032000, start_date=20230726T050814, end_date=20230726T050814
+[2023-07-26 05:08:14,936] {local_task_job.py:156} INFO - Task exited with return code 0
+[2023-07-26 05:08:15,090] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

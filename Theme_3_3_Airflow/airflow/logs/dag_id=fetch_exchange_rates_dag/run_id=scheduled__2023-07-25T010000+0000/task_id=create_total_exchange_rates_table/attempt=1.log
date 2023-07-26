@@ -1,0 +1,24 @@
+[2023-07-26 05:03:28,602] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: fetch_exchange_rates_dag.create_total_exchange_rates_table scheduled__2023-07-25T01:00:00+00:00 [queued]>
+[2023-07-26 05:03:28,692] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: fetch_exchange_rates_dag.create_total_exchange_rates_table scheduled__2023-07-25T01:00:00+00:00 [queued]>
+[2023-07-26 05:03:28,699] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2023-07-26 05:03:28,700] {taskinstance.py:1377} INFO - Starting attempt 1 of 1
+[2023-07-26 05:03:28,701] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2023-07-26 05:03:28,780] {taskinstance.py:1397} INFO - Executing <Task(PythonOperator): create_total_exchange_rates_table> on 2023-07-25 01:00:00+00:00
+[2023-07-26 05:03:28,799] {standard_task_runner.py:52} INFO - Started process 295 to run task
+[2023-07-26 05:03:28,821] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'fetch_exchange_rates_dag', 'create_total_exchange_rates_table', 'scheduled__2023-07-25T01:00:00+00:00', '--job-id', '40', '--raw', '--subdir', 'DAGS_FOLDER/my_calc_rates.py', '--cfg-path', '/tmp/tmpu6arb869', '--error-file', '/tmp/tmphf3e33nq']
+[2023-07-26 05:03:28,825] {standard_task_runner.py:80} INFO - Job 40: Subtask create_total_exchange_rates_table
+[2023-07-26 05:03:29,215] {task_command.py:371} INFO - Running <TaskInstance: fetch_exchange_rates_dag.create_total_exchange_rates_table scheduled__2023-07-25T01:00:00+00:00 [running]> on host acb6bca32630
+[2023-07-26 05:03:29,554] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=marina_z
+AIRFLOW_CTX_DAG_ID=fetch_exchange_rates_dag
+AIRFLOW_CTX_TASK_ID=create_total_exchange_rates_table
+AIRFLOW_CTX_EXECUTION_DATE=2023-07-25T01:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-07-25T01:00:00+00:00
+[2023-07-26 05:03:29,560] {logging_mixin.py:115} INFO - The table total_exchange_rates is created and saved
+[2023-07-26 05:03:29,587] {python.py:173} INFO - Done. Returned value was: None
+[2023-07-26 05:03:29,643] {taskinstance.py:1420} INFO - Marking task as SUCCESS. dag_id=fetch_exchange_rates_dag, task_id=create_total_exchange_rates_table, execution_date=20230725T010000, start_date=20230726T050328, end_date=20230726T050329
+[2023-07-26 05:03:29,723] {local_task_job.py:156} INFO - Task exited with return code 0
+[2023-07-26 05:03:29,801] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check

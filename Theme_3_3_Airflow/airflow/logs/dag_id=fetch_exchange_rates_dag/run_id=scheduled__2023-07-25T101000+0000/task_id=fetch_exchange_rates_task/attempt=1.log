@@ -1,0 +1,70 @@
+[2023-07-25 20:38:13,459] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: fetch_exchange_rates_dag.fetch_exchange_rates_task scheduled__2023-07-25T10:10:00+00:00 [queued]>
+[2023-07-25 20:38:13,473] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: fetch_exchange_rates_dag.fetch_exchange_rates_task scheduled__2023-07-25T10:10:00+00:00 [queued]>
+[2023-07-25 20:38:13,474] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2023-07-25 20:38:13,477] {taskinstance.py:1377} INFO - Starting attempt 1 of 1
+[2023-07-25 20:38:13,478] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2023-07-25 20:38:13,510] {taskinstance.py:1397} INFO - Executing <Task(PythonOperator): fetch_exchange_rates_task> on 2023-07-25 10:10:00+00:00
+[2023-07-25 20:38:13,524] {standard_task_runner.py:52} INFO - Started process 9151 to run task
+[2023-07-25 20:38:13,541] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'fetch_exchange_rates_dag', 'fetch_exchange_rates_task', 'scheduled__2023-07-25T10:10:00+00:00', '--job-id', '159', '--raw', '--subdir', 'DAGS_FOLDER/my_calc_rates.py', '--cfg-path', '/tmp/tmp2rki2l0s', '--error-file', '/tmp/tmpwoul9_nd']
+[2023-07-25 20:38:13,543] {standard_task_runner.py:80} INFO - Job 159: Subtask fetch_exchange_rates_task
+[2023-07-25 20:38:13,706] {task_command.py:371} INFO - Running <TaskInstance: fetch_exchange_rates_dag.fetch_exchange_rates_task scheduled__2023-07-25T10:10:00+00:00 [running]> on host 661c8d62a693
+[2023-07-25 20:38:13,849] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=marina_z
+AIRFLOW_CTX_DAG_ID=fetch_exchange_rates_dag
+AIRFLOW_CTX_TASK_ID=fetch_exchange_rates_task
+AIRFLOW_CTX_EXECUTION_DATE=2023-07-25T10:10:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-07-25T10:10:00+00:00
+[2023-07-25 20:38:15,787] {taskinstance.py:1909} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/my_calc_rates.py", line 69, in fetch_exchange_rates
+    load_to_postgres = PostgresOperator(
+NameError: name 'PostgresOperator' is not defined
+[2023-07-25 20:38:15,807] {taskinstance.py:1420} INFO - Marking task as FAILED. dag_id=fetch_exchange_rates_dag, task_id=fetch_exchange_rates_task, execution_date=20230725T101000, start_date=20230725T203813, end_date=20230725T203815
+[2023-07-25 20:38:15,868] {standard_task_runner.py:97} ERROR - Failed to execute job 159 for task fetch_exchange_rates_task (name 'PostgresOperator' is not defined; 9151)
+[2023-07-25 20:38:15,938] {local_task_job.py:156} INFO - Task exited with return code 1
+[2023-07-25 20:38:16,024] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2023-07-26 05:04:59,983] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: fetch_exchange_rates_dag.fetch_exchange_rates_task scheduled__2023-07-25T10:10:00+00:00 [queued]>
+[2023-07-26 05:04:59,998] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: fetch_exchange_rates_dag.fetch_exchange_rates_task scheduled__2023-07-25T10:10:00+00:00 [queued]>
+[2023-07-26 05:04:59,999] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2023-07-26 05:05:00,000] {taskinstance.py:1377} INFO - Starting attempt 1 of 1
+[2023-07-26 05:05:00,000] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2023-07-26 05:05:00,039] {taskinstance.py:1397} INFO - Executing <Task(PythonOperator): fetch_exchange_rates_task> on 2023-07-25 10:10:00+00:00
+[2023-07-26 05:05:00,050] {standard_task_runner.py:52} INFO - Started process 948 to run task
+[2023-07-26 05:05:00,061] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'fetch_exchange_rates_dag', 'fetch_exchange_rates_task', 'scheduled__2023-07-25T10:10:00+00:00', '--job-id', '223', '--raw', '--subdir', 'DAGS_FOLDER/my_calc_rates.py', '--cfg-path', '/tmp/tmp61jzwd28', '--error-file', '/tmp/tmp9ggox8wt']
+[2023-07-26 05:05:00,066] {standard_task_runner.py:80} INFO - Job 223: Subtask fetch_exchange_rates_task
+[2023-07-26 05:05:00,249] {task_command.py:371} INFO - Running <TaskInstance: fetch_exchange_rates_dag.fetch_exchange_rates_task scheduled__2023-07-25T10:10:00+00:00 [running]> on host acb6bca32630
+[2023-07-26 05:05:00,377] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=marina_z
+AIRFLOW_CTX_DAG_ID=fetch_exchange_rates_dag
+AIRFLOW_CTX_TASK_ID=fetch_exchange_rates_task
+AIRFLOW_CTX_EXECUTION_DATE=2023-07-25T10:10:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-07-25T10:10:00+00:00
+[2023-07-26 05:05:00,818] {logging_mixin.py:115} INFO - Save a new file exchange_latest_BTC.csv
+[2023-07-26 05:05:00,819] {logging_mixin.py:115} INFO - Create a new table exchange_latest_BTC
+[2023-07-26 05:05:00,829] {logging_mixin.py:115} INFO - Insert into table exchange_latest_BTC
+[2023-07-26 05:05:01,231] {logging_mixin.py:115} INFO - Save a new file exchange_latest_EUR.csv
+[2023-07-26 05:05:01,232] {logging_mixin.py:115} INFO - Create a new table exchange_latest_EUR
+[2023-07-26 05:05:01,236] {logging_mixin.py:115} INFO - Insert into table exchange_latest_EUR
+[2023-07-26 05:05:01,641] {logging_mixin.py:115} INFO - Save a new file exchange_latest_GBR.csv
+[2023-07-26 05:05:01,643] {logging_mixin.py:115} INFO - Create a new table exchange_latest_GBR
+[2023-07-26 05:05:01,648] {logging_mixin.py:115} INFO - Insert into table exchange_latest_GBR
+[2023-07-26 05:05:02,047] {logging_mixin.py:115} INFO - Save a new file exchange_latest_JPY.csv
+[2023-07-26 05:05:02,048] {logging_mixin.py:115} INFO - Create a new table exchange_latest_JPY
+[2023-07-26 05:05:02,055] {logging_mixin.py:115} INFO - Insert into table exchange_latest_JPY
+[2023-07-26 05:05:02,421] {logging_mixin.py:115} INFO - Save a new file exchange_latest_CNY.csv
+[2023-07-26 05:05:02,422] {logging_mixin.py:115} INFO - Create a new table exchange_latest_CNY
+[2023-07-26 05:05:02,430] {logging_mixin.py:115} INFO - Insert into table exchange_latest_CNY
+[2023-07-26 05:05:02,447] {python.py:173} INFO - Done. Returned value was: None
+[2023-07-26 05:05:02,481] {taskinstance.py:1420} INFO - Marking task as SUCCESS. dag_id=fetch_exchange_rates_dag, task_id=fetch_exchange_rates_task, execution_date=20230725T101000, start_date=20230726T050459, end_date=20230726T050502
+[2023-07-26 05:05:02,588] {local_task_job.py:156} INFO - Task exited with return code 0
+[2023-07-26 05:05:02,704] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check

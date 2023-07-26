@@ -1,0 +1,28 @@
+[2023-07-25 20:15:00,669] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: calc-rates.bash_task scheduled__2023-07-25T20:10:00+00:00 [queued]>
+[2023-07-25 20:15:00,678] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: calc-rates.bash_task scheduled__2023-07-25T20:10:00+00:00 [queued]>
+[2023-07-25 20:15:00,678] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2023-07-25 20:15:00,679] {taskinstance.py:1377} INFO - Starting attempt 1 of 1
+[2023-07-25 20:15:00,679] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2023-07-25 20:15:00,694] {taskinstance.py:1397} INFO - Executing <Task(BashOperator): bash_task> on 2023-07-25 20:10:00+00:00
+[2023-07-25 20:15:00,698] {standard_task_runner.py:52} INFO - Started process 7781 to run task
+[2023-07-25 20:15:00,701] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'calc-rates', 'bash_task', 'scheduled__2023-07-25T20:10:00+00:00', '--job-id', '76', '--raw', '--subdir', 'DAGS_FOLDER/calc_rates.py', '--cfg-path', '/tmp/tmpgc87h0f9', '--error-file', '/tmp/tmpyio3_l4o']
+[2023-07-25 20:15:00,702] {standard_task_runner.py:80} INFO - Job 76: Subtask bash_task
+[2023-07-25 20:15:00,785] {task_command.py:371} INFO - Running <TaskInstance: calc-rates.bash_task scheduled__2023-07-25T20:10:00+00:00 [running]> on host 661c8d62a693
+[2023-07-25 20:15:00,868] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=marina_z
+AIRFLOW_CTX_DAG_ID=calc-rates
+AIRFLOW_CTX_TASK_ID=bash_task
+AIRFLOW_CTX_EXECUTION_DATE=2023-07-25T20:10:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-07-25T20:10:00+00:00
+[2023-07-25 20:15:00,871] {subprocess.py:62} INFO - Tmp dir root location: 
+ /tmp
+[2023-07-25 20:15:00,873] {subprocess.py:74} INFO - Running command: ['bash', '-c', "echo 'Hello, World!'"]
+[2023-07-25 20:15:00,885] {subprocess.py:85} INFO - Output:
+[2023-07-25 20:15:00,886] {subprocess.py:92} INFO - Hello, World!
+[2023-07-25 20:15:00,887] {subprocess.py:96} INFO - Command exited with return code 0
+[2023-07-25 20:15:00,927] {taskinstance.py:1420} INFO - Marking task as SUCCESS. dag_id=calc-rates, task_id=bash_task, execution_date=20230725T201000, start_date=20230725T201500, end_date=20230725T201500
+[2023-07-25 20:15:00,953] {local_task_job.py:156} INFO - Task exited with return code 0
+[2023-07-25 20:15:00,998] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check

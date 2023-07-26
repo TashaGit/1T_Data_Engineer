@@ -1,0 +1,28 @@
+[2023-07-26 05:06:21,258] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: fetch_exchange_rates_dag.bash_task scheduled__2023-07-25T19:20:00+00:00 [queued]>
+[2023-07-26 05:06:21,422] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: fetch_exchange_rates_dag.bash_task scheduled__2023-07-25T19:20:00+00:00 [queued]>
+[2023-07-26 05:06:21,435] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2023-07-26 05:06:21,441] {taskinstance.py:1377} INFO - Starting attempt 1 of 1
+[2023-07-26 05:06:21,442] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2023-07-26 05:06:21,685] {taskinstance.py:1397} INFO - Executing <Task(BashOperator): bash_task> on 2023-07-25 19:20:00+00:00
+[2023-07-26 05:06:21,711] {standard_task_runner.py:52} INFO - Started process 1558 to run task
+[2023-07-26 05:06:21,734] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'fetch_exchange_rates_dag', 'bash_task', 'scheduled__2023-07-25T19:20:00+00:00', '--job-id', '392', '--raw', '--subdir', 'DAGS_FOLDER/my_calc_rates.py', '--cfg-path', '/tmp/tmpadrfhp_w', '--error-file', '/tmp/tmp2mt1oz_v']
+[2023-07-26 05:06:21,754] {standard_task_runner.py:80} INFO - Job 392: Subtask bash_task
+[2023-07-26 05:06:22,371] {task_command.py:371} INFO - Running <TaskInstance: fetch_exchange_rates_dag.bash_task scheduled__2023-07-25T19:20:00+00:00 [running]> on host acb6bca32630
+[2023-07-26 05:06:22,844] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=fetch_exchange_rates_dag
+AIRFLOW_CTX_TASK_ID=bash_task
+AIRFLOW_CTX_EXECUTION_DATE=2023-07-25T19:20:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-07-25T19:20:00+00:00
+[2023-07-26 05:06:22,855] {subprocess.py:62} INFO - Tmp dir root location: 
+ /tmp
+[2023-07-26 05:06:22,861] {subprocess.py:74} INFO - Running command: ['bash', '-c', 'echo "Good morning my diggers!"']
+[2023-07-26 05:06:22,957] {subprocess.py:85} INFO - Output:
+[2023-07-26 05:06:22,971] {subprocess.py:92} INFO - Good morning my diggers!
+[2023-07-26 05:06:22,972] {subprocess.py:96} INFO - Command exited with return code 0
+[2023-07-26 05:06:23,175] {taskinstance.py:1420} INFO - Marking task as SUCCESS. dag_id=fetch_exchange_rates_dag, task_id=bash_task, execution_date=20230725T192000, start_date=20230726T050621, end_date=20230726T050623
+[2023-07-26 05:06:23,346] {local_task_job.py:156} INFO - Task exited with return code 0
+[2023-07-26 05:06:23,495] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check

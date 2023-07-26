@@ -1,0 +1,26 @@
+[2023-07-25 19:30:04,296] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: calc-rates.insert_data scheduled__2023-07-25T19:25:00+00:00 [queued]>
+[2023-07-25 19:30:04,305] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: calc-rates.insert_data scheduled__2023-07-25T19:25:00+00:00 [queued]>
+[2023-07-25 19:30:04,306] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2023-07-25 19:30:04,307] {taskinstance.py:1377} INFO - Starting attempt 1 of 1
+[2023-07-25 19:30:04,307] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2023-07-25 19:30:04,321] {taskinstance.py:1397} INFO - Executing <Task(PythonOperator): insert_data> on 2023-07-25 19:25:00+00:00
+[2023-07-25 19:30:04,327] {standard_task_runner.py:52} INFO - Started process 5492 to run task
+[2023-07-25 19:30:04,331] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'calc-rates', 'insert_data', 'scheduled__2023-07-25T19:25:00+00:00', '--job-id', '38', '--raw', '--subdir', 'DAGS_FOLDER/calc_rates.py', '--cfg-path', '/tmp/tmpf4xjd9h4', '--error-file', '/tmp/tmp9w6hlx0_']
+[2023-07-25 19:30:04,332] {standard_task_runner.py:80} INFO - Job 38: Subtask insert_data
+[2023-07-25 19:30:04,398] {task_command.py:371} INFO - Running <TaskInstance: calc-rates.insert_data scheduled__2023-07-25T19:25:00+00:00 [running]> on host 661c8d62a693
+[2023-07-25 19:30:04,452] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=marina_z
+AIRFLOW_CTX_DAG_ID=calc-rates
+AIRFLOW_CTX_TASK_ID=insert_data
+AIRFLOW_CTX_EXECUTION_DATE=2023-07-25T19:25:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-07-25T19:25:00+00:00
+[2023-07-25 19:30:04,465] {logging_mixin.py:115} INFO - rate_date:  2023-07-25
+[2023-07-25 19:30:04,466] {logging_mixin.py:115} INFO - value_:  29150.94736800000100
+[2023-07-25 19:30:04,476] {base.py:68} INFO - Using connection ID 'my_db_conn' for task execution.
+[2023-07-25 19:30:04,499] {python.py:173} INFO - Done. Returned value was: None
+[2023-07-25 19:30:04,512] {taskinstance.py:1420} INFO - Marking task as SUCCESS. dag_id=calc-rates, task_id=insert_data, execution_date=20230725T192500, start_date=20230725T193004, end_date=20230725T193004
+[2023-07-25 19:30:04,544] {local_task_job.py:156} INFO - Task exited with return code 0
+[2023-07-25 19:30:04,586] {local_task_job.py:273} INFO - 3 downstream tasks scheduled from follow-on schedule check

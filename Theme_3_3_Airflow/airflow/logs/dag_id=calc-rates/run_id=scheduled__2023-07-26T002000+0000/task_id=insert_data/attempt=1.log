@@ -1,0 +1,41 @@
+[2023-07-26 00:25:02,662] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: calc-rates.insert_data scheduled__2023-07-26T00:20:00+00:00 [queued]>
+[2023-07-26 00:25:02,669] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: calc-rates.insert_data scheduled__2023-07-26T00:20:00+00:00 [queued]>
+[2023-07-26 00:25:02,670] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2023-07-26 00:25:02,670] {taskinstance.py:1377} INFO - Starting attempt 1 of 1
+[2023-07-26 00:25:02,670] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2023-07-26 00:25:02,681] {taskinstance.py:1397} INFO - Executing <Task(PythonOperator): insert_data> on 2023-07-26 00:20:00+00:00
+[2023-07-26 00:25:02,686] {standard_task_runner.py:52} INFO - Started process 2449 to run task
+[2023-07-26 00:25:02,688] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'calc-rates', 'insert_data', 'scheduled__2023-07-26T00:20:00+00:00', '--job-id', '385', '--raw', '--subdir', 'DAGS_FOLDER/calc_rates.py', '--cfg-path', '/tmp/tmpcm1dmliz', '--error-file', '/tmp/tmpebkm6uo8']
+[2023-07-26 00:25:02,689] {standard_task_runner.py:80} INFO - Job 385: Subtask insert_data
+[2023-07-26 00:25:02,779] {task_command.py:371} INFO - Running <TaskInstance: calc-rates.insert_data scheduled__2023-07-26T00:20:00+00:00 [running]> on host 661c8d62a693
+[2023-07-26 00:25:02,850] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=marina_z
+AIRFLOW_CTX_DAG_ID=calc-rates
+AIRFLOW_CTX_TASK_ID=insert_data
+AIRFLOW_CTX_EXECUTION_DATE=2023-07-26T00:20:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-07-26T00:20:00+00:00
+[2023-07-26 00:25:02,863] {logging_mixin.py:115} INFO - rate_date:  2023-07-26
+[2023-07-26 00:25:02,864] {logging_mixin.py:115} INFO - value_:  29092.28947400000106
+[2023-07-26 00:25:02,874] {base.py:68} INFO - Using connection ID 'my_db_conn' for task execution.
+[2023-07-26 00:25:02,892] {taskinstance.py:1909} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/calc_rates.py", line 93, in insert_data
+    cursor.execute(f"INSERT INTO {dag_variables.get('table_name')} (ingest_datetime, rate_date, rate_base, rate_target, value_ ) valueS('{ingest_datetime}','{results['rate_date']}', '{dag_variables.get('rate_base')}', '{dag_variables.get('rate_target')}', '{results['value_']}');")
+psycopg2.errors.UndefinedTable: relation "rates" does not exist
+LINE 1: INSERT INTO rates (ingest_datetime, rate_date, rate_base, ra...
+                    ^
+
+[2023-07-26 00:25:02,907] {taskinstance.py:1420} INFO - Marking task as FAILED. dag_id=calc-rates, task_id=insert_data, execution_date=20230726T002000, start_date=20230726T002502, end_date=20230726T002502
+[2023-07-26 00:25:02,920] {standard_task_runner.py:97} ERROR - Failed to execute job 385 for task insert_data (relation "rates" does not exist
+LINE 1: INSERT INTO rates (ingest_datetime, rate_date, rate_base, ra...
+                    ^
+; 2449)
+[2023-07-26 00:25:02,944] {local_task_job.py:156} INFO - Task exited with return code 1
+[2023-07-26 00:25:02,992] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -161,3 +161,6 @@ BEGIN
 END $$;
 """)
 conn.commit()
+
+cur.close()
+conn.close()

@@ -1,0 +1,25 @@
+[2023-07-25 19:50:03,970] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: calc-rates.choose_best_model scheduled__2023-07-25T19:45:00+00:00 [queued]>
+[2023-07-25 19:50:03,977] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: calc-rates.choose_best_model scheduled__2023-07-25T19:45:00+00:00 [queued]>
+[2023-07-25 19:50:03,978] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2023-07-25 19:50:03,978] {taskinstance.py:1377} INFO - Starting attempt 1 of 1
+[2023-07-25 19:50:03,979] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2023-07-25 19:50:03,989] {taskinstance.py:1397} INFO - Executing <Task(BranchPythonOperator): choose_best_model> on 2023-07-25 19:45:00+00:00
+[2023-07-25 19:50:03,992] {standard_task_runner.py:52} INFO - Started process 6511 to run task
+[2023-07-25 19:50:03,995] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'calc-rates', 'choose_best_model', 'scheduled__2023-07-25T19:45:00+00:00', '--job-id', '58', '--raw', '--subdir', 'DAGS_FOLDER/calc_rates.py', '--cfg-path', '/tmp/tmpj832vi8n', '--error-file', '/tmp/tmp56ntjcyy']
+[2023-07-25 19:50:03,995] {standard_task_runner.py:80} INFO - Job 58: Subtask choose_best_model
+[2023-07-25 19:50:04,055] {task_command.py:371} INFO - Running <TaskInstance: calc-rates.choose_best_model scheduled__2023-07-25T19:45:00+00:00 [running]> on host 661c8d62a693
+[2023-07-25 19:50:04,108] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=marina_z
+AIRFLOW_CTX_DAG_ID=calc-rates
+AIRFLOW_CTX_TASK_ID=choose_best_model
+AIRFLOW_CTX_EXECUTION_DATE=2023-07-25T19:45:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-07-25T19:45:00+00:00
+[2023-07-25 19:50:04,109] {python.py:173} INFO - Done. Returned value was: accurate
+[2023-07-25 19:50:04,110] {skipmixin.py:140} INFO - Following branch accurate
+[2023-07-25 19:50:04,110] {skipmixin.py:175} INFO - Skipping tasks ['inaccurate']
+[2023-07-25 19:50:04,151] {taskinstance.py:1420} INFO - Marking task as SUCCESS. dag_id=calc-rates, task_id=choose_best_model, execution_date=20230725T194500, start_date=20230725T195003, end_date=20230725T195004
+[2023-07-25 19:50:04,167] {local_task_job.py:156} INFO - Task exited with return code 0
+[2023-07-25 19:50:04,197] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check

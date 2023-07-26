@@ -1,0 +1,38 @@
+[2023-07-25 19:50:36,863] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: fetch_exchange_rates_dag.fetch_exchange_rates_task manual__2023-07-25T19:50:34.844735+00:00 [queued]>
+[2023-07-25 19:50:36,870] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: fetch_exchange_rates_dag.fetch_exchange_rates_task manual__2023-07-25T19:50:34.844735+00:00 [queued]>
+[2023-07-25 19:50:36,870] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2023-07-25 19:50:36,871] {taskinstance.py:1377} INFO - Starting attempt 1 of 1
+[2023-07-25 19:50:36,871] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2023-07-25 19:50:36,884] {taskinstance.py:1397} INFO - Executing <Task(PythonOperator): fetch_exchange_rates_task> on 2023-07-25 19:50:34.844735+00:00
+[2023-07-25 19:50:36,889] {standard_task_runner.py:52} INFO - Started process 6542 to run task
+[2023-07-25 19:50:36,891] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'fetch_exchange_rates_dag', 'fetch_exchange_rates_task', 'manual__2023-07-25T19:50:34.844735+00:00', '--job-id', '59', '--raw', '--subdir', 'DAGS_FOLDER/my_calc_rates.py', '--cfg-path', '/tmp/tmplsa547lq', '--error-file', '/tmp/tmp6jvb4qxm']
+[2023-07-25 19:50:36,892] {standard_task_runner.py:80} INFO - Job 59: Subtask fetch_exchange_rates_task
+[2023-07-25 19:50:36,959] {task_command.py:371} INFO - Running <TaskInstance: fetch_exchange_rates_dag.fetch_exchange_rates_task manual__2023-07-25T19:50:34.844735+00:00 [running]> on host 661c8d62a693
+[2023-07-25 19:50:37,016] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=fetch_exchange_rates_dag
+AIRFLOW_CTX_TASK_ID=fetch_exchange_rates_task
+AIRFLOW_CTX_EXECUTION_DATE=2023-07-25T19:50:34.844735+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-07-25T19:50:34.844735+00:00
+[2023-07-25 19:50:38,610] {logging_mixin.py:115} INFO - Первые 5 строк значений валюты BTC:
+[2023-07-25 19:50:38,622] {logging_mixin.py:115} INFO -   code          rate base        date
+0  RUB  2.632016e+06  BTC  2023-07-25
+[2023-07-25 19:50:38,628] {logging_mixin.py:115} INFO - Первые 5 строк значений валюты EUR:
+[2023-07-25 19:50:38,633] {logging_mixin.py:115} INFO -   code       rate base        date
+0  RUB  99.950332  EUR  2023-07-25
+[2023-07-25 19:50:38,636] {logging_mixin.py:115} INFO - Первые 5 строк значений валюты GBR:
+[2023-07-25 19:50:38,640] {logging_mixin.py:115} INFO -   code        rate base        date
+0  RUB  100.016599  EUR  2023-07-25
+[2023-07-25 19:50:38,643] {logging_mixin.py:115} INFO - Первые 5 строк значений валюты JPY:
+[2023-07-25 19:50:38,648] {logging_mixin.py:115} INFO -   code      rate base        date
+0  RUB  0.638599  JPY  2023-07-25
+[2023-07-25 19:50:38,650] {logging_mixin.py:115} INFO - Первые 5 строк значений валюты CNY:
+[2023-07-25 19:50:38,654] {logging_mixin.py:115} INFO -   code       rate base        date
+0  RUB  12.625739  CNY  2023-07-25
+[2023-07-25 19:50:38,655] {python.py:173} INFO - Done. Returned value was: None
+[2023-07-25 19:50:38,666] {taskinstance.py:1420} INFO - Marking task as SUCCESS. dag_id=fetch_exchange_rates_dag, task_id=fetch_exchange_rates_task, execution_date=20230725T195034, start_date=20230725T195036, end_date=20230725T195038
+[2023-07-25 19:50:38,711] {local_task_job.py:156} INFO - Task exited with return code 0
+[2023-07-25 19:50:38,752] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check
