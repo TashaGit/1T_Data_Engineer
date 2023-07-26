@@ -71,13 +71,13 @@ PS: для удобства проверки задания Connection проп�
 ![graph.jpg](pictures/graph.jpg)
 
 ### 2. Файл - скрин BashOperator с выводом в логи фразы «Good morning my diggers!»: 
-![bashoperator.jpg](/pictures/bashoperator.jpg)
+![bashoperator.jpg](pictures/bashoperatorj.jpg)
 
 ### 3. Файл - скрин PythonOperator, в котором парсятся валюты, создаются и заполняюся таблицы:
-![pars_create_insert.jpg](/pictures/pars_create_insert.jpg)
+![pars_create_insert.jpg](pictures/pars_create_insertj.jpg)
 
 ### 4. Файл - скрин PythonOperator, в котором создается сводная таблица по всем валютам:
-![total_exch_rates.jpg](/pictures/total_exch_rates.jpg)
+![total_exch_rates.jpg](pictures/total_exch_ratesj.jpg)
 
 ### 5. Файл - скрин PythonOperator, в котором выводится на печать (в log) сводная таблица:
-![print_table.jpg](/pictures/print_table.jpg)
+![print_table.jpg](pictures/print_tablej.jpg)
