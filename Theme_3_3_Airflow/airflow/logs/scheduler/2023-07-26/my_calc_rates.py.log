@@ -5573,3 +5573,83 @@ ModuleNotFoundError: No module named 'matplotlib'
 [2023-07-26 05:52:50,553] {logging_mixin.py:115} INFO - [2023-07-26 05:52:50,552] {dag.py:2420} INFO - Sync 1 DAGs
 [2023-07-26 05:52:50,567] {logging_mixin.py:115} INFO - [2023-07-26 05:52:50,567] {dag.py:2972} INFO - Setting next_dagrun for fetch_exchange_rates_dag to 2023-07-26T05:20:00+00:00, run_after=2023-07-26T05:30:00+00:00
 [2023-07-26 05:52:50,576] {processor.py:161} INFO - Processing /opt/airflow/dags/my_calc_rates.py took 0.218 seconds
+[2023-07-26 05:53:21,013] {processor.py:153} INFO - Started process (PID=7003) to work on /opt/airflow/dags/my_calc_rates.py
+[2023-07-26 05:53:21,014] {processor.py:641} INFO - Processing file /opt/airflow/dags/my_calc_rates.py for tasks to queue
+[2023-07-26 05:53:21,015] {logging_mixin.py:115} INFO - [2023-07-26 05:53:21,014] {dagbag.py:508} INFO - Filling up the DagBag from /opt/airflow/dags/my_calc_rates.py
+[2023-07-26 05:53:21,205] {logging_mixin.py:115} INFO - [2023-07-26 05:53:21,205] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2023-07-26 05:53:21,207] {processor.py:651} INFO - DAG(s) dict_keys(['fetch_exchange_rates_dag']) retrieved from /opt/airflow/dags/my_calc_rates.py
+[2023-07-26 05:53:21,226] {logging_mixin.py:115} INFO - [2023-07-26 05:53:21,226] {dag.py:2420} INFO - Sync 1 DAGs
+[2023-07-26 05:53:21,245] {logging_mixin.py:115} INFO - [2023-07-26 05:53:21,245] {dag.py:2972} INFO - Setting next_dagrun for fetch_exchange_rates_dag to 2023-07-26T05:20:00+00:00, run_after=2023-07-26T05:30:00+00:00
+[2023-07-26 05:53:21,258] {processor.py:161} INFO - Processing /opt/airflow/dags/my_calc_rates.py took 0.248 seconds
+[2023-07-26 05:53:51,926] {processor.py:153} INFO - Started process (PID=7066) to work on /opt/airflow/dags/my_calc_rates.py
+[2023-07-26 05:53:51,928] {processor.py:641} INFO - Processing file /opt/airflow/dags/my_calc_rates.py for tasks to queue
+[2023-07-26 05:53:51,929] {logging_mixin.py:115} INFO - [2023-07-26 05:53:51,929] {dagbag.py:508} INFO - Filling up the DagBag from /opt/airflow/dags/my_calc_rates.py
+[2023-07-26 05:53:52,153] {logging_mixin.py:115} INFO - [2023-07-26 05:53:52,153] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2023-07-26 05:53:52,156] {processor.py:651} INFO - DAG(s) dict_keys(['fetch_exchange_rates_dag']) retrieved from /opt/airflow/dags/my_calc_rates.py
+[2023-07-26 05:53:52,173] {logging_mixin.py:115} INFO - [2023-07-26 05:53:52,172] {dag.py:2420} INFO - Sync 1 DAGs
+[2023-07-26 05:53:52,187] {logging_mixin.py:115} INFO - [2023-07-26 05:53:52,187] {dag.py:2972} INFO - Setting next_dagrun for fetch_exchange_rates_dag to 2023-07-26T05:20:00+00:00, run_after=2023-07-26T05:30:00+00:00
+[2023-07-26 05:53:52,196] {processor.py:161} INFO - Processing /opt/airflow/dags/my_calc_rates.py took 0.273 seconds
+[2023-07-26 05:54:23,125] {processor.py:153} INFO - Started process (PID=7129) to work on /opt/airflow/dags/my_calc_rates.py
+[2023-07-26 05:54:23,127] {processor.py:641} INFO - Processing file /opt/airflow/dags/my_calc_rates.py for tasks to queue
+[2023-07-26 05:54:23,128] {logging_mixin.py:115} INFO - [2023-07-26 05:54:23,128] {dagbag.py:508} INFO - Filling up the DagBag from /opt/airflow/dags/my_calc_rates.py
+[2023-07-26 05:54:23,342] {logging_mixin.py:115} INFO - [2023-07-26 05:54:23,342] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2023-07-26 05:54:23,346] {processor.py:651} INFO - DAG(s) dict_keys(['fetch_exchange_rates_dag']) retrieved from /opt/airflow/dags/my_calc_rates.py
+[2023-07-26 05:54:23,374] {logging_mixin.py:115} INFO - [2023-07-26 05:54:23,373] {dag.py:2420} INFO - Sync 1 DAGs
+[2023-07-26 05:54:23,391] {logging_mixin.py:115} INFO - [2023-07-26 05:54:23,391] {dag.py:2972} INFO - Setting next_dagrun for fetch_exchange_rates_dag to 2023-07-26T05:20:00+00:00, run_after=2023-07-26T05:30:00+00:00
+[2023-07-26 05:54:23,402] {processor.py:161} INFO - Processing /opt/airflow/dags/my_calc_rates.py took 0.280 seconds
+[2023-07-26 05:54:53,484] {processor.py:153} INFO - Started process (PID=7185) to work on /opt/airflow/dags/my_calc_rates.py
+[2023-07-26 05:54:53,485] {processor.py:641} INFO - Processing file /opt/airflow/dags/my_calc_rates.py for tasks to queue
+[2023-07-26 05:54:53,486] {logging_mixin.py:115} INFO - [2023-07-26 05:54:53,486] {dagbag.py:508} INFO - Filling up the DagBag from /opt/airflow/dags/my_calc_rates.py
+[2023-07-26 05:54:53,666] {logging_mixin.py:115} INFO - [2023-07-26 05:54:53,666] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2023-07-26 05:54:53,669] {processor.py:651} INFO - DAG(s) dict_keys(['fetch_exchange_rates_dag']) retrieved from /opt/airflow/dags/my_calc_rates.py
+[2023-07-26 05:54:53,687] {logging_mixin.py:115} INFO - [2023-07-26 05:54:53,686] {dag.py:2420} INFO - Sync 1 DAGs
+[2023-07-26 05:54:53,700] {logging_mixin.py:115} INFO - [2023-07-26 05:54:53,700] {dag.py:2972} INFO - Setting next_dagrun for fetch_exchange_rates_dag to 2023-07-26T05:20:00+00:00, run_after=2023-07-26T05:30:00+00:00
+[2023-07-26 05:54:53,712] {processor.py:161} INFO - Processing /opt/airflow/dags/my_calc_rates.py took 0.230 seconds
+[2023-07-26 05:55:23,778] {processor.py:153} INFO - Started process (PID=7250) to work on /opt/airflow/dags/my_calc_rates.py
+[2023-07-26 05:55:23,779] {processor.py:641} INFO - Processing file /opt/airflow/dags/my_calc_rates.py for tasks to queue
+[2023-07-26 05:55:23,779] {logging_mixin.py:115} INFO - [2023-07-26 05:55:23,779] {dagbag.py:508} INFO - Filling up the DagBag from /opt/airflow/dags/my_calc_rates.py
+[2023-07-26 05:55:23,983] {logging_mixin.py:115} INFO - [2023-07-26 05:55:23,983] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2023-07-26 05:55:23,988] {processor.py:651} INFO - DAG(s) dict_keys(['fetch_exchange_rates_dag']) retrieved from /opt/airflow/dags/my_calc_rates.py
+[2023-07-26 05:55:24,012] {logging_mixin.py:115} INFO - [2023-07-26 05:55:24,012] {dag.py:2420} INFO - Sync 1 DAGs
+[2023-07-26 05:55:24,039] {logging_mixin.py:115} INFO - [2023-07-26 05:55:24,039] {dag.py:2972} INFO - Setting next_dagrun for fetch_exchange_rates_dag to 2023-07-26T05:20:00+00:00, run_after=2023-07-26T05:30:00+00:00
+[2023-07-26 05:55:24,075] {processor.py:161} INFO - Processing /opt/airflow/dags/my_calc_rates.py took 0.300 seconds
+[2023-07-26 05:55:54,259] {processor.py:153} INFO - Started process (PID=7310) to work on /opt/airflow/dags/my_calc_rates.py
+[2023-07-26 05:55:54,260] {processor.py:641} INFO - Processing file /opt/airflow/dags/my_calc_rates.py for tasks to queue
+[2023-07-26 05:55:54,261] {logging_mixin.py:115} INFO - [2023-07-26 05:55:54,261] {dagbag.py:508} INFO - Filling up the DagBag from /opt/airflow/dags/my_calc_rates.py
+[2023-07-26 05:55:54,473] {logging_mixin.py:115} INFO - [2023-07-26 05:55:54,473] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2023-07-26 05:55:54,477] {processor.py:651} INFO - DAG(s) dict_keys(['fetch_exchange_rates_dag']) retrieved from /opt/airflow/dags/my_calc_rates.py
+[2023-07-26 05:55:54,498] {logging_mixin.py:115} INFO - [2023-07-26 05:55:54,497] {dag.py:2420} INFO - Sync 1 DAGs
+[2023-07-26 05:55:54,520] {logging_mixin.py:115} INFO - [2023-07-26 05:55:54,520] {dag.py:2972} INFO - Setting next_dagrun for fetch_exchange_rates_dag to 2023-07-26T05:20:00+00:00, run_after=2023-07-26T05:30:00+00:00
+[2023-07-26 05:55:54,534] {processor.py:161} INFO - Processing /opt/airflow/dags/my_calc_rates.py took 0.277 seconds
+[2023-07-26 05:56:25,138] {processor.py:153} INFO - Started process (PID=7374) to work on /opt/airflow/dags/my_calc_rates.py
+[2023-07-26 05:56:25,139] {processor.py:641} INFO - Processing file /opt/airflow/dags/my_calc_rates.py for tasks to queue
+[2023-07-26 05:56:25,140] {logging_mixin.py:115} INFO - [2023-07-26 05:56:25,140] {dagbag.py:508} INFO - Filling up the DagBag from /opt/airflow/dags/my_calc_rates.py
+[2023-07-26 05:56:25,330] {logging_mixin.py:115} INFO - [2023-07-26 05:56:25,330] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2023-07-26 05:56:25,333] {processor.py:651} INFO - DAG(s) dict_keys(['fetch_exchange_rates_dag']) retrieved from /opt/airflow/dags/my_calc_rates.py
+[2023-07-26 05:56:25,353] {logging_mixin.py:115} INFO - [2023-07-26 05:56:25,352] {dag.py:2420} INFO - Sync 1 DAGs
+[2023-07-26 05:56:25,373] {logging_mixin.py:115} INFO - [2023-07-26 05:56:25,373] {dag.py:2972} INFO - Setting next_dagrun for fetch_exchange_rates_dag to 2023-07-26T05:20:00+00:00, run_after=2023-07-26T05:30:00+00:00
+[2023-07-26 05:56:25,384] {processor.py:161} INFO - Processing /opt/airflow/dags/my_calc_rates.py took 0.249 seconds
+[2023-07-26 05:56:55,416] {processor.py:153} INFO - Started process (PID=7428) to work on /opt/airflow/dags/my_calc_rates.py
+[2023-07-26 05:56:55,417] {processor.py:641} INFO - Processing file /opt/airflow/dags/my_calc_rates.py for tasks to queue
+[2023-07-26 05:56:55,418] {logging_mixin.py:115} INFO - [2023-07-26 05:56:55,418] {dagbag.py:508} INFO - Filling up the DagBag from /opt/airflow/dags/my_calc_rates.py
+[2023-07-26 05:56:55,670] {logging_mixin.py:115} INFO - [2023-07-26 05:56:55,670] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2023-07-26 05:56:55,674] {processor.py:651} INFO - DAG(s) dict_keys(['fetch_exchange_rates_dag']) retrieved from /opt/airflow/dags/my_calc_rates.py
+[2023-07-26 05:56:55,701] {logging_mixin.py:115} INFO - [2023-07-26 05:56:55,700] {dag.py:2420} INFO - Sync 1 DAGs
+[2023-07-26 05:56:55,723] {logging_mixin.py:115} INFO - [2023-07-26 05:56:55,723] {dag.py:2972} INFO - Setting next_dagrun for fetch_exchange_rates_dag to 2023-07-26T05:20:00+00:00, run_after=2023-07-26T05:30:00+00:00
+[2023-07-26 05:56:55,737] {processor.py:161} INFO - Processing /opt/airflow/dags/my_calc_rates.py took 0.323 seconds
+[2023-07-26 05:57:25,776] {processor.py:153} INFO - Started process (PID=7493) to work on /opt/airflow/dags/my_calc_rates.py
+[2023-07-26 05:57:25,777] {processor.py:641} INFO - Processing file /opt/airflow/dags/my_calc_rates.py for tasks to queue
+[2023-07-26 05:57:25,778] {logging_mixin.py:115} INFO - [2023-07-26 05:57:25,778] {dagbag.py:508} INFO - Filling up the DagBag from /opt/airflow/dags/my_calc_rates.py
+[2023-07-26 05:57:25,961] {logging_mixin.py:115} INFO - [2023-07-26 05:57:25,961] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2023-07-26 05:57:25,963] {processor.py:651} INFO - DAG(s) dict_keys(['fetch_exchange_rates_dag']) retrieved from /opt/airflow/dags/my_calc_rates.py
+[2023-07-26 05:57:25,980] {logging_mixin.py:115} INFO - [2023-07-26 05:57:25,979] {dag.py:2420} INFO - Sync 1 DAGs
+[2023-07-26 05:57:25,995] {logging_mixin.py:115} INFO - [2023-07-26 05:57:25,995] {dag.py:2972} INFO - Setting next_dagrun for fetch_exchange_rates_dag to 2023-07-26T05:20:00+00:00, run_after=2023-07-26T05:30:00+00:00
+[2023-07-26 05:57:26,004] {processor.py:161} INFO - Processing /opt/airflow/dags/my_calc_rates.py took 0.230 seconds
+[2023-07-26 05:57:56,907] {processor.py:153} INFO - Started process (PID=7557) to work on /opt/airflow/dags/my_calc_rates.py
+[2023-07-26 05:57:56,908] {processor.py:641} INFO - Processing file /opt/airflow/dags/my_calc_rates.py for tasks to queue
+[2023-07-26 05:57:56,908] {logging_mixin.py:115} INFO - [2023-07-26 05:57:56,908] {dagbag.py:508} INFO - Filling up the DagBag from /opt/airflow/dags/my_calc_rates.py
+[2023-07-26 05:57:57,101] {logging_mixin.py:115} INFO - [2023-07-26 05:57:57,101] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2023-07-26 05:57:57,104] {processor.py:651} INFO - DAG(s) dict_keys(['fetch_exchange_rates_dag']) retrieved from /opt/airflow/dags/my_calc_rates.py
+[2023-07-26 05:57:57,122] {logging_mixin.py:115} INFO - [2023-07-26 05:57:57,121] {dag.py:2420} INFO - Sync 1 DAGs
+[2023-07-26 05:57:57,137] {logging_mixin.py:115} INFO - [2023-07-26 05:57:57,137] {dag.py:2972} INFO - Setting next_dagrun for fetch_exchange_rates_dag to 2023-07-26T05:20:00+00:00, run_after=2023-07-26T05:30:00+00:00
+[2023-07-26 05:57:57,147] {processor.py:161} INFO - Processing /opt/airflow/dags/my_calc_rates.py took 0.242 seconds
