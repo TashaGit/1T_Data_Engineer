@@ -68,7 +68,7 @@ PS: для удобства проверки задания Connection проп�
 ## Скрины работы приложения:
 
 ### 1. GRAPH.
-![graph.jpg](/pictures/graph.jpg)
+![graph.jpg](pictures/graph.jpg)
 
 ### 2. Файл - скрин BashOperator с выводом в логи фразы «Good morning my diggers!»: 
 ![bashoperator.jpg](/pictures/bashoperator.jpg)
