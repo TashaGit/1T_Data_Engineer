@@ -26,19 +26,19 @@ dag = DAG(dag_id='fetch_exchange_rates_dag',
 )
 
 
-variables = Variable.set(key='currency_load_variables',
-                            value={'url': 'https://api.exchangerate.host/latest',
-                                'connection_name': 'my_db_conn',
-                                'base_BTC': 'BTC',
-                                'base_EUR': 'EUR',
-                                'base_GBR': 'GBR',
-                                'base_JPY': 'JPY',
-                                'base_CNY': 'CNY',
-                                'bases': ['BTC', 'EUR', 'GBR', 'JPY', 'CNY'],
-                                'symbols': 'RUB',
-                                'format': 'CSV'},
-                                serialize_json=True
-                                )
+# variables = Variable.set(key='currency_load_variables',
+#                             value={'url': 'https://api.exchangerate.host/latest',
+#                                 'connection_name': 'my_db_conn',
+#                                 'base_BTC': 'BTC',
+#                                 'base_EUR': 'EUR',
+#                                 'base_GBR': 'GBR',
+#                                 'base_JPY': 'JPY',
+#                                 'base_CNY': 'CNY',
+#                                 'bases': ['BTC', 'EUR', 'GBR', 'JPY', 'CNY'],
+#                                 'symbols': 'RUB',
+#                                 'format': 'CSV'},
+#                                 serialize_json=True
+#                                 )
 
 dag_variables = Variable.get('currency_load_variables', deserialize_json=True)
 
@@ -113,7 +113,7 @@ def insert_values(**kwargs):
         task_instance = kwargs['ti']
         results = task_instance.xcom_pull(key=f'results_{base}')
         table_name = f'exchange_rates_{base}'
-        
+
         insert_values = f""" 
         INSERT INTO {table_name} 
             (exchange_id, exchange_rate, base_exchange, date, time_value) 
