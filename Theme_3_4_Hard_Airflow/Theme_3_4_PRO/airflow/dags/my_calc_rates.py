@@ -4,9 +4,10 @@ from airflow.operators.python_operator import PythonOperator
 from airflow.utils.dates import days_ago
 from airflow.models import Variable
 from airflow.hooks.base import BaseHook
+from airflow.sensors.python import PythonSensor
 
 from datetime import datetime, timedelta
-import requests
+import requests, io
 import psycopg2
 import pandas as pd
 
@@ -61,83 +62,159 @@ conn = psycopg2.connect(host=pg_hostname, port=pg_port, user=pg_username, passwo
 bases = dag_variables.get('bases')
 
 
-def fetch_exchange_rates():
+def count_rows(**kwargs):
     cur = conn.cursor()
+    for base in bases:
+        table_name = f'exchange_rates_{base}'
+        sql_query = f"""SELECT COUNT(*) FROM {table_name}"""
+        cur.execute(sql_query)      
+        row_count = cur.fetchone()[0] 
+        print(f'Количество строк в таблице {table_name} = {row_count}')
+        task_instance = kwargs['ti']
+        task_instance.xcom_push(key=f'count_row_{base}', value={'val':row_count})
+        conn.commit()
+
+
+def fetch_exchange_rates(**kwargs):
     for base in bases:
         response = requests.get(dag_variables.get('url'),
                                 params={'base': dag_variables.get(f'base_{base}'),
                                         'symbols': dag_variables.get('symbols'),
                                         'format': dag_variables.get('format')
                                         })
-        with open(f'./csv_files/exchange_latest_{base}.csv', 'wb') as f:
-            f.write(response.content)
-
-        df = pd.read_csv(f'./csv_files/exchange_latest_{base}.csv', decimal=',', index_col=False)
-        df = pd.DataFrame(df)
+        csv_data = io.StringIO(response.content.decode('utf-8'))
+        df = pd.read_csv(csv_data, decimal=',', index_col=False)
         if len(df) >= 1:
-            df['time_value'] = datetime.now().astimezone()
-        # df['time_value'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            df.to_csv(f'./csv_files/exchange_latest_{base}.csv', index=False)
-            print(f'Save a new file exchange_latest_{base}.csv')
-
-            table_name = f"exchange_rates_{base}"
-            create_table_query = f"""
-            CREATE TABLE IF NOT EXISTS {table_name} (
-                exchange_id VARCHAR,
-                exchange_rate DECIMAL,
-                base_exchange VARCHAR,
-                date DATE,
-                time_value TIMESTAMP);
-            """
-            print(f'Create a new table exchange_latest_{base}')
-            cur.execute(create_table_query)
-            conn.commit()
-
-            table_name = f"exchange_rates_{base}"
-            copy_query = f"""
-                COPY {table_name}
-                FROM '/docker-entrypoint-initdb.d/csv_files/exchange_latest_{base}.csv'
-                DELIMITER ','
-                CSV HEADER;
-            """
-            print(f'Insert into table exchange_latest_{base}')
-            cur.execute(copy_query)
-            conn.commit()
-    conn.commit()
-    cur.close()
-    conn.close()
+            df['time_value'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            ti = kwargs['ti']
+            ti.xcom_push(key=f'results_{base}', value={'code':df['code'][0], 
+                                                       'rate':df['rate'][0], 
+                                                       'base':df['base'][0], 
+                                                       'date':df['date'][0], 
+                                                       'time_value':df['time_value'][0]})
 
 
-def print_csv_all_rates():
+
+def insert_values(**kwargs):
     cur = conn.cursor()
     for base in bases:
-        table_name = f"exchange_rates_{base}"
-        save_csv = f"""COPY (SELECT * FROM {table_name} ORDER BY time_value DESC LIMIT 3)
-        TO '/docker-entrypoint-initdb.d/csv_files/last_values_{base}.csv' 
-        DELIMITER ',' 
-        CSV HEADER;"""
-        cur.execute(save_csv)
+        task_instance = kwargs['ti']
+        results = task_instance.xcom_pull(key=f'results_{base}')
+        table_name = f'exchange_rates_{base}'
+
+        create_table_query = f"""
+        CREATE TABLE IF NOT EXISTS {table_name} (
+            exchange_id VARCHAR,
+            exchange_rate DECIMAL,
+            base_exchange VARCHAR,
+            date DATE,
+            time_value TIMESTAMP);
+        """
+        print(f'Create a new table exchange_latest_{base}')
+        cur.execute(create_table_query)
         conn.commit()
-        print(f'last_values_{base}.csv saved')
-        file_path = f"./csv_files/last_values_{base}.csv"
-        df = pd.read_csv(file_path)
-        pd.set_option('display.float_format', '{:.2f}'.format)
-        with pd.option_context('display.expand_frame_repr', False):
-            print(df)
+
+        insert_values = f""" 
+        INSERT INTO {table_name} 
+            (exchange_id, exchange_rate, base_exchange, date, time_value) 
+            VALUES ('{results['code']}', 
+                    '{results['rate']}',
+                    '{results['base']}',
+                    '{results['date']}',
+                    '{results['time_value']}')
+                    """
+        cur.execute(insert_values)
+        conn.commit()
+        print(f'Insert values into table exchange_latest_{base}')
     conn.commit()
     cur.close()
+
+
+def compliance_check(**kwargs):
+    count = 0
+    for base in bases:
+        cur = conn.cursor()
+        task_instance = kwargs['ti']
+        results = task_instance.xcom_pull(key=f'count_row_{base}')
+        result = results['val']
+        table_name = f'exchange_rates_{base}'
+        sql_query = f"""SELECT COUNT(*) FROM {table_name}"""
+        cur.execute(sql_query)      
+        new_count = cur.fetchone()[0]
+        conn.commit()
+        print(f'old_count = {result}, new_count={new_count}')
+        if int(new_count) - int(result) > 0:
+            count += 1
+        else:
+            count          
+    conn.commit()
+    cur.close()
+    if count == 5:
+        return True
+    else:
+        return False
+
+
+def create_total_table():
+    for base in bases:
+        cur = conn.cursor()
+        table_name = f'calc_agg_func_{base}'
+        from_table = f'exchange_rates_{base}'
+        create_table_query = f"""
+        CREATE TABLE IF NOT EXISTS {table_name} (
+            max_rate DECIMAL,
+            min_rate DECIMAL,
+            avg_rate DECIMAL,
+            calc_time TIMESTAMP);
+        """
+        cur.execute(create_table_query)
+        conn.commit()        
+
+        insert_values = f""" 
+        INSERT INTO {table_name}
+        SELECT MAX(exchange_rate) max_rate, 
+                MIN(exchange_rate) min_rate, 
+                AVG(exchange_rate) avg_rate,
+                now() AS calc_time
+        FROM {from_table}
+        """
+        cur.execute(insert_values)
+        conn.commit()
     conn.close()
 
 
-hello_bash_task = BashOperator(task_id = 'bash_task',
-                               bash_command = 'echo "Good morning my diggers!"')
+hello_bash_task = BashOperator(task_id='bash_task',
+                               bash_command='echo "Good morning my diggers!"')
+
+count_rows_task = PythonOperator(task_id='count_rows',
+                                 python_callable=count_rows,
+                                 provide_context=True,
+                                 dag=dag)
 
 fetch_exchange_rates_task = PythonOperator(task_id='fetch_exchange_rates_task',
                                            python_callable=fetch_exchange_rates,
+                                           provide_context=True,
                                            dag=dag)
 
-print_csv_all_rates = PythonOperator(task_id='print_csv_all_rates',
-                             python_callable=print_csv_all_rates,
-                             dag=dag)
+insert_values = PythonOperator(task_id='insert_values',
+                                python_callable=insert_values,
+                                provide_context=True,
+                                dag=dag)
 
-hello_bash_task >> fetch_exchange_rates_task >> print_csv_all_rates
+
+chek_sensor = PythonSensor(task_id='chek_sensor',
+                           python_callable=compliance_check,
+                           op_kwargs={'key': 'value'},
+                           soft_fail=True,
+                           poke_interval=30,
+                           mode="poke",
+                           timeout=5,    
+                            )
+
+
+create_total_table = PythonOperator(task_id = 'create_total_table',
+                                    python_callable=create_total_table,
+                                    dag=dag)
+
+
+hello_bash_task >> count_rows_task >> fetch_exchange_rates_task >> insert_values >> chek_sensor >> create_total_table
