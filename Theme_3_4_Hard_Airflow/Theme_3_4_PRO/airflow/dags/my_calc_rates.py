@@ -26,19 +26,19 @@ dag = DAG(dag_id='fetch_exchange_rates_dag',
 )
 
 
-# variables = Variable.set(key='currency_load_variables',
-#                             value={'url': 'https://api.exchangerate.host/latest',
-#                                 'connection_name': 'my_db_conn',
-#                                 'base_BTC': 'BTC',
-#                                 'base_EUR': 'EUR',
-#                                 'base_GBR': 'GBR',
-#                                 'base_JPY': 'JPY',
-#                                 'base_CNY': 'CNY',
-#                                 'bases': ['BTC', 'EUR', 'GBR', 'JPY', 'CNY'],
-#                                 'symbols': 'RUB',
-#                                 'format': 'CSV'},
-#                                 serialize_json=True
-#                                 )
+variables = Variable.set(key='currency_load_variables',
+                            value={'url': 'https://api.exchangerate.host/latest',
+                                'connection_name': 'my_db_conn',
+                                'base_BTC': 'BTC',
+                                'base_EUR': 'EUR',
+                                'base_GBR': 'GBR',
+                                'base_JPY': 'JPY',
+                                'base_CNY': 'CNY',
+                                'bases': ['BTC', 'EUR', 'GBR', 'JPY', 'CNY'],
+                                'symbols': 'RUB',
+                                'format': 'CSV'},
+                                serialize_json=True
+                                )
 
 dag_variables = Variable.get('currency_load_variables', deserialize_json=True)
 
@@ -66,6 +66,18 @@ def count_rows(**kwargs):
     cur = conn.cursor()
     for base in bases:
         table_name = f'exchange_rates_{base}'
+        create_table_query = f"""
+        CREATE TABLE IF NOT EXISTS {table_name} (
+            exchange_id VARCHAR,
+            exchange_rate DECIMAL,
+            base_exchange VARCHAR,
+            date DATE,
+            time_value TIMESTAMP);
+        """
+        print(f'Create a new table exchange_latest_{base}')
+        cur.execute(create_table_query)
+        conn.commit()
+
         sql_query = f"""SELECT COUNT(*) FROM {table_name}"""
         cur.execute(sql_query)      
         row_count = cur.fetchone()[0] 
@@ -101,19 +113,7 @@ def insert_values(**kwargs):
         task_instance = kwargs['ti']
         results = task_instance.xcom_pull(key=f'results_{base}')
         table_name = f'exchange_rates_{base}'
-
-        create_table_query = f"""
-        CREATE TABLE IF NOT EXISTS {table_name} (
-            exchange_id VARCHAR,
-            exchange_rate DECIMAL,
-            base_exchange VARCHAR,
-            date DATE,
-            time_value TIMESTAMP);
-        """
-        print(f'Create a new table exchange_latest_{base}')
-        cur.execute(create_table_query)
-        conn.commit()
-
+        
         insert_values = f""" 
         INSERT INTO {table_name} 
             (exchange_id, exchange_rate, base_exchange, date, time_value) 
@@ -149,7 +149,7 @@ def compliance_check(**kwargs):
             count          
     conn.commit()
     cur.close()
-    if count == 5:
+    if count == len(bases):
         return True
     else:
         return False
