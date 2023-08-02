@@ -83,9 +83,7 @@ conn = psycopg2.connect(host=pg_hostname, port=pg_port, user=pg_username, passwo
 folder_path = dag_variables.get('path')
 csv_file_path = dag_variables.get('csv_file_path')
 
-# create_folder_command = f'mkdir -p {folder_path}supermarket_1'
-
-def download_csv_1():
+def download_csv():
     base_url = dag_variables.get('base_url')
     public_key = dag_variables.get('public_key')
     final_url = base_url + urlencode(dict(public_key=public_key))
@@ -96,14 +94,6 @@ def download_csv_1():
     download_response = requests.get(download_url)
     with open(csv_file_path, 'wb') as f:
         f.write(download_response.content)
-
-def download_csv_2():
-    url = dag_variables.get('csv_github_path')
-    response = requests.get(url)
-
-    with open(csv_file_path, 'wb') as f:
-        f.write(response.content)
-
 
 def load_table_from_csv():
     cur = conn.cursor()
@@ -236,8 +226,7 @@ create_folder_task = BashOperator(
 
 yandex_task = PythonOperator(
     task_id='yandex_task',
-    python_callable=download_csv_1,
-    trigger_rule='all_success', # все задачи успешно выполнены
+    python_callable=download_csv,
     dag=dag
 )
 

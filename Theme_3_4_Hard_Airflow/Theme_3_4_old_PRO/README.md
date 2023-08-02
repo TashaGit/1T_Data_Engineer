@@ -1,4 +1,4 @@
-# Задание 3.4 Погружение в Airflow
+# Задание 3.4 ПРО
 ```
 Задание ПРО
 
@@ -83,35 +83,29 @@
 2. Распаковать в нужную папку;
 3. В терминале перейти в папку, в которой находится 'docker-compose.yml' и выполнить команду ***docker-compose up -d***;
 4. Файл со скриптом создания DAG: [my_calc_rates.py](./airflow/dags/my_calc_rates.py)
-
-PS: для удобства проверки задания Variables закоммичен в файле [my_calc_rates.py](./airflow/dags/my_calc_rates.py), чтобы скопировать 
-оттуда его параметры и прописать в web-интерфейсе. 
+5. Запустить Airflow в браузере по адресу: http://localhost:8080;
+6. Создать connection (Admin->connections), в котором прописать настройки соединения к БД raw_store, как показано 
+на скриншоте: ![graph.jpg](pictures/connection1.jpg);
+7. Создать connection (Admin->connections) для работы FileSensor, который проверяет наличие файла в папке, как показано
+на скриншоте: ![graph.jpg](pictures/connection2.jpg);
+PS: для удобства проверки задания Variables создан в коде файла [my_calc_rates.py](./airflow/dags/my_calc_rates.py).
 
 ## Скрины работы приложения:
 
 ### 1. GRAPH.
-![graph.jpg](pictures/graph.jpg)
+![graph.jpg](pictures/GRAPH.jpg)
 
-### 2. Файл - скрин BashOperator с выводом в логи фразы «Good morning my diggers!»: 
-![bashoperator.jpg](pictures/bashoperator.jpg)
+### 2. Файл - скрин ER диаграммы: 
+![ER.jpg](pictures/test%20-%20public.bmp)
 
-### 3. Файл - скрин Connections: 
-![Connections.jpg](pictures/Connections.jpg)
+### 3. Файл - скрин Витрины 1: 
+![mart1.jpg](pictures/mart1.jpg)
 
-### 4. Файл - скрин Variables: 
-![Variables.jpg](pictures/Variables.jpg)
+### 4. Файл - скрин вывода на печать случайной категории в log: 
+![random_cat_mart_2.jpg](pictures/random_cat_mart_2.jpg)
 
-### 5. Файл - скрин мягкого завершения Dag'а в случае отсутствия новой строки в таблице: 
-![end_dag.jpg](pictures/end_dag.jpg)
+### 5. Файл - скрин Витрины 2: 
+![mart2.jpg](pictures/mart2.jpg)
 
-### 6. Файлы - скрины таблиц расчета средних значений для валюты:
-#### - BTC
-![dbeaver_btc.jpg](pictures/dbeaver_btc.jpg)
-#### - CNY
-![dbeaver_cny.jpg](pictures/dbeaver_cny.jpg)
-#### - EUR
-![dbeaver_eur.jpg](pictures/dbeaver_eur.jpg)
-#### - GBR (почему-то сайт "отдает" название EUR, но значение выводит правильное, курс английского фунта стерлингов)
-![dbeaver_gbr.jpg](pictures/dbeaver_gbr.jpg)
-#### - JPY
-![dbeaver_jpy.jpg](pictures/dbeaver_jpy.jpg)
+### 6. Файл - скрин запуска DAG: 
+![dag_airflow.jpg](pictures/dag_airflow.jpg)
