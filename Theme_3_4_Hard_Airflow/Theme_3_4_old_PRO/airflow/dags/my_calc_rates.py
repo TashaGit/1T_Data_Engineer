@@ -4,7 +4,7 @@ from airflow import DAG
 from airflow.operators.bash_operator import BashOperator
 from airflow.contrib.sensors.file_sensor import FileSensor
 from airflow.operators.python_operator import PythonOperator
-from airflow.operators.postgres_operator import PostgresOperator
+from airflow.operators.python_operator import BranchPythonOperator
 from airflow.operators.dummy_operator import DummyOperator
 from airflow.utils.dates import days_ago
 from airflow.models import Variable
@@ -176,6 +176,53 @@ def execute_dml():
     conn.commit()
 
 
+def create_mart_1():
+    cur = conn.cursor()
+    sql_query = """
+        DROP TABLE IF EXISTS mart_1 CASCADE;
+        CREATE TABLE mart_1 AS
+            SELECT EXTRACT(YEAR FROM order_date) AS year_sale,
+                   category_name,
+                   SUM(sales * quantity) total_order_amount
+            FROM orders o
+            JOIN products p ON p.product_id = o.product_id 
+            JOIN categories c ON p.category_id = c.category_id 
+            WHERE segment = 'Corporate'
+            GROUP BY year_sale, category_name
+            ORDER BY year_sale, category_name;
+    """
+    cur.execute(sql_query)
+    conn.commit()
+
+
+def get_random_category(**kwargs):
+    cur = conn.cursor()
+    cur.execute("""SELECT category_name FROM categories ORDER BY RANDOM() LIMIT 1;""")
+    random_category_id = cur.fetchone()[0]
+    print(f'Случайная выбранная категория: {random_category_id}')
+    kwargs['ti'].xcom_push(key='random_category_id', value=random_category_id)
+
+
+def create_mart_2(**kwargs):
+    cur = conn.cursor()
+    random_category_id = kwargs['ti'].xcom_pull(key='random_category_id')
+    sql_query = """
+            DROP TABLE IF EXISTS mart_2 CASCADE;
+            CREATE TABLE mart_2 AS
+                SELECT EXTRACT(YEAR FROM order_date) year_sale, category_name, sub_category_name, SUM(sales * quantity) total_order_amount 
+                FROM orders o 
+                JOIN products p ON o.product_id = p.product_id 
+                JOIN sub_categories sc ON sc.sub_category_id = p.sub_category_id 
+                JOIN categories c ON c.category_id = p.category_id 
+                WHERE EXTRACT(YEAR FROM order_date)=2015 AND c.category_name = '{}'
+                GROUP BY EXTRACT(YEAR FROM order_date), category_name, sub_category_name;
+     """.format(random_category_id)
+    cur.execute(sql_query)
+    conn.commit()
+    cur.close()
+    conn.close()
+
+
 start_task = DummyOperator(
     task_id='start',
     dag=dag,
@@ -193,13 +240,6 @@ yandex_task = PythonOperator(
     trigger_rule='all_success', # все задачи успешно выполнены
     dag=dag
 )
-
-# github_task = PythonOperator(
-#     task_id='github_task',
-#     python_callable=download_csv_2,
-#     trigger_rule='none_success',
-#     dag=dag
-# )
 
 wait_for_file = FileSensor(
     task_id='wait_for_file',
@@ -236,5 +276,32 @@ execute_dml = PythonOperator(
 	dag=dag
 )
 
-# yandex_task >> github_task
-start_task >> create_folder_task >> yandex_task >> wait_for_file >> load_raw_task >> update_date_column >> execute_ddl >> execute_dml
+create_mart_1 = PythonOperator(
+     task_id='create_mart_1',
+     python_callable=create_mart_1,
+     dag=dag,
+)
+
+get_random_category = PythonOperator(
+     task_id='get_random_category',
+     python_callable=get_random_category,
+     provide_context=True,
+     dag=dag
+)
+
+create_mart_2 = BranchPythonOperator(
+    task_id='create_mart_2',
+    python_callable=create_mart_2,
+    provide_context=True,
+    retries=3,
+    retry_delay=timedelta(seconds=10),
+    dag=dag
+)
+
+end_task = DummyOperator(
+    task_id='end',
+    dag=dag
+)
+
+start_task >> create_folder_task >> yandex_task >> wait_for_file >> load_raw_task >> update_date_column >> \
+execute_ddl >> execute_dml >> create_mart_1 >> get_random_category >> create_mart_2 >> end_task
