@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/><style>
+table {border: medium solid #6495ed;border-collapse: collapse;width: 100%;} th{font-family: monospace;border: thin solid #6495ed;padding: 5px;background-color: #D0E3FA;}td{font-family: sans-serif;border: thin solid #6495ed;padding: 5px;text-align: center;}.odd{background:#e8edff;}img{padding:5px; border:solid; border-color: #dddddd #aaaaaa #aaaaaa #dddddd; border-width: 1px 2px 2px 1px; background-color:white;}</style>
+</head>
+<body>
+<table><tr><th colspan="1">EXPLAIN SELECT <br>   product_name,<br>   sum(price * amount) AS total_sales<br>FROM <br>   sales <br>   JOIN products USING (product_id)<br>WHERE <br>   product_id = 13 AND order_time BETWEEN '2023-06-01' AND '2023-06-20'<br>GROUP BY product_name<br>ORDER BY product_name</th></tr><tr><th>QUERY PLAN</th></tr><tr class="odd"><td>Gather Motion 4:1  (slice3; segments: 4)  (cost=0.00..437.00 rows=1 width=16)</td></tr>
+<tr><td>  Merge Key: products.product_name</td></tr>
+<tr class="odd"><td>  -&gt;  Sort  (cost=0.00..437.00 rows=1 width=16)</td></tr>
+<tr><td>        Sort Key: products.product_name</td></tr>
+<tr class="odd"><td>        -&gt;  GroupAggregate  (cost=0.00..437.00 rows=1 width=16)</td></tr>
+<tr><td>              Group Key: products.product_name</td></tr>
+<tr class="odd"><td>              -&gt;  Sort  (cost=0.00..437.00 rows=1 width=16)</td></tr>
+<tr><td>                    Sort Key: products.product_name</td></tr>
+<tr class="odd"><td>                    -&gt;  Redistribute Motion 4:4  (slice2; segments: 4)  (cost=0.00..437.00 rows=1 width=16)</td></tr>
+<tr><td>                          Hash Key: products.product_name</td></tr>
+<tr class="odd"><td>                          -&gt;  Result  (cost=0.00..437.00 rows=1 width=16)</td></tr>
+<tr><td>                                -&gt;  GroupAggregate  (cost=0.00..437.00 rows=1 width=16)</td></tr>
+<tr class="odd"><td>                                      Group Key: products.product_name</td></tr>
+<tr><td>                                      -&gt;  Sort  (cost=0.00..437.00 rows=1 width=73)</td></tr>
+<tr class="odd"><td>                                            Sort Key: products.product_name</td></tr>
+<tr><td>                                            -&gt;  Nested Loop  (cost=0.00..437.00 rows=1 width=73)</td></tr>
+<tr class="odd"><td>                                                  Join Filter: true</td></tr>
+<tr><td>                                                  -&gt;  Redistribute Motion 4:4  (slice1; segments: 4)  (cost=0.00..431.00 rows=1 width=8)</td></tr>
+<tr class="odd"><td>                                                        Hash Key: sales.product_id</td></tr>
+<tr><td>                                                        -&gt;  Result  (cost=0.00..431.00 rows=1 width=8)</td></tr>
+<tr class="odd"><td>                                                              -&gt;  Sequence  (cost=0.00..431.00 rows=1 width=16)</td></tr>
+<tr><td>                                                                    -&gt;  Partition Selector for sales (dynamic scan id: 1)  (cost=10.00..100.00 rows=25 width=4)</td></tr>
+<tr class="odd"><td>                                                                          Partitions selected: 1 (out of 12)</td></tr>
+<tr><td>                                                                    -&gt;  Dynamic Seq Scan on sales (dynamic scan id: 1)  (cost=0.00..431.00 rows=1 width=16)</td></tr>
+<tr class="odd"><td>                                                                          Filter: ((product_id = 13) AND (order_time &gt;= '2023-06-01 00:00:00'::timestamp without time zone) AND (order_time &lt;= '2023-06-20 00:00:00'::timestamp without time zone))</td></tr>
+<tr><td>                                                  -&gt;  Index Scan using products_pkey on products  (cost=0.00..6.00 rows=1 width=69)</td></tr>
+<tr class="odd"><td>                                                        Index Cond: ((product_id = sales.product_id) AND (product_id = 13))</td></tr>
+<tr><td>Optimizer: Pivotal Optimizer (GPORCA)</td></tr>
+</table></body></html>
