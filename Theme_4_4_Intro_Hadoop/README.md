@@ -20,7 +20,7 @@ cmd → docker-compose up
 Вспоминаем уроки литературы — переходим на следующий ресурс и скачиваем все доступные тома произведения «Война и мир» 
 Л.Н. Толстого: https://all-the-books.ru/authors/tolstoy-lev-nikolaevich/
 ```
-#### Файлы скачаны и лежат в папке:
+#### Файлы скачаны и лежат в папке:  [files](./files/)
 
 
 #### Находим CONTAINER ID "datanode-1":
@@ -40,6 +40,7 @@ c1a41e8eed3e   bde2020/hadoop-datanode:2.0.0-hadoop2.7.4-java8          "/entryp
 2bcc916c9215   bde2020/hadoop-resourcemanager:2.0.0-hadoop2.7.4-java8   "/entrypoint.sh /run…"   About an hour ago   Up About an hour (healthy)   8088/tcp                                       docker-hadoop-hive-parquet-resourcemanager-1
 6081b3b2ec54   postgres:12.1-alpine                                     "docker-entrypoint.s…"   About an hour ago   Up About an hour             0.0.0.0:3243->5432/tcp                         docker-hadoop-hive-parquet-huedb-1
 ```
+
 
 #### Подключаемся к контейнеру «datanode-1» и создадим внутри папку vim:
 input:
@@ -63,6 +64,7 @@ output:
 ```
 bin  games  include  lib  local  sbin  share  src  vim
 ```
+
 
 #### Объединим 4 тома "Война и мир" в 1 файл vim.txt:
 input:
@@ -93,7 +95,8 @@ output:
 Successfully copied 3.05MB to c1a41e8eed3e:/usr/vim/
 ```
 
-#### Проверим содержимое папки и права доступа к файлам в нашей папке: [Папка](./files/)
+
+#### Проверим содержимое папки и права доступа к файлам в нашей папке:
 
 input:
 
@@ -105,6 +108,7 @@ output:
 Found 1 items
 -rw-r--r--   3 root marinaz    3048008 2023-08-12 22:33 /user/marinaz/vim.txt
 ```
+
 
 #### Установим режим доступа, который дает полный доступ для владельца файла, а для сторонних пользователей возможность читать и выполнять:
 + Первая цифра (7) обозначает права доступа владельца файла. Цифра 7 соответствует правам чтения, записи и выполнения 
@@ -120,6 +124,7 @@ input:
 root@c1a41e8eed3e:/usr/vim# hdfs dfs -chmod 755 /user/marinaz/vim.txt
 ```
 
+
 #### Попробуем заново использовать команду для вывода содержимого папки и обратим внимание, как изменились права доступа к файлу:
 input:
 
@@ -132,6 +137,7 @@ Found 1 items
 -rwxr-xr-x   3 root marinaz    3048008 2023-08-12 22:33 /user/marinaz/vim.txt
 ```
 
+
 #### Теперь попробуем вывести на экран информацию о том, сколько места на диске занимает наш файл в удобочитаемом формате:
 input:
 
@@ -142,6 +148,7 @@ output:
 ```
 2.9 M  /user/marinaz/vim.txt
 ```
+
 
 #### Занимаемое файлом место на диске с учетом репликации:
 input:
@@ -154,6 +161,7 @@ output:
 -rwxr-xr-x   3 root marinaz      2.9 M 2023-08-12 22:33 /user/marinaz/vim.txt
 ```
 
+
 #### Изменение фактора репликации на 2:
 input:
 
@@ -164,6 +172,7 @@ output:
 ```
 Replication 2 set: /user/marinaz/vim.txt
 ```
+
 
 #### Повторим команду, которая выводит информацию о том, какое место на диске занимает файл и убедимся, что изменения произошли:
 input:
@@ -176,6 +185,7 @@ output:
 -rwxr-xr-x   2 root marinaz      2.9 M 2023-08-12 22:33 /user/marinaz/vim.txt
 ```
 
+
 #### И финальное — напишем команду, которая подсчитывает количество строк в произведении «Война и мир»:
 input:
 
@@ -186,3 +196,7 @@ output:
 ```
 10272
 ```
+
+
+#### Скан интерфейса HUE:
+![hue.png](hue.png)
