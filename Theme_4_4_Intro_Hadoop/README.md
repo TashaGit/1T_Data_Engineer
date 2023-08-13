@@ -94,7 +94,11 @@ output:
 ```
 Successfully copied 3.05MB to c1a41e8eed3e:/usr/vim/
 ```
+input:
 
+```
+root@c1a41e8eed3e:/usr/vim# hdfs dfs -copyFromLocal vim.txt /user/marinaz
+```
 
 #### Проверим содержимое папки и права доступа к файлам в нашей папке:
 
