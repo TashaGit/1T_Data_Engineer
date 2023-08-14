@@ -64,7 +64,11 @@ output:
 ```
 bin  games  include  lib  local  sbin  share  src  vim
 ```
+input:
 
+```
+exit
+```
 
 #### Объединим 4 тома "Война и мир" в 1 файл vim.txt:
 input:
@@ -97,6 +101,8 @@ Successfully copied 3.05MB to c1a41e8eed3e:/usr/vim/
 input:
 
 ```
+C:\Users\mazav>docker exec -it c1a41e8eed3e bash
+root@c1a41e8eed3e:/# cd /usr/vim
 root@c1a41e8eed3e:/usr/vim# hdfs dfs -copyFromLocal vim.txt /user/marinaz
 ```
 
