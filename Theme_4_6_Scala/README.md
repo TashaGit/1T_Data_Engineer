@@ -68,11 +68,11 @@
 
 ### 1. Файл [scala_intro.scala](./Scala_intro/src/main/scala/scala_intro.scala) реализует логику из задания 2 и 3 'a'.
 
-#### Собранный файл .jar: [scala_intro.jar](Scala_intro%2Fscala_intro.jar)
+#### Собранный файл .jar: [Scala_intro.jar](Scala_intro%2FScala_intro.jar)
 
 Для запуска программы необходимо в командной строке перейти в папку [./Scala_intro/](./Scala_intro/), где лежит файл, и выполнить команду:
 
-```java -jar scala_intro.jar```
+```java -jar Scala_intro.jar```
 
 ### Работа программы в терминале отражена на картинке:
 ![jar.png](./pictures/jar.png)
