@@ -68,7 +68,7 @@
 
 ### 1. Файл [scala_intro.scala](./Scala_intro/src/main/scala/scala_intro.scala) реализует логику из задания 2 и 3 'a'.
 
-#### Собранный файл .jar: [Scala_intro.jar](Scala_intro%2FScala_intro.jar)
+#### Собранный файл .jar: ```./Scala_intro/Scala_intro.jar```
 
 Для запуска программы необходимо в командной строке перейти в папку [./Scala_intro/](./Scala_intro/), где лежит файл, и выполнить команду:
 
@@ -133,7 +133,7 @@
 
 ### Работу программы можно проверить в среде Intellij IDEA(IntelliJ IDEA), запустив object Main в файле scala_new.scala, или запустив файл scala_new.jar:
 
-### Собранный файл .jar: [scala_new.jar](Scala_intro%2Fscala_new.jar)
+#### Собранный файл .jar: ```./Scala_intro/scala_new.jar```
 
 Для запуска программы необходимо в командной строке перейти в папку [./Scala_intro/](./Scala_intro/), где лежит файл, и выполнить команду:
 
