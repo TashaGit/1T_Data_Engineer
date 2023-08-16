@@ -93,9 +93,7 @@ object SalarySortedList {
 
 object EmployeeRanking {
   import SalarySortedList.updatedSalaries
-
-  // Так как updatedRanking теперь используется в других объектах, нужно сделать его public
-  val updatedRanking: List[(Int, Double)] = { // Добавть блок инициализации
+  val updatedRanking: List[(Int, Double)] = {
     val newEmployeeSalary = 130000
     val newUpdatedSalaries: List[Double] = updatedSalaries :+ newEmployeeSalary
     val sortedSalaries = newUpdatedSalaries.sorted
@@ -117,6 +115,10 @@ object EmployeeRanking {
   }
 }
 
+
+import scala.io.StdIn.{readDouble}
+
+// Other objects remains unchanged
 
 object MiddleLevelEmployees {
   import EmployeeRanking._
@@ -141,14 +143,13 @@ object MiddleLevelEmployees {
   }
 }
 
-
 object SalaryIncrease {
-  import SalarySortedList.updatedSalaries
+  import EmployeeRanking.updatedRanking
 
-  val increasedSalaries: List[(Int, Double, Double)] = updatedSalaries.zipWithIndex.map {
-    case (salary, index) =>
+  val increasedSalaries: List[(Int, Double, Double)] = updatedRanking.map {
+    case (position, salary) =>
       val updatedSalary = salary * 1.07
-      (index + 1, salary, updatedSalary)
+      (position, salary, updatedSalary)
   }
 
   def main(args: Array[String]): Unit = {

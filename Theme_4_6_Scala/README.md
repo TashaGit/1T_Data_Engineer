@@ -68,13 +68,13 @@
 
 ### 1. Файл [scala_intro.scala](./Scala_intro/src/main/scala/scala_intro.scala) реализует логику из задания 2 и 3 'a'.
 
-Собранный файл .jar: [Scala_intro.jar](./Scala_intro/Scala_intro.jar)
+#### Собранный файл .jar: [scala_intro.jar](Scala_intro%2Fscala_intro.jar)
 
 Для запуска программы необходимо в командной строке перейти в папку [./Scala_intro/](./Scala_intro/), где лежит файл, и выполнить команду:
 
-```java -jar Scala_intro.jar```
+```java -jar scala_intro.jar```
 
-### Работа программы отражена на картинке:
+### Работа программы в терминале отражена на картинке:
 ![jar.png](./pictures/jar.png)
 
 ### 2. Файл [scala_new.scala](./Scala_intro/src/main/scala/scala_new.scala) реализует логику из заданий 3 'b' - 3 'h'.
@@ -131,9 +131,16 @@
 
     Расчет производится автоматически.
 
+### Работу программы можно проверить в среде Intellij IDEA(IntelliJ IDEA), запустив object Main в файле scala_new.scala, или запустив файл scala_new.jar:
 
-### Скрин вывода в терминале:
-![3b_3d.png](pictures%2F3b_3d.png)
-![3e.png](pictures%2F3e.png)
+### Собранный файл .jar: [scala_new.jar](Scala_intro%2Fscala_new.jar)
+
+Для запуска программы необходимо в командной строке перейти в папку [./Scala_intro/](./Scala_intro/), где лежит файл, и выполнить команду:
+
+```java -jar scala_new.jar```
+
+### Работа программы в терминале отражена на картинке:
+
+![3b-e.png](pictures%2F3b-e.png)
 ![3f - 3g.png](pictures%2F3f%20-%203g.png)
 ![3h.png](pictures%2F3h.png)
