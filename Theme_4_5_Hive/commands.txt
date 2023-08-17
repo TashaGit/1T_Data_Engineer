@@ -1,33 +1,45 @@
 C:\Users\mazav>docker ps
-CONTAINER ID   IMAGE                                                    COMMAND                  CREATED             STATUS                       PORTS                                          NAMES
-346d4ac54f38   gethue/hue:4.6.0                                         "./startup.sh"           About an hour ago   Up About an hour             0.0.0.0:8888->8888/tcp                         docker-hadoop-hive-parquet-hue-1
-181e175b0660   bde2020/hive:2.3.2-postgresql-metastore                  "entrypoint.sh /opt/…"   About an hour ago   Up About an hour             10000/tcp, 0.0.0.0:9083->9083/tcp, 10002/tcp   docker-hadoop-hive-parquet-hive-metastore-1
-b1683cdc6f53   bde2020/hive-metastore-postgresql:2.3.0                  "/docker-entrypoint.…"   About an hour ago   Up About an hour             0.0.0.0:5432->5432/tcp                         docker-hadoop-hive-parquet-hive-metastore-postgresql-1
-59dc2ef3a2a1   bde2020/hadoop-datanode:2.0.0-hadoop2.7.4-java8          "/entrypoint.sh /run…"   About an hour ago   Up About an hour (healthy)   0.0.0.0:50075->50075/tcp                       docker-hadoop-hive-parquet-datanode-1
-f1f5deb81056   bde2020/hadoop-resourcemanager:2.0.0-hadoop2.7.4-java8   "/entrypoint.sh /run…"   About an hour ago   Up About an hour (healthy)   8088/tcp                                       docker-hadoop-hive-parquet-resourcemanager-1
-588fbf565aec   postgres:12.1-alpine                                     "docker-entrypoint.s…"   About an hour ago   Up About an hour             0.0.0.0:9468->5432/tcp                         docker-hadoop-hive-parquet-huedb-1
-1a8e5bb008f9   bde2020/hadoop-namenode:2.0.0-hadoop2.7.4-java8          "/entrypoint.sh /run…"   About an hour ago   Up About an hour (healthy)   0.0.0.0:50070->50070/tcp                       docker-hadoop-hive-parquet-namenode-1
-19b9a4218ce8   bde2020/hive:2.3.2-postgresql-metastore                  "entrypoint.sh /bin/…"   About an hour ago   Up About an hour             0.0.0.0:10000->10000/tcp, 10002/tcp            docker-hadoop-hive-parquet-hive-server-1
+CONTAINER ID   IMAGE                                                    COMMAND                  CREATED          STATUS                             PORTS                                          NAMES
+13215789abc8   gethue/hue:4.6.0                                         "./startup.sh"           21 minutes ago   Up 27 seconds                      0.0.0.0:8888->8888/tcp                         docker-hadoop-hive-parquet-hue-1
+34d2b8af8a80   bde2020/hive-metastore-postgresql:2.3.0                  "/docker-entrypoint.…"   21 minutes ago   Up 28 seconds                      0.0.0.0:5432->5432/tcp                         docker-hadoop-hive-parquet-hive-metastore-postgresql-1
+b337f1d7da9f   bde2020/hive:2.3.2-postgresql-metastore                  "entrypoint.sh /bin/…"   21 minutes ago   Up 27 seconds                      0.0.0.0:10000->10000/tcp, 10002/tcp            docker-hadoop-hive-parquet-hive-server-1
+c2748ae1795d   bde2020/hadoop-namenode:2.0.0-hadoop2.7.4-java8          "/entrypoint.sh /run…"   21 minutes ago   Up 27 seconds (health: starting)   0.0.0.0:50070->50070/tcp                       docker-hadoop-hive-parquet-namenode-1
+1ba511129b0e   bde2020/hadoop-datanode:2.0.0-hadoop2.7.4-java8          "/entrypoint.sh /run…"   21 minutes ago   Up 28 seconds (health: starting)   0.0.0.0:50075->50075/tcp                       docker-hadoop-hive-parquet-datanode-1
+2ef5c3fa5882   bde2020/hive:2.3.2-postgresql-metastore                  "entrypoint.sh /opt/…"   21 minutes ago   Up 27 seconds                      10000/tcp, 0.0.0.0:9083->9083/tcp, 10002/tcp   docker-hadoop-hive-parquet-hive-metastore-1
+6f0f9f65b0c4   postgres:12.1-alpine                                     "docker-entrypoint.s…"   21 minutes ago   Up 27 seconds                      0.0.0.0:1975->5432/tcp                         docker-hadoop-hive-parquet-huedb-1
+bf295d43d612   bde2020/hadoop-resourcemanager:2.0.0-hadoop2.7.4-java8   "/entrypoint.sh /run…"   21 minutes ago   Up 28 seconds (health: starting)   8088/tcp                                       docker-hadoop-hive-parquet-resourcemanager-1
 
-C:\Users\mazav>docker exec -it 59dc2ef3a2a1 bash
-root@59dc2ef3a2a1:/# ls
+C:\Users\mazav>docker exec -it 1ba511129b0e bash
+root@1ba511129b0e:/# ls
 bin   dev            etc     hadoop-data  lib    media  opt   root  run.sh  srv  tmp  var
 boot  entrypoint.sh  hadoop  home         lib64  mnt    proc  run   sbin    sys  usr
-root@59dc2ef3a2a1:/# cd usr
-root@59dc2ef3a2a1:/usr# ls
+root@1ba511129b0e:/# cd usr
+root@1ba511129b0e:/usr# mkdir csv_files
+
+root@1ba511129b0e:/usr# ls
 bin  csv_files  games  include  lib  local  sbin  share  src
-root@59dc2ef3a2a1:/usr# exit
+root@1ba511129b0e:/usr# docker cp d:\Study\1T_Data_Engineer\1T_Data\Theme_4_5_Hive\csv_files\customers.csv 1ba511129b0e:
+/usr/csv_files/
+bash: docker: command not found
+root@1ba511129b0e:/usr# exit
 exit
 
-C:\Users\mazav>docker cp d:/Study/1T_Data_Engineer/1T_Data/Theme_4_5_Hive/csv_files/ 59dc2ef3a2a1:usr/csv_file
-Successfully copied 43.9MB to 59dc2ef3a2a1:usr/csv_file
+C:\Users\mazav>docker cp d:\Study\1T_Data_Engineer\1T_Data\Theme_4_5_Hive\csv_files\customers.csv 1ba511129b0e:/usr/csv_
+files/
+Successfully copied 17.8MB to 1ba511129b0e:/usr/csv_files/
 
-C:\Users\mazav>docker exec -it 59dc2ef3a2a1 bash
-root@59dc2ef3a2a1:/# hdfs dfs -ls /user/marinaz/
-root@59dc2ef3a2a1:/# cd usr/csv_file
-root@59dc2ef3a2a1:/usr/csv_file# ls
-customers.csv  organizations.csv  people.csv
-root@59dc2ef3a2a1:/usr/csv_file# hdfs dfs -copyFromLocal customers.csv  organizations.csv  people.csv /user/marinaz
-root@59dc2ef3a2a1:/usr/csv_file# hdfs dfs -chmod 755 /user/marinaz/customers.csv
-root@59dc2ef3a2a1:/usr/csv_file# hdfs dfs -chmod 755 /user/marinaz/organizations.csv
-root@59dc2ef3a2a1:/usr/csv_file# hdfs dfs -chmod 755 /user/marinaz/people.csv
+C:\Users\mazav>docker cp d:\Study\1T_Data_Engineer\1T_Data\Theme_4_5_Hive\csv_files\people.csv 1ba511129b0e:/usr/csv_files/
+Successfully copied 11.7MB to 1ba511129b0e:/usr/csv_files/
+
+C:\Users\mazav>docker cp d:\Study\1T_Data_Engineer\1T_Data\Theme_4_5_Hive\csv_files\organizations.csv 1ba511129b0e:/usr/csv_files/
+Successfully copied 14.1MB to 1ba511129b0e:/usr/csv_files/
+
+C:\Users\mazav>docker exec -it 1ba511129b0e bash
+root@1ba511129b0e:/# cd usr
+root@1ba511129b0e:/usr# cd csv_files
+root@1ba511129b0e:/usr/csv_files# ls
+csv_files  customers.csv  organizations.csv  people.csv
+root@1ba511129b0e:/usr/csv_files# hdfs dfs -copyFromLocal customers.csv  organizations.csv  people.csv /user/marinaz
+root@1ba511129b0e:/usr/csv_files# hdfs dfs -chmod 755 /user/marinaz/customers.csv
+root@1ba511129b0e:/usr/csv_files# hdfs dfs -chmod 755 /user/marinaz/organizations.csv
+root@1ba511129b0e:/usr/csv_files# hdfs dfs -chmod 755 /user/marinaz/people.csv
