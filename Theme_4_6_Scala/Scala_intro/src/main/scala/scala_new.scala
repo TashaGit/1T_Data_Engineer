@@ -16,11 +16,9 @@ object Main {
     MiddleLevelEmployees.main(args)
     println("\nЗадание 3 h :")
     SalaryIncrease.main(args)
-    println("\nЗадание 3 i :")
-    MarketSalary.main(args)
-    println("\nЗадание PRO 1 :")
   }
 }
+
 
 object SalaryCalculator {
   val monthlySalary: Double = {
@@ -30,6 +28,7 @@ object SalaryCalculator {
     val bonusPercent = readDouble()
     print("Введите сумму компенсации за питание: ")
     val foodCompensation = readDouble()
+
     val totalIncome = annualIncome + (annualIncome * bonusPercent / 100) + foodCompensation
     val taxableAmount = totalIncome * 0.13 // 13% налог
     val afterTaxIncome = totalIncome - taxableAmount
@@ -40,6 +39,7 @@ object SalaryCalculator {
     println(f"Месячный доход за вычетом налогов: $monthlySalary%.2f")
   }
 }
+
 
 object SalaryDeviationCalculator {
   import SalaryCalculator._
@@ -54,6 +54,7 @@ object SalaryDeviationCalculator {
   }
 }
 
+
 object AdjustedSalaryCalculator {
   import SalaryCalculator._
   import SalaryDeviationCalculator._
@@ -64,13 +65,16 @@ object AdjustedSalaryCalculator {
       if (lastDeviation > 0) monthlySalary + 20000
       else monthlySalary - 10000
     }
+
     val updatedSalaries = salaries.dropRight(1) :+ adjustedMonthlySalary
     val minSalary = updatedSalaries.min
     val maxSalary = updatedSalaries.max
+
     println(f"Самая низкая зарплата: $minSalary%.2f")
     println(f"Самая высокая зарплата: $maxSalary%.2f")
   }
 }
+
 
 object SalarySortedList {
   import SalaryDeviationCalculator.salaries
@@ -85,13 +89,14 @@ object SalarySortedList {
   }
 }
 
+
 object EmployeeRanking {
   import SalarySortedList.updatedSalaries
-
   val updatedRanking: List[(Int, Double)] = {
     val newEmployeeSalary = 130000
     val newUpdatedSalaries: List[Double] = updatedSalaries :+ newEmployeeSalary
     val sortedSalaries = newUpdatedSalaries.sorted
+
     sortedSalaries.zipWithIndex.map { case (salary, index) => (index + 1, salary) }
   }
 
@@ -99,12 +104,20 @@ object EmployeeRanking {
     val newEmployeeSalary = 130000
     val newUpdatedSalaries: List[Double] = updatedSalaries :+ newEmployeeSalary
     val sortedSalaries = newUpdatedSalaries.sorted
+
     val newEmployeePosition = sortedSalaries.indexOf(newEmployeeSalary) + 1
+
     println("Порядковый номер нового сотрудника: " + newEmployeePosition)
     println("Обновленный отсортированный список зарплат:")
+
     updatedRanking.foreach { case (position, salary) => println(s"$position: $salary") }
   }
 }
+
+
+import scala.io.StdIn.{readDouble}
+
+// Other objects remains unchanged
 
 object MiddleLevelEmployees {
   import EmployeeRanking._
@@ -113,10 +126,12 @@ object MiddleLevelEmployees {
     print("Введите минимальную зарплату специалиста уровня middle: ")
     readDouble()
   }
+
   val maxMiddleSalary: Double = {
     print("Введите максимальную зарплату специалиста уровня middle: ")
     readDouble()
   }
+
   val middleLevelEmployees: List[(Int, Double)] = EmployeeRanking.updatedRanking.filter {
     case (_, salary) => salary >= minMiddleSalary && salary <= maxMiddleSalary
   }
@@ -142,29 +157,5 @@ object SalaryIncrease {
       case (position, oldSalary, newSalary) =>
         println(f"$position: $oldSalary%.2f -> $newSalary%.2f")
     }
-  }
-}
-
-object MarketSalary {
-  import MiddleLevelEmployees._
-  import SalaryIncrease.increasedSalaries
-
-  val juniorLevel = "junior"
-  val middleLevel = "middle"
-  val seniorLevel = "senior"
-
-  val marketSalaryList: List[(Int, Double, String)] = {
-    increasedSalaries.map { case (position, _, salary) =>
-      if (salary < minMiddleSalary) (position, salary, juniorLevel)
-      else if (salary >= minMiddleSalary && salary <= maxMiddleSalary) (position, salary, middleLevel)
-      else (position, salary, seniorLevel)
-    }
-  }
-
-  def main(args: Array[String]): Unit = {
-    println(s"Зарплата по рынку труда для специалистов:\\n")
-    println(s"Порядковый номер | Зарплата | Уровень")
-    marketSalaryList.foreach { case (position, salary, level) =>
-      println(f"$position: \\t\\t $salary%.2f \\t\\t $level") }
   }
 }
