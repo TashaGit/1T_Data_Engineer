@@ -249,25 +249,6 @@ object SalaryExtremes {
   }
 }
 
-object ModifiedEmployeeData {
-  import MarketSalaryWithNames.employeeNames
-
-  val modifiedNames: List[String] = employeeNames.map { fullName =>
-    val name = fullName.split(" ")(1) // Получение фамилии и имени
-    val lowerCaseName = name.toLowerCase()
-    val removedVowels = lowerCaseName.filter(c => !"аеёиоуыэюя".contains(c))
-    val reversed = removedVowels.reverse
-    s"$reversed | $name"
-  }
-
-  def main(args: Array[String]): Unit = {
-    println("\nТабельный номер | Фамилия Имя | Уровень специалиста | Зарплата")
-    modifiedNames.zipWithIndex.foreach {
-      case (name, i) => println(s"${i+1} | $name |")
-    }
-  }
-}
-
 object MarketSalaryWithoutNames {
   import MarketSalaryWithNames.updatedEmployeeData
 
@@ -288,36 +269,5 @@ object MarketSalaryWithoutNames {
       case (position, modifiedName, level, adjustedSalary) =>
         println(f"$position: $modifiedName | $level | $adjustedSalary%.2f")
     }
-  }
-}
-
-object HelloWorld {
-  def main(args: Array[String]): Unit = {
-    val message = "Hello, Scala!"
-    val secondMessage = " and goodbye python!"
-    val result = processMessage(message, secondMessage)
-    println(result)
-  }
-
-  def processMessage(message: String, secondMessage: String): String = {
-    // Выводим фразу на печать
-    println(message)
-
-    // Выводим фразу справа налево, используя метод reverse
-    println(message.reverse)
-
-    // Переводим всю фразу в нижний регистр, используя метод toLowerCase
-    val lowerCaseMessage = message.toLowerCase
-    println(lowerCaseMessage)
-
-    // Удаляем символ !, используя метод replace
-    val modifiedMessage = lowerCaseMessage.replace("!", "")
-    println(modifiedMessage)
-
-    // Добавляем в конец фразы, используя метод concat
-    val finalMessage = modifiedMessage.concat(secondMessage)
-    println(finalMessage)
-
-    finalMessage
   }
 }
