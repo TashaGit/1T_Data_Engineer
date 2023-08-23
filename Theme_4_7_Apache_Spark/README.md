@@ -51,4 +51,6 @@ csv-файл Id только тех клиентов, у которых знач
   
 ### 4. Файл с результатом [result.csv](result.csv);
 
-### 5. Spark Jobs: ![Alt text](sparkjobs.png)
+### 5. Spark Jobs: 
+
+![Alt text](sparkjobs.png)
