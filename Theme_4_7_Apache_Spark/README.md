@@ -49,4 +49,6 @@ csv-файл Id только тех клиентов, у которых знач
 
 ### 3. Измененный формат файла для начала работы [online_retail.csv](online_retail.csv);
   
-### 4. Файл с результатом [result.csv](result.csv).
+### 4. Файл с результатом [result.csv](result.csv);
+
+### 5. Spark Jobs: ![Alt text](sparkjobs.png)
