@@ -35,8 +35,14 @@ variables = Variable.set(key='shares_variable',
                                    'psql_raw_path': '/docker-entrypoint-initdb.d/raw_data/',
                                    'sql_ddl_path': './sql_scripts/ddl/ddl.sql',
                                    'sql_dml_path': './sql_scripts/dml/dml.sql',
-                                   'column_names': 'open_val, close_val, high, low, value, volume, start_time, end_time',
-                                   'connection_name': 'my_db_conn'},
+                                   'column_names': 'open_val, close_val, high, low, value, volume, start_time, end_time, ticker',
+                                   'connection_name': 'my_db_conn',
+                                   'GAZP': 'Газпром',
+                                   'SBER': 'Сбербанк России',
+                                   'GMKN': 'Норильский никель',
+                                   'LKOH': 'ЛУКОЙЛ',
+                                   'ROSN': 'Роснефть'
+                                   },
                                    serialize_json=True
                                    )
 
@@ -90,8 +96,9 @@ def create_csv_files():
         resp_date = result["candles"]["data"]
         columns = result["candles"]["columns"]
         data_shares = pd.DataFrame(resp_date, columns=columns)
+        data_shares = data_shares.assign(ticker=security, company=dag_variables.get(security))
         len_df = len(resp_date)
-        last_received_date = data_shares.iloc[-1]["begin"] # код для хранения значения последней даты и времени
+        last_received_date = data_shares.iloc[-1]["begin"]
 
         while len_df != 0:
             start_date = (pd.to_datetime(last_received_date) + pd.Timedelta(minutes=interval)).strftime("%Y-%m-%d %H:%M:%S")
@@ -103,6 +110,7 @@ def create_csv_files():
             if len_df == 0:
                 break
             data_next_page = pd.DataFrame(resp_date, columns=columns)
+            data_next_page = data_next_page.assign(ticker=security, company=dag_variables.get(security))
             data_shares = pd.concat([data_shares, data_next_page], ignore_index=True) # Объединяем данные
             last_received_date = data_shares.iloc[-1]["begin"] # записываем последнее значение даты
 
@@ -129,7 +137,8 @@ def load_table_from_csv():
             value DECIMAL,
             volume INTEGER,
             start_time TIMESTAMP,
-            end_time TIMESTAMP
+            end_time TIMESTAMP,
+            ticker VARCHAR
         """
 
         sql_query = f"""
@@ -183,14 +192,13 @@ create_csv_task >> load_table_from_csv_task
 
 daily_update_dag = DAG(dag_id='daily_update_dag',
                        tags=['daily_update'],
-                       start_date=datetime(2023, 8, 29),
-                       schedule_interval='0 6 * * *',
+                       start_date=datetime(2023, 8, 30),
+                       schedule_interval='30 10 * * *',
                        default_args=default_args)
 
 
 def update_table_from_csv(security):
     table_name = f'raw_{security}'
-    # csv_file = f'./raw_data/last_day_{security}.csv'
     psql_raw_path = f'{dag_variables.get("psql_raw_path")}last_day_{security}.csv'
     cur = conn.cursor()
 
@@ -222,10 +230,6 @@ def downl_raw_last_day():
             cur.execute(f"SELECT MAX(start_time) FROM raw_{security};")
             last_begin = cur.fetchone()[0]
 
-            # Запрос на получение количества строк
-            cur.execute(f"SELECT COUNT(*) FROM raw_{security};")
-            row_count = cur.fetchone()[0]
-
         start_date = (last_begin.date() + timedelta(days=1)).strftime("%Y-%m-%d")
         if last_begin.date() < datetime.strptime(end_date, "%Y-%m-%d").date():
             url = f"https://iss.moex.com/iss/engines/stock/markets/shares/boards/TQBR/securities/{security}/candles.json?interval={interval}&from={start_date}&till={end_date}"
@@ -234,6 +238,7 @@ def downl_raw_last_day():
             resp_date = result["candles"]["data"]
             columns = result["candles"]["columns"]
             data_shares = pd.DataFrame(resp_date, columns=columns)
+            data_shares = data_shares.assign(ticker=security, company=dag_variables.get(security))
             if data_shares.shape[0] >= 2:
                 data_shares.to_csv(f'./raw_data/last_day_{security}.csv', index=False)
                 print(f'Файл last_day_{security}.csv сохранен')
@@ -242,11 +247,169 @@ def downl_raw_last_day():
                 print('Данных для записи нет.')
 
 
+def create_core_tables():
+    for security in securities:
+        table_name = f'core_{security}'
+        raw_table_name = f'raw_{security}'
+        cur = conn.cursor()
+
+        # Заранее определенные столбцы с типами данных
+        columns = """
+            id INTEGER PRIMARY KEY,
+            open_val DECIMAL,
+            close_val DECIMAL,
+            high DECIMAL,
+            low DECIMAL,
+            value DECIMAL,
+            volume INTEGER,
+            date_stock DATE,
+            start_time TIME,
+            end_time TIME,
+            year INTEGER,
+            month INTEGER,
+            day_of_week INTEGER,
+            ticker VARCHAR
+        """
+
+        sql_query = f"""
+        DROP TABLE IF EXISTS {table_name};
+        CREATE TABLE {table_name}
+        (
+           {columns}
+        );
+        """
+
+        try:
+            cur.execute(sql_query)
+            conn.commit()
+            print(f"Таблица {table_name} создана!")
+
+        except Exception as e:
+            print(f"Ошибка создания таблицы {table_name}:", str(e))
+            conn.rollback()
+
+        transform_query = f"""
+        INSERT INTO {table_name}
+        SELECT id, 
+               open_val, 
+               close_val, 
+               high, 
+               low, 
+               value, 
+               volume, 
+               start_time::date AS date_stock, 
+               start_time::time AS start_time, 
+               end_time::time AS end_time,
+               EXTRACT(YEAR FROM start_time) AS year, 
+               EXTRACT(MONTH FROM start_time) AS month,
+               EXTRACT(DOW FROM start_time) AS day_of_week,
+               ticker
+        FROM {raw_table_name};
+        """
+
+        try:
+            cur.execute(transform_query)
+            conn.commit()
+            print(f"Данные из таблицы {raw_table_name} в {table_name} трансформированы!")
+
+        except Exception as e:
+            print(f"Ошибка трансформации данных таблицы {raw_table_name}:", str(e))
+            conn.rollback()
+
+def create_data_mart():
+    data_mart_table = "data_mart"
+    cur = conn.cursor()
+
+    sql_query = f"""
+        DROP TABLE IF EXISTS {data_mart_table};
+        CREATE TABLE {data_mart_table}
+        (
+            surrogate_key VARCHAR,
+            company VARCHAR,
+            date_stock DATE,
+            total_share DECIMAL,
+            open_val DECIMAL,
+            close_val DECIMAL,
+            percentage_difference DECIMAL,
+            max_volume_interval VARCHAR,
+            max_price_interval VARCHAR,
+            min_price_interval VARCHAR
+        );
+    """
+    try:
+        cur.execute(sql_query)
+        conn.commit()
+        print(f"Таблица {data_mart_table} создана!")
+
+    except Exception as e:
+        print(f"Ошибка создания таблицы {data_mart_table}:", str(e))
+        conn.rollback()
+
+    for security in securities:
+        core_table_name = f'core_{security}'
+        cur.execute(f"""
+        INSERT INTO {data_mart_table} (surrogate_key, company, date_stock, total_share, 
+                               open_val, close_val, percentage_difference, 
+                               max_volume_interval, max_price_interval, min_price_interval)
+        SELECT MAX(ticker), MIN(company), date_stock,
+               ROUND(SUM(value), 2) AS total_share, 
+       (SELECT open_val 
+            FROM {core_table_name} 
+            WHERE date_stock = (SELECT MAX(date_stock) FROM {core_table_name}) 
+            AND start_time = (SELECT MIN(start_time) FROM {core_table_name} WHERE date_stock =
+                (SELECT MAX(date_stock) FROM {core_table_name}))),
+       (SELECT close_val 
+            FROM {core_table_name} 
+            WHERE date_stock = (SELECT MAX(date_stock) FROM {core_table_name}) 
+            AND end_time = (SELECT MAX(end_time) FROM {core_table_name} WHERE date_stock =
+                (SELECT MAX(date_stock) FROM {core_table_name}))),
+       ROUND((((SELECT open_val 
+                FROM {core_table_name} 
+                WHERE date_stock = (SELECT MAX(date_stock) FROM {core_table_name}) 
+                AND start_time = (SELECT MIN(start_time) FROM {core_table_name} WHERE date_stock =
+                    (SELECT MAX(date_stock) FROM {core_table_name}))) / 
+       (SELECT close_val 
+            FROM {core_table_name} 
+            WHERE date_stock = (SELECT MAX(date_stock) FROM {core_table_name}) 
+            AND end_time = (SELECT MAX(end_time) FROM {core_table_name} WHERE date_stock =
+                (SELECT MAX(date_stock) FROM {core_table_name}))) * 100 - 100)), 4) AS percentage_difference,
+       (SELECT (start_time, end_time)::VARCHAR
+            FROM {core_table_name}
+            WHERE volume = (SELECT MAX(volume) FROM {core_table_name} WHERE date_stock =
+                (SELECT MAX(date_stock) FROM {core_table_name}))LIMIT 1) AS max_volume_interval,
+       (SELECT (start_time, end_time)::VARCHAR
+            FROM {core_table_name}
+            WHERE high = (SELECT MAX(high) FROM {core_table_name} WHERE date_stock =
+                (SELECT MAX(date_stock) FROM {core_table_name})) LIMIT 1) AS max_price_interval,
+       (SELECT (start_time, end_time)::VARCHAR
+            FROM {core_table_name}
+            WHERE low = (SELECT MIN(low) FROM {core_table_name} WHERE date_stock =
+                (SELECT MAX(date_stock) FROM {core_table_name})) LIMIT 1) AS min_price_interval
+        FROM {core_table_name}
+        WHERE date_stock = (SELECT MAX(date_stock) FROM {core_table_name}) 
+        GROUP BY date_stock;
+        """)
+        conn.commit()
+        print(f"Данные по акции {security} добавлены в таблицу {data_mart_table}.")
+
+
 downl_raw_last_day_task = PythonOperator(
     task_id='downl_raw_last_day',
     python_callable=downl_raw_last_day,
     dag=daily_update_dag
 )
 
+create_core_tables_task = PythonOperator(
+    task_id='create_core_tables',
+    python_callable=create_core_tables,
+    dag=daily_update_dag
+)
 
-downl_raw_last_day_task
+create_data_mart_task = PythonOperator(
+    task_id='create_data_mart',
+    python_callable=create_data_mart,
+    dag=daily_update_dag
+)
+
+
+downl_raw_last_day_task >> create_core_tables_task >> create_data_mart_task
