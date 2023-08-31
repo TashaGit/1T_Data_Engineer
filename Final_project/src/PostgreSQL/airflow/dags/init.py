@@ -1,16 +1,10 @@
-import decimal
 from airflow import DAG
-from airflow.operators.bash_operator import BashOperator
-from airflow.contrib.sensors.file_sensor import FileSensor
 from airflow.operators.python_operator import PythonOperator
-from airflow.operators.python_operator import BranchPythonOperator
-from airflow.operators.dummy_operator import DummyOperator
 from airflow.utils.dates import days_ago
 from airflow.models import Variable
 from airflow.hooks.base import BaseHook
 from datetime import datetime, timedelta
 import requests, csv, json
-from urllib.parse import urlencode
 import psycopg2
 import pandas as pd
 
@@ -194,7 +188,7 @@ create_csv_task >> load_table_from_csv_task
 daily_update_dag = DAG(dag_id='daily_update_dag',
                        tags=['daily_update'],
                        start_date=datetime(2023, 8, 30),
-                       schedule_interval='30 10 * * *',
+                       schedule_interval='01 00 * * *',
                        default_args=default_args)
 
 
@@ -396,6 +390,72 @@ def create_data_mart():
         print(f"Данные по акции {security} добавлены в таблицу {data_mart_table}.")
 
 
+def create_statistic_mart():
+    data_mart_table = "statistic_mart"
+    cur = conn.cursor()
+
+    sql_query = f"""
+        DROP TABLE IF EXISTS {data_mart_table};
+        CREATE TABLE {data_mart_table}
+        (
+            surrogate_key VARCHAR,
+            company	VARCHAR,
+            first_day DATE,
+            last_day DATE,
+            max_share DECIMAL,
+            date_max_share DATE,
+            min_share DECIMAL,
+            date_min_share DATE,
+            max_volume DECIMAL,
+            date_max_vol DATE,
+            min_volume DECIMAL,
+            date_min_vol DATE,
+            max_price DECIMAL,
+            date_max_price DATE,
+            min_price DECIMAL,
+            date_min_price DATE
+        );
+    """
+    try:
+        cur.execute(sql_query)
+        conn.commit()
+        print(f"Таблица {data_mart_table} создана!")
+
+    except Exception as e:
+        print(f"Ошибка создания таблицы {data_mart_table}:", str(e))
+        conn.rollback()
+
+    for security in securities:
+        core_table_name = f'core_{security}'
+        cur.execute(f"""
+        INSERT INTO {data_mart_table} (surrogate_key, company, first_day,
+        	                           last_day, max_share, date_max_share,
+        	                           min_share, date_min_share, max_volume,
+        	                           date_max_vol, min_volume, date_min_vol,
+        	                           max_price, date_max_price, min_price, date_min_price)
+        SELECT MAX(ticker) AS surrogate_key, company, 
+               MIN(date_stock) AS first_day,
+               MAX(date_stock) AS last_day,
+               ROUND(MAX(value), 2) max_share,
+               (SELECT date_stock FROM {core_table_name} WHERE value = (SELECT MAX(value) FROM {core_table_name} LIMIT 1) LIMIT 1) AS date_max_share,
+               ROUND(MIN(value), 2) min_share,
+               (SELECT date_stock FROM {core_table_name} WHERE value = (SELECT MIN(value) FROM {core_table_name} LIMIT 1) LIMIT 1) AS date_min_share,	  
+               MAX(volume) AS max_volume,
+               (SELECT date_stock FROM {core_table_name} WHERE volume = (SELECT MAX(volume) FROM {core_table_name} LIMIT 1) LIMIT 1) AS date_max_vol, 
+               MIN(volume) AS min_volume,
+               (SELECT date_stock FROM {core_table_name} WHERE volume = (SELECT MIN(volume) FROM {core_table_name} LIMIT 1) LIMIT 1) AS date_min_vol, 
+               MAX(high) AS max_price,
+               (SELECT date_stock FROM {core_table_name} WHERE high = (SELECT MAX(high) FROM {core_table_name} LIMIT 1) LIMIT 1) AS date_max_price,
+               MIN(low) AS min_price,
+               (SELECT date_stock FROM {core_table_name} WHERE low = (SELECT MIN(low) FROM {core_table_name} LIMIT 1) LIMIT 1) AS date_min_price
+        FROM {core_table_name}
+        GROUP BY company;
+        """)
+        conn.commit()
+        print(f"Данные по акции {security} добавлены в таблицу {data_mart_table}.")
+
+
+
 downl_raw_last_day_task = PythonOperator(
     task_id='downl_raw_last_day',
     python_callable=downl_raw_last_day,
@@ -414,5 +474,11 @@ create_data_mart_task = PythonOperator(
     dag=daily_update_dag
 )
 
+create_statistic_mart_task = PythonOperator(
+    task_id='create_statistic_mart',
+    python_callable=create_statistic_mart,
+    dag=daily_update_dag
+)
 
-downl_raw_last_day_task >> create_core_tables_task >> create_data_mart_task
+
+downl_raw_last_day_task >> create_core_tables_task >> create_data_mart_task >> create_statistic_mart_task
