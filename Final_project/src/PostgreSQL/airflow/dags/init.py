@@ -35,7 +35,7 @@ variables = Variable.set(key='shares_variable',
                                    'psql_raw_path': '/docker-entrypoint-initdb.d/raw_data/',
                                    'sql_ddl_path': './sql_scripts/ddl/ddl.sql',
                                    'sql_dml_path': './sql_scripts/dml/dml.sql',
-                                   'column_names': 'open_val, close_val, high, low, value, volume, start_time, end_time, ticker',
+                                   'column_names': 'open_val, close_val, high, low, value, volume, start_time, end_time, ticker, company',
                                    'connection_name': 'my_db_conn',
                                    'GAZP': 'Газпром',
                                    'SBER': 'Сбербанк России',
@@ -138,7 +138,8 @@ def load_table_from_csv():
             volume INTEGER,
             start_time TIMESTAMP,
             end_time TIMESTAMP,
-            ticker VARCHAR
+            ticker VARCHAR, 
+            company VARCHAR
         """
 
         sql_query = f"""
@@ -268,7 +269,8 @@ def create_core_tables():
             year INTEGER,
             month INTEGER,
             day_of_week INTEGER,
-            ticker VARCHAR
+            ticker VARCHAR,
+            company VARCHAR
         """
 
         sql_query = f"""
@@ -303,7 +305,8 @@ def create_core_tables():
                EXTRACT(YEAR FROM start_time) AS year, 
                EXTRACT(MONTH FROM start_time) AS month,
                EXTRACT(DOW FROM start_time) AS day_of_week,
-               ticker
+               ticker, 
+               company
         FROM {raw_table_name};
         """
 
@@ -351,7 +354,7 @@ def create_data_mart():
         INSERT INTO {data_mart_table} (surrogate_key, company, date_stock, total_share, 
                                open_val, close_val, percentage_difference, 
                                max_volume_interval, max_price_interval, min_price_interval)
-        SELECT MAX(ticker), MIN(company), date_stock,
+        SELECT MAX(ticker), company, date_stock,
                ROUND(SUM(value), 2) AS total_share, 
        (SELECT open_val 
             FROM {core_table_name} 
@@ -387,7 +390,7 @@ def create_data_mart():
                 (SELECT MAX(date_stock) FROM {core_table_name})) LIMIT 1) AS min_price_interval
         FROM {core_table_name}
         WHERE date_stock = (SELECT MAX(date_stock) FROM {core_table_name}) 
-        GROUP BY date_stock;
+        GROUP BY company, date_stock;
         """)
         conn.commit()
         print(f"Данные по акции {security} добавлены в таблицу {data_mart_table}.")
