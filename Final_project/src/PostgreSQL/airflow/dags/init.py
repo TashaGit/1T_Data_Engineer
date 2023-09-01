@@ -1,3 +1,4 @@
+# Импортируем библиотеки
 from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
 from airflow.utils.dates import days_ago
@@ -8,27 +9,27 @@ import requests, csv, json
 import psycopg2
 import pandas as pd
 
+# Аргументы
 default_args = {
     "owner": "marina_z",
-    'start_date': days_ago(1)
+    # 'start_date': days_ago(1),
+    'retry_delay': timedelta(minutes=5),
 }
 
-
+# Создаем DAG ручного запуска (инициализирующий режим).
 one_time_start_dag = DAG(dag_id='one_time_start_dag',
                          tags=['marina_z'],
-                         start_date=datetime(2023, 8, 28),
+                         start_date=datetime(2023, 8, 29),
                          schedule_interval=None,
                          default_args=default_args
 )
 
-
+# Запись переменных в variables
 variables = Variable.set(key='shares_variable',
                             value={'path': '/opt/airflow/raw_data',
                                    'base_url': 'http://iss.moex.com/iss/history/engines/stock/markets/shares/boards/TQBR/securities.json',
                                    'csv_file_path': './raw_data/',
                                    'psql_raw_path': '/docker-entrypoint-initdb.d/raw_data/',
-                                   'sql_ddl_path': './sql_scripts/ddl/ddl.sql',
-                                   'sql_dml_path': './sql_scripts/dml/dml.sql',
                                    'column_names': 'open_val, close_val, high, low, value, volume, start_time, end_time, ticker, company',
                                    'connection_name': 'my_db_conn',
                                    'GAZP': 'Газпром',
@@ -40,10 +41,13 @@ variables = Variable.set(key='shares_variable',
                                    serialize_json=True
                                    )
 
+# Получение значения из переменной окружения.
 dag_variables = Variable.get('shares_variable', deserialize_json=True)
 
-tickers = ['GAZP', 'SBER', 'GMKN', 'LKOH', 'ROSN']
+# # Список акций для парсинга данных.
+# tickers = ['GAZP', 'SBER', 'GMKN', 'LKOH', 'ROSN']
 
+# Получение объекта Connection с помощью метода BaseHook.get_connection
 def get_conn_credentials(conn_id) -> BaseHook.get_connection:
     """
     Function returns dictionary with connection credentials
@@ -54,31 +58,48 @@ def get_conn_credentials(conn_id) -> BaseHook.get_connection:
     conn = BaseHook.get_connection(conn_id)
     return conn
 
+
+# Получаем данные соединения с базой данных из переменных DAG
 pg_conn = get_conn_credentials(dag_variables.get('connection_name'))
+
+# Извлекаем параметры соединения с базой данных
 pg_hostname, pg_port, pg_username, pg_pass, pg_db = pg_conn.host, pg_conn.port, pg_conn.login, pg_conn.password, pg_conn.schema
-conn = psycopg2.connect(host=pg_hostname, port=pg_port, user=pg_username, password=pg_pass, database=pg_db, options=dag_variables.get('options'))
+
+# Создаем подключение к базе данных PostgreSQL с помощью полученных параметров
+conn = psycopg2.connect(
+    host=pg_hostname,
+    port=pg_port,
+    user=pg_username,
+    password=pg_pass,
+    database=pg_db,
+    options=dag_variables.get('options')
+)
 
 
-def get_conn_credentials(conn_id) -> BaseHook.get_connection:
-    """
-    Function returns dictionary with connection credentials
+# def get_conn_credentials(conn_id) -> BaseHook.get_connection:
+#     """
+#     Function returns dictionary with connection credentials
+#
+#     :param conn_id: str with airflow connection id
+#     :return: Connection
+#     """
+#     conn = BaseHook.get_connection(conn_id)
+#     return conn
+#
+# pg_conn = get_conn_credentials(dag_variables.get('connection_name'))
+# pg_hostname, pg_port, pg_username, pg_pass, pg_db = pg_conn.host, pg_conn.port, pg_conn.login, pg_conn.password, pg_conn.schema
+# conn = psycopg2.connect(host=pg_hostname, port=pg_port, user=pg_username, password=pg_pass, database=pg_db)
 
-    :param conn_id: str with airflow connection id
-    :return: Connection
-    """
-    conn = BaseHook.get_connection(conn_id)
-    return conn
-
-pg_conn = get_conn_credentials(dag_variables.get('connection_name'))
-pg_hostname, pg_port, pg_username, pg_pass, pg_db = pg_conn.host, pg_conn.port, pg_conn.login, pg_conn.password, pg_conn.schema
-conn = psycopg2.connect(host=pg_hostname, port=pg_port, user=pg_username, password=pg_pass, database=pg_db)
-
-
+# Извлекаем переменные из variables
 folder_path = dag_variables.get('path')
 csv_file_path = dag_variables.get('csv_file_path')
 column_names = dag_variables.get('column_names')
 
+# Список акций для парсинга данных.
 securities = ['GAZP', 'SBER', 'GMKN', 'LKOH', 'ROSN']
+
+# Функция с параметром "интервал" = 60, которая скачивает исторические данные торгов на Москвоской бирже по курсу акций
+# и сохраняет в csv - файл (Инициализирующий режим)
 def create_csv_files():
     for security in securities:
         interval = 60
@@ -111,6 +132,7 @@ def create_csv_files():
         data_shares.to_csv(f'./raw_data/raw_{security}.csv', index=False)
         print(f'Файл raw_{security}.csv сохранен.')
 
+# Функция создания таблиц и загрузки данных в таблицы (Инициализирующий режим)
 def load_table_from_csv():
     for security in securities:
         cur = conn.cursor()
@@ -169,29 +191,34 @@ def load_table_from_csv():
             conn.rollback()
 
 
+# Таск создания файлов (Инициализирующий режим)
 create_csv_task = PythonOperator(
     task_id='create_csv_files',
     python_callable=create_csv_files,
     dag=one_time_start_dag
 )
 
+# Таск загрузки данных в БД из csv фалов (Инициализирующий режим)
 load_table_from_csv_task = PythonOperator(
     task_id='load_table_from_csv',
     python_callable=load_table_from_csv,
     dag=one_time_start_dag
 )
 
-
+# Очередность запуска task-ов
 create_csv_task >> load_table_from_csv_task
 
 
+# Создаем новый DAG для загрузки дельты данных за прошедшие сутки (Инкрементальный режим)
 daily_update_dag = DAG(dag_id='daily_update_dag',
                        tags=['daily_update'],
-                       start_date=datetime(2023, 8, 30),
-                       schedule_interval='01 00 * * *',
+                       start_date=datetime(2023, 8, 31),
+                       schedule_interval=timedelta(days=1),
+                       catchup=False,
+                       # schedule_interval='14 07 * * *',
                        default_args=default_args)
 
-
+# Функция загрузки дельты данных за прошедшие сутки в таблицы (Инкрементальный режим)
 def update_table_from_csv(security):
     table_name = f'raw_{security}'
     psql_raw_path = f'{dag_variables.get("psql_raw_path")}last_day_{security}.csv'
@@ -215,7 +242,8 @@ def update_table_from_csv(security):
         print(f"Ошибка дополнения таблицы {table_name}:", str(e))
         conn.rollback()
 
-
+# Функция скачивания данных за прошедшие сутки в таблицы (Инкрементальный режим)
+# при выполнении условия (проверка последней загруженной даты в таблицу)
 def downl_raw_last_day():
     for security in securities:
         interval = 60
@@ -242,6 +270,7 @@ def downl_raw_last_day():
                 print('Данных для записи нет.')
 
 
+# Функция по созданию (обновлению) слоя Core для загруженных данных
 def create_core_tables():
     for security in securities:
         table_name = f'core_{security}'
@@ -313,6 +342,7 @@ def create_core_tables():
             print(f"Ошибка трансформации данных таблицы {raw_table_name}:", str(e))
             conn.rollback()
 
+# Функция по созданию слоя Mart - создание витрины данных на основе обновленной информации за прошедшие сутки
 def create_data_mart():
     data_mart_table = "data_mart"
     cur = conn.cursor()
@@ -389,7 +419,7 @@ def create_data_mart():
         conn.commit()
         print(f"Данные по акции {security} добавлены в таблицу {data_mart_table}.")
 
-
+# Создание витрины данных (статистика) за всю историю хранения данных
 def create_statistic_mart():
     data_mart_table = "statistic_mart"
     cur = conn.cursor()
@@ -455,6 +485,8 @@ def create_statistic_mart():
         print(f"Данные по акции {security} добавлены в таблицу {data_mart_table}.")
 
 
+# Список Task-ов (Инкрементальный режим) по загрузке в сырой слой данных (raw),
+# промежуточный слой (core) и созданию витрин (mart)
 
 downl_raw_last_day_task = PythonOperator(
     task_id='downl_raw_last_day',
@@ -480,5 +512,5 @@ create_statistic_mart_task = PythonOperator(
     dag=daily_update_dag
 )
 
-
+# Очередность запуска task-ов
 downl_raw_last_day_task >> create_core_tables_task >> create_data_mart_task >> create_statistic_mart_task
