@@ -9,7 +9,7 @@ import requests, csv, json
 import psycopg2
 import pandas as pd
 
-# Аргументы
+# Параметры по умолчанию
 default_args = {
     "owner": "marina_z",
     # 'start_date': days_ago(1),
@@ -35,17 +35,14 @@ variables = Variable.set(key='shares_variable',
                                    'GAZP': 'Газпром',
                                    'SBER': 'Сбербанк России',
                                    'GMKN': 'Норильский никель',
-                                   'LKOH': 'ЛУКОЙЛ',
-                                   'ROSN': 'Роснефть'
+                                   'VTBR': 'Банк ВТБ',
+                                   'YNDX': 'Яндекс'
                                    },
                                    serialize_json=True
                                    )
 
 # Получение значения из переменной окружения.
 dag_variables = Variable.get('shares_variable', deserialize_json=True)
-
-# # Список акций для парсинга данных.
-# tickers = ['GAZP', 'SBER', 'GMKN', 'LKOH', 'ROSN']
 
 # Получение объекта Connection с помощью метода BaseHook.get_connection
 def get_conn_credentials(conn_id) -> BaseHook.get_connection:
@@ -76,27 +73,13 @@ conn = psycopg2.connect(
 )
 
 
-# def get_conn_credentials(conn_id) -> BaseHook.get_connection:
-#     """
-#     Function returns dictionary with connection credentials
-#
-#     :param conn_id: str with airflow connection id
-#     :return: Connection
-#     """
-#     conn = BaseHook.get_connection(conn_id)
-#     return conn
-#
-# pg_conn = get_conn_credentials(dag_variables.get('connection_name'))
-# pg_hostname, pg_port, pg_username, pg_pass, pg_db = pg_conn.host, pg_conn.port, pg_conn.login, pg_conn.password, pg_conn.schema
-# conn = psycopg2.connect(host=pg_hostname, port=pg_port, user=pg_username, password=pg_pass, database=pg_db)
-
 # Извлекаем переменные из variables
 folder_path = dag_variables.get('path')
 csv_file_path = dag_variables.get('csv_file_path')
 column_names = dag_variables.get('column_names')
 
 # Список акций для парсинга данных.
-securities = ['GAZP', 'SBER', 'GMKN', 'LKOH', 'ROSN']
+securities = ['GAZP', 'SBER', 'GMKN', 'VTBR', 'YNDX']
 
 # Функция с параметром "интервал" = 60, которая скачивает исторические данные торгов на Москвоской бирже по курсу акций
 # и сохраняет в csv - файл (Инициализирующий режим)
@@ -151,7 +134,7 @@ def load_table_from_csv():
             high DECIMAL,
             low DECIMAL,
             value DECIMAL,
-            volume INTEGER,
+            volume BIGINT,
             start_time TIMESTAMP,
             end_time TIMESTAMP,
             ticker VARCHAR, 
@@ -213,9 +196,9 @@ create_csv_task >> load_table_from_csv_task
 daily_update_dag = DAG(dag_id='daily_update_dag',
                        tags=['daily_update'],
                        start_date=datetime(2023, 8, 31),
-                       schedule_interval=timedelta(days=1),
+                       # schedule_interval=timedelta(days=1),
                        catchup=False,
-                       # schedule_interval='14 07 * * *',
+                       schedule_interval='45 05 * * *',
                        default_args=default_args)
 
 # Функция загрузки дельты данных за прошедшие сутки в таблицы (Инкрементальный режим)
@@ -285,7 +268,7 @@ def create_core_tables():
             high DECIMAL,
             low DECIMAL,
             value DECIMAL,
-            volume INTEGER,
+            volume BIGINT,
             date_stock DATE,
             start_time TIME,
             end_time TIME,
@@ -436,9 +419,9 @@ def create_statistic_mart():
             date_max_share DATE,
             min_share DECIMAL,
             date_min_share DATE,
-            max_volume DECIMAL,
+            max_volume BIGINT,
             date_max_vol DATE,
-            min_volume DECIMAL,
+            min_volume BIGINT,
             date_min_vol DATE,
             max_price DECIMAL,
             date_max_price DATE,
