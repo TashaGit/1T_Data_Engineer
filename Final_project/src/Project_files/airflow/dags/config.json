@@ -1,0 +1,13 @@
+{
+    "connection_name": "my_db_conn",
+    "path": "/opt/airflow/raw_data",
+    "base_url": "http://iss.moex.com/iss/history/engines/stock/markets/shares/boards/TQBR/securities.json",
+    "csv_file_path": "./raw_data/",
+    "psql_raw_path": "/docker-entrypoint-initdb.d/raw_data/",
+    "column_names": "open_val, close_val, high, low, value, volume, start_time, end_time, ticker, company",
+    "GAZP": "Газпром",
+    "SBER": "Сбербанк России",
+    "GMKN": "Норильский никель",
+    "VTBR": "Банк ВТБ",
+    "YNDX": "Яндекс"
+}
