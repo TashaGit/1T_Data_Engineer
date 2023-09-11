@@ -304,7 +304,6 @@ def update_temp_delta(security):
                           HEADER,
                           ENCODING 'UTF-8');
                 """
-
     try:
         cur.execute(copy_query)
         conn.commit()
@@ -385,50 +384,60 @@ def create_data_mart():
     for security in securities:
         core_table_name = 'core_layer_stock_prices'
         cur.execute(f"""
-                INSERT INTO {data_mart_table} (surrogate_key, company, date_stock, total_share, 
-                               open_val, close_val, percentage_difference, 
-                               max_volume_interval, max_price_interval, min_price_interval)
-            SELECT ticker, t.company, date_stock,
-                   ROUND(SUM(value), 2) AS total_share, 
+        
+        INSERT INTO data_mart (surrogate_key, company, date_stock, total_share, 
+        open_val, close_val, percentage_difference, 
+        max_volume_interval, max_price_interval, min_price_interval)
+        SELECT DISTINCT ON (ticker)
+            ticker AS surrogate_key, t.company, date_stock,
+            ROUND(SUM(value), 2) AS total_share, 
             (SELECT open_val 
-                   FROM core_layer_stock_prices
-                   WHERE date_stock = (SELECT MAX(date_stock) FROM core_layer_stock_prices) 
-                   AND start_time = (SELECT MIN(start_time) FROM core_layer_stock_prices WHERE date_stock =
-                   (SELECT MAX(date_stock) FROM core_layer_stock_prices) AND ticker = '{security}')
-                   AND ticker = '{security}'),
+             FROM core_layer_stock_prices
+             WHERE date_stock = (SELECT MAX(date_stock) FROM core_layer_stock_prices) 
+             AND start_time = (SELECT MIN(start_time) FROM core_layer_stock_prices WHERE date_stock =
+             (SELECT MAX(date_stock) FROM core_layer_stock_prices) AND ticker = '{security}')
+             AND ticker = '{security}'),
             (SELECT close_val 
-                    FROM core_layer_stock_prices
-                    WHERE date_stock = (SELECT MAX(date_stock) FROM core_layer_stock_prices) 
-                    AND end_time = (SELECT MAX(end_time) FROM core_layer_stock_prices WHERE date_stock =
-                    (SELECT MAX(date_stock) FROM core_layer_stock_prices) AND ticker = '{security}') AND ticker = '{security}'),
+             FROM core_layer_stock_prices
+             WHERE date_stock = (SELECT MAX(date_stock) FROM core_layer_stock_prices) 
+             AND end_time = (SELECT MAX(end_time) FROM core_layer_stock_prices WHERE date_stock =
+             (SELECT MAX(date_stock) FROM core_layer_stock_prices) AND ticker = '{security}') AND ticker = '{security}'),
             ROUND((((SELECT open_val 
-                    FROM core_layer_stock_prices
-                    WHERE date_stock = (SELECT MAX(date_stock) FROM core_layer_stock_prices) 
-                    AND start_time = (SELECT MIN(start_time) FROM core_layer_stock_prices WHERE date_stock =
-                    (SELECT MAX(date_stock) FROM core_layer_stock_prices) AND ticker = '{security}') AND  ticker = '{security}') / (SELECT close_val 
-                    FROM core_layer_stock_prices
-                    WHERE date_stock = (SELECT MAX(date_stock) FROM core_layer_stock_prices) 
-                    AND end_time = (SELECT MAX(end_time) FROM core_layer_stock_prices WHERE date_stock =
-                    (SELECT MAX(date_stock) FROM core_layer_stock_prices) AND ticker = '{security}') AND  ticker = '{security}') * 100 - 100)), 4) AS percentage_difference,
+                      FROM core_layer_stock_prices
+                      WHERE date_stock = (SELECT MAX(date_stock) FROM core_layer_stock_prices) 
+                      AND start_time = (SELECT MIN(start_time) FROM core_layer_stock_prices WHERE date_stock =
+                      (SELECT MAX(date_stock) FROM core_layer_stock_prices) AND ticker = '{security}') AND  ticker = '{security}') /
+                    (SELECT close_val 
+                      FROM core_layer_stock_prices
+                      WHERE date_stock = (SELECT MAX(date_stock) FROM core_layer_stock_prices) 
+                      AND end_time = (SELECT MAX(end_time) FROM core_layer_stock_prices WHERE date_stock =
+                      (SELECT MAX(date_stock) FROM core_layer_stock_prices) AND ticker = '{security}') AND  ticker = '{security}') * 100 - 100)), 4) AS percentage_difference,
             (SELECT (start_time, end_time)::VARCHAR
-                    FROM core_layer_stock_prices
-                    WHERE volume = (SELECT MAX(volume) FROM core_layer_stock_prices WHERE date_stock =
-                    (SELECT MAX(date_stock) FROM core_layer_stock_prices WHERE ticker = '{security}') AND  ticker = '{security}') LIMIT 1) AS max_volume_interval,        
+             FROM core_layer_stock_prices
+             WHERE volume = (SELECT MAX(volume) FROM core_layer_stock_prices WHERE date_stock =
+             (SELECT MAX(date_stock) FROM core_layer_stock_prices WHERE ticker = '{security}') AND  ticker = '{security}') LIMIT 1) AS max_volume_interval,        
             (SELECT (start_time, end_time)::VARCHAR
-                    FROM core_layer_stock_prices
-                    WHERE high = (SELECT MAX(high) FROM core_layer_stock_prices WHERE date_stock =
-                    (SELECT MAX(date_stock) FROM core_layer_stock_prices) AND  ticker = '{security}') LIMIT 1) AS max_price_interval,
+             FROM core_layer_stock_prices
+             WHERE high = (SELECT MAX(high) FROM core_layer_stock_prices WHERE date_stock =
+             (SELECT MAX(date_stock) FROM core_layer_stock_prices) AND  ticker = '{security}') LIMIT 1) AS max_price_interval,
             (SELECT (start_time, end_time)::VARCHAR
-                    FROM core_layer_stock_prices
-                    WHERE high = (SELECT MIN(high) FROM core_layer_stock_prices WHERE date_stock =
-                    (SELECT MAX(date_stock) FROM core_layer_stock_prices) AND  ticker = '{security}') LIMIT 1) AS min_price_interval
-            FROM core_layer_stock_prices
-            JOIN tickers t USING (ticker)
-            WHERE date_stock = (SELECT MAX(date_stock) FROM core_layer_stock_prices) AND ticker = '{security}'
-            GROUP BY ticker, t.company, date_stock;
+             FROM core_layer_stock_prices
+             WHERE high = (SELECT MIN(high) FROM core_layer_stock_prices WHERE date_stock =
+             (SELECT MAX(date_stock) FROM core_layer_stock_prices) AND  ticker = '{security}') LIMIT 1) AS min_price_interval
+        FROM core_layer_stock_prices
+        JOIN tickers t USING (ticker)
+        WHERE date_stock = (SELECT MAX(date_stock) FROM core_layer_stock_prices) AND ticker = '{security}'
+        AND NOT EXISTS (
+            SELECT 1
+            FROM data_mart dm
+            WHERE dm.surrogate_key = ticker
+        )
+        GROUP BY core_layer_stock_prices.ticker, t.company, core_layer_stock_prices.date_stock
+        ORDER BY ticker;
         """)
         conn.commit()
         print(f"Данные по акции {security} добавлены в таблицу {data_mart_table}.")
+
 
 # Создание витрины данных (статистика) за всю историю хранения данных
 def create_statistic_mart():
@@ -468,19 +477,20 @@ def create_statistic_mart():
         conn.rollback()
 
     for security in securities:
+        core_table_name = 'core_layer_stock_prices'
         cur.execute(f"""
         INSERT INTO {data_mart_table} (surrogate_key, company, first_day,
-        	                           last_day, max_share, date_max_share,
-        	                           min_share, date_min_share, max_volume,
-        	                           date_max_vol, min_volume, date_min_vol,
-        	                           max_price, date_max_price, min_price, date_min_price)
+                                        last_day, max_share, date_max_share,
+                                        min_share, date_min_share, max_volume,
+                                        date_max_vol, min_volume, date_min_vol,
+                                        max_price, date_max_price, min_price, date_min_price)
         SELECT ticker AS surrogate_key, t.company, 
                MIN(date_stock) AS first_day,
                MAX(date_stock) AS last_day,
                ROUND(MAX(value), 2) max_share,
                (SELECT date_stock FROM core_layer_stock_prices WHERE value = (SELECT MAX(value) FROM core_layer_stock_prices WHERE ticker = '{security}') LIMIT 1) AS date_max_share,
                ROUND(MIN(value), 2) min_share,
-               (SELECT date_stock FROM core_layer_stock_prices WHERE value = (SELECT MIN(value) FROM core_layer_stock_prices WHERE ticker = '{security}') LIMIT 1) AS date_min_share,	  
+               (SELECT date_stock FROM core_layer_stock_prices WHERE value = (SELECT MIN(value) FROM core_layer_stock_prices WHERE ticker = '{security}') LIMIT 1) AS date_min_share,     
                MAX(volume) AS max_volume,
                (SELECT date_stock FROM core_layer_stock_prices WHERE volume = (SELECT MAX(volume) FROM core_layer_stock_prices WHERE ticker = '{security}') LIMIT 1) AS date_max_vol, 
                MIN(volume) AS min_volume,
@@ -492,8 +502,13 @@ def create_statistic_mart():
         FROM core_layer_stock_prices
         JOIN tickers t USING (ticker)
         WHERE ticker = '{security}'
-        GROUP BY ticker, company;
-
+        GROUP BY ticker, company
+        HAVING NOT EXISTS (
+            SELECT 1
+            FROM {data_mart_table}
+            WHERE surrogate_key = '{security}'
+        )
+        ORDER BY ticker;
         """)
         conn.commit()
         print(f"Данные по акции {security} добавлены в таблицу {data_mart_table}.")
