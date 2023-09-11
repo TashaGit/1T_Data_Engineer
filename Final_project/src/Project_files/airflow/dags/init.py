@@ -379,7 +379,6 @@ def create_data_mart():
 
     except Exception as e:
         print(f"Ошибка создания таблицы {data_mart_table}:", str(e))
-        conn.rollback()
 
     for security in securities:
         core_table_name = 'core_layer_stock_prices'
@@ -474,7 +473,6 @@ def create_statistic_mart():
 
     except Exception as e:
         print(f"Ошибка создания таблицы {data_mart_table}:", str(e))
-        conn.rollback()
 
     for security in securities:
         core_table_name = 'core_layer_stock_prices'
